@@ -7,8 +7,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.TreeSet;
 
 import ycui.projet.pgp.exception.FileIOException;
+import ycui.projet.pgp.vo.Person;
 
 
 //文件的具体操作类，保存数据
@@ -17,6 +19,15 @@ public class FileOperate {
 	//在构造方法处制定文件名
 	public FileOperate(String path){
 		this.file = new File(path);
+		if(!this.file.exists()){
+			//如果文件不存在则表明程序第一次运行，需要初始化
+			try {
+				this.save(new TreeSet<Person>());
+			} catch (FileIOException e) {
+				System.err.println("Echec d'initialisation!-->"
+						+e.getMessage());
+			}
+		}
 	}
 	
 	/**
@@ -28,7 +39,7 @@ public class FileOperate {
 	 */
 	public void save(Object obj) throws FileIOException{
 		ObjectOutputStream out = null;
-		try {
+		try { 
 			out = new ObjectOutputStream(
 					new FileOutputStream(this.file));
 			out.writeObject(obj);
