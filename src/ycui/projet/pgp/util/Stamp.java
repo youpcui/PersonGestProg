@@ -5,14 +5,14 @@ import java.util.GregorianCalendar;
 import java.util.Random;
 
 //取得时间戳的类
-public class TimeStamp {
+public class Stamp {
 	private Calendar calendar = null;
 	private String type = null;
 	
-	public TimeStamp(){
+	public Stamp(){
 		this.calendar = new GregorianCalendar();
 	}
-	public TimeStamp(String type){
+	public Stamp(String type){
 		this();
 		this.type = type;
 	}

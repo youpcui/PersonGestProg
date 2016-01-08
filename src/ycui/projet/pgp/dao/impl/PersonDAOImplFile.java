@@ -1,12 +1,16 @@
 package ycui.projet.pgp.dao.impl;
 
+import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeSet;
 
 import ycui.projet.pgp.dao.PersonDAO;
 import ycui.projet.pgp.exception.DAOException;
 import ycui.projet.pgp.exception.FileIOException;
 import ycui.projet.pgp.io.FileOperate;
 import ycui.projet.pgp.vo.Person;
+import ycui.projet.pgp.vo.Student;
+import ycui.projet.pgp.vo.Worker;
 
 
 public class PersonDAOImplFile implements PersonDAO {
@@ -34,7 +38,7 @@ public class PersonDAOImplFile implements PersonDAO {
 			this.fo.save(this.allPerson);
 			flag = true;
 		} catch (FileIOException e) {
-			System.err.println("Echec d'insérer l'objet!-->"
+			System.err.println("Echec d'insérer "+person.getId()+"!-->"
 					+e.getMessage());
 		}
 		return flag;
@@ -42,32 +46,97 @@ public class PersonDAOImplFile implements PersonDAO {
 
 	@Override
 	public boolean doUpdate(Person person) throws DAOException {
-		// TODO Auto-generated method stub
-		return false;
+		//id不变
+		boolean flag = false;
+		try {
+			Person orig = this.findById(person.getId());
+			if(orig instanceof Student){ // 如果匹配学生
+				Student dest = (Student) person;
+				orig.setId(dest.getId());
+				orig.setName(dest.getName());
+				orig.setAge(dest.getAge());
+				((Student) orig).setScore(dest.getScore());
+			}
+			if(orig instanceof Worker){ // 如果匹配工人
+				Worker dest = (Worker) person;
+				orig.setId(dest.getId());
+				orig.setName(dest.getName());
+				orig.setAge(dest.getAge());
+				((Worker) orig).setSalary(dest.getSalary());
+			}
+			this.allPerson.add(orig);
+			this.fo.save(this.allPerson);
+			flag = true;
+		} catch (FileIOException e) {
+			System.err.println("Echec de mettre à jour "+person.getId()+"!-->"
+					+e.getMessage());
+		}
+		return flag;
 	}
 
 	@Override
 	public boolean doDelete(String id) throws DAOException {
-		// TODO Auto-generated method stub
-		return false;
+		boolean flag = false;
+		try {
+			this.allPerson.remove(this.findById(id));
+			this.fo.save(this.allPerson);
+			flag = true;
+		} catch (FileIOException e) {
+			System.err.println("Echec de supprimer "+id+"!-->"
+					+e.getMessage());
+		}
+		return flag;
+	}
+	
+	@Override
+	public boolean doDeleteAll() throws DAOException {
+		boolean flag = false;
+		try{
+		this.allPerson.removeAll(allPerson);
+		this.fo.save(allPerson);
+		flag = true;
+		} catch (FileIOException e) {
+			System.err.println("Echec de supprimer!-->"
+					+e.getMessage());
+		}
+		return flag;
 	}
 
 	@Override
-	public Set<? extends Person> findAll() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Person> findAll() throws DAOException {
+		return this.allPerson;
 	}
 
 	@Override
 	public Person findById(String id) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		Person p = null;
+		try {
+			Iterator<Person> iter = this.allPerson.iterator();
+			while(iter.hasNext()){
+				if(iter.next().getId().equals(id)){
+					// id一致
+					p = iter.next();
+					break;
+				}
+			}
+		} catch (Exception e) {
+			System.err.println("Personne correspond à "+id+"!-->"
+					+e.getMessage());
+		}
+		return p;
 	}
 
 	@Override
-	public Set<? extends Person> findByKey(String keyWord) throws DAOException {
-		// TODO Auto-generated method stub
+	public Set<Person> findByKey(String keyWord) throws DAOException {
+		Set<Person> search = new TreeSet<Person>();
+		Iterator<Person> iter = this.allPerson.iterator();
+		while(iter.hasNext()){
+			Person p = (Person) iter.next();
+			if(p.getName().indexOf(keyWord) != -1){
+				search.add(p);
+			}
+		}
 		return null;
 	}
-
+	
 }

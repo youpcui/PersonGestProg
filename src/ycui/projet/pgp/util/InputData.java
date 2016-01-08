@@ -13,7 +13,8 @@ public class InputData {
 				new InputStreamReader(System.in));
 	}
 	
-	public String getString() {
+	public String getString(String prompt) {
+		System.out.print(prompt);
 		String str = null;
 		try {
 			str = buf.readLine();
@@ -23,14 +24,15 @@ public class InputData {
 		return str;
 	}
 	
-	public int getInt(){
+	public int getInt(String prompt){
 		int i = 0;
 		// 如果不是数字，应有一个提示。告诉用户输入错误
 		//可以使用正则表达式
 		String str =null;
 		boolean flag = true;
 		while(flag){
-			str = this.getString();
+			str = this.getString(prompt);
+			/*accepte qu'un nombre entier*/
 			if(!(str.matches("\\d+"))){
 				System.out.println("Il faudra saisir un nombre entier!");
 			}else{
@@ -43,13 +45,14 @@ public class InputData {
 		return i;
 	}
 
-	public float getFloat(){
+	public float getFloat(String prompt){
 		float f = 0.0f;
 		String str = null;
 		boolean flag = true;
 		while(flag){
-			str = this.getString();
-			if(!(str.matches("\\d+.?\\d{1,2}"))){
+			str = this.getString(prompt);
+			/*accepte un nombre décimal avec 2 chiffre après virgule ou un nombre entier*/
+			if(!(str.matches("\\d+.?\\d{1,2}|\\d+"))){ 
 				System.out.println("Il faudra saisir un nombre décimal(deux chiffre après virgule)!");
 			}else{
 				//数字正确
@@ -64,7 +67,7 @@ public class InputData {
 		
 		InputData in = new InputData();
 		//String str = in.getString();
-		float f = in.getFloat();
+		float f = in.getFloat("décimal:");
 		System.out.println("-->"+f);
 	}
 }

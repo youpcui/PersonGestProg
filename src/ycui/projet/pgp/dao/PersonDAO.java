@@ -49,6 +49,17 @@ public interface PersonDAO {
 	public boolean doDelete(String id) throws DAOException;
 	
 	/**
+	 * Supprimer tous les donn¨¦es.
+	 * @author YCUI
+	 * 
+	 * @return 
+	 * 			true: suppression r¨¦ussi; false: suppression ¨¦chou¨¦.
+	 * 
+	 * @throws DAOException 
+	 */
+	public boolean doDeleteAll() throws DAOException;
+	
+	/**
 	 * Rechercher une liste de donn¨¦e.
 	 * 
 	 * @author YCUI
@@ -58,7 +69,7 @@ public interface PersonDAO {
 	 * 
 	 * @throws DAOException 
 	 */
-	public Set<? extends Person> findAll() throws DAOException;
+	public Set<Person> findAll() throws DAOException;
 	
 	/**
 	 * Rechercher une donn¨¦e par rapoort au ID.
@@ -84,6 +95,8 @@ public interface PersonDAO {
 	 * 
 	 * @throws DAOException 
 	 */
-	public Set<? extends Person> findByKey(String keyWord) throws DAOException;
+	public Set<Person> findByKey(String keyWord) throws DAOException;
+	
+
 
 }

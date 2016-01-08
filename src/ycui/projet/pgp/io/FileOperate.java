@@ -44,7 +44,7 @@ public class FileOperate {
 					new FileOutputStream(this.file));
 			out.writeObject(obj);
 		} catch (FileNotFoundException e) {
-			System.err.println("Ne pas trouver le fichier!-->"
+			System.err.println("Le fichier n'est pas trouv¨¦!-->"
 					+e.getMessage());
 		} catch (IOException e) {
 			System.err.println("Echec de lire le fichier!-->"
@@ -74,11 +74,11 @@ public class FileOperate {
 			try {
 				obj = input.readObject();
 			} catch (ClassNotFoundException e) {
-				System.err.println("Ne pas trouver la classe!-->"
+				System.err.println("La classe n'est pas trouv¨¦e!-->"
 						+e.getMessage());
 			}
 		} catch (FileNotFoundException e) {
-			System.err.println("Ne pas trouver le fichier!-->"
+			System.err.println("Le fichier n'est pas trouv¨¦!-->"
 					+e.getMessage());
 		} catch (IOException e) {
 			System.err.println("Echec de enregistrer le fichier!-->"

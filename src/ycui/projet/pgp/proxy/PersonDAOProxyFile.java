@@ -31,7 +31,12 @@ private PersonDAO dao = null;
 	}
 
 	@Override
-	public Set<? extends Person> findAll() throws DAOException {
+	public boolean doDeleteAll() throws DAOException {
+		return this.dao.doDeleteAll();
+	}
+	
+	@Override
+	public Set<Person> findAll() throws DAOException {
 		return this.dao.findAll();
 	}
 
@@ -41,8 +46,10 @@ private PersonDAO dao = null;
 	}
 
 	@Override
-	public Set<? extends Person> findByKey(String keyWord) throws DAOException {
+	public Set<Person> findByKey(String keyWord) throws DAOException {
 		return this.dao.findByKey(keyWord);
 	}
+
+	
 
 }
