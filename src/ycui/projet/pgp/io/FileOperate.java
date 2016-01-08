@@ -32,7 +32,7 @@ public class FileOperate {
 	
 	/**
 	 * @author YCUI
-	 * Enregistrer les donn¨¦es dans un fichier
+	 * Enregistrer les donn¨¦es dans le fichier
 	 * @param obj
 	 * 			
 	 * @throws FileIOException
@@ -60,7 +60,7 @@ public class FileOperate {
 	}
 	
 	/**
-	 * Ouvrir un fichier
+	 * Ouvrir le fichier
 	 * @author YCUI
 	 * @return
 	 * @throws FileIOException

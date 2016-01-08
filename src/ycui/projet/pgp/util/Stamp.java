@@ -51,5 +51,4 @@ public class Stamp {
 		}
 		return tmp;
 	}
-
 }

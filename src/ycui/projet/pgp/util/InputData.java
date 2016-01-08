@@ -28,7 +28,7 @@ public class InputData {
 		int i = 0;
 		// 如果不是数字，应有一个提示。告诉用户输入错误
 		//可以使用正则表达式
-		String str =null;
+		String str = null;
 		boolean flag = true;
 		while(flag){
 			str = this.getString(prompt);
@@ -62,12 +62,5 @@ public class InputData {
 			}
 		}
 		return f;
-	}
-	public static void main(String args[]){
-		
-		InputData in = new InputData();
-		//String str = in.getString();
-		float f = in.getFloat("décimal:");
-		System.out.println("-->"+f);
 	}
 }

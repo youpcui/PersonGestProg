@@ -10,21 +10,20 @@ import ycui.projet.pgp.util.InputData;
 import ycui.projet.pgp.util.Stamp;
 import ycui.projet.pgp.vo.*;
 
-
-
 public class Main{
 	public static InputData input = new InputData();
 	
 	public static void main(String[] args) {
-		PersonDAO dao = new PersonDAOProxyFile();
+		PersonDAO dao = new PersonDAOProxyFile();	
 /*		
+		//Test create
 		//增加一个新的数据
-		Person p1 = getPersonType("w");
-		Person p2 = getPersonType("s");
-		Person p3 = getPersonType("s");
-		Person p4 = getPersonType("s");
-		Person p5 = getPersonType("w");
-		
+		Person p1 = getPersonType("1");
+		Person p2 = getPersonType("2");
+		Person p3 = getPersonType("2");
+		Person p4 = getPersonType("2");
+		Person p5 = getPersonType("1");	
+
 		//保存内容
 		try {
 			dao.doCreate(p1);
@@ -32,17 +31,59 @@ public class Main{
 			dao.doCreate(p3);
 			dao.doCreate(p4);
 			dao.doCreate(p5);
+
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-*/		
+*/
 		//查询列表
 		try {
-			System.out.println(printPerson(dao.findAll()));
+		System.out.println("\n------------------------Find all------------------------\n");
+			System.out.println(printAllPerson(dao.doFindAll()));
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
 		
+		
+/*		
+		// Test research by id
+		//按id查询
+		try {
+			System.out.println("\n-----------------------Find by ID-----------------------\n");
+			System.out.println(printPerson(dao.doFindById("220160108234328445702")));
+			System.out.println(printPerson(dao.doFindById("120160108234401030593")));
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+*/		
+/*		
+		//Test Update
+		try {
+			//取得对象
+			Person p = dao.doFindById("220160108234328445702");
+			if(p instanceof Worker){
+				Worker w = (Worker) p;
+			}else if(p instanceof Student){
+				Student s = (Student) p;
+			}
+			//修改数据
+			System.out.println("\n-------------------------Update-------------------------\n");
+			System.out.println(dao.doUpdate(p));
+			
+		} catch (DAOException e1) {
+			e1.printStackTrace();
+		}
+		 
+		//查询结果
+		try {
+			System.out.println("\n------------------------Find all------------------------\n");
+			System.out.println(printAllPerson(dao.doFindAll()));
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+		
+/*		
+		//Test delete
 		//删除所有
 		try {
 			dao.doDeleteAll();
@@ -52,16 +93,22 @@ public class Main{
 		
 		//查询结果
 		try {
-			System.out.println(printPerson(dao.findAll()));
+			System.out.println("\n------------------------Find all------------------------\n");
+			System.out.println(printAllPerson(dao.doFindAll()));
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		
+*/		
 	}
-	private static String printPerson(Set<Person> allPerson){
+	
+	/**
+	 * 
+	 * @param allPerson
+	 * @return
+	 */
+	private static String printAllPerson(Set<Person> allPerson){
 		StringBuffer bufW = new StringBuffer("");
 		StringBuffer bufS = new StringBuffer("");
-		String separator = "\n-------------------Informations-------------------\n\n";
 
 		try {
 			Iterator<Person> iter = allPerson.iterator();
@@ -84,28 +131,51 @@ public class Main{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if((!"".equals(bufW))&&("".equals(bufS))){
-			return separator+bufW.toString();
-		}else if((!"".equals(bufS))&&("".equals(bufW))){
-			return separator+bufS.toString();
-		}else
-			return separator+bufW.toString()+"\n"+bufS.toString();
+		return bufW.toString()+"\n"+bufS.toString();
 	}
 	
+	/**
+	 *  
+	 * @param person
+	 * @return
+	 */
+	private static String printPerson(Person person){
+		StringBuffer buf = new StringBuffer("");
+		try {
+			if(person instanceof Worker){
+				buf.append("Employée(s)\t\tNom\t\tAge\tSalaire\n");
+				buf.append(person.toString());
+				buf.append("\n");
+			}else if(person instanceof Student){
+				buf.append("Etudiant(s)\t\tNom\t\tAge\tScore\n");
+				buf.append(person.toString());
+				buf.append("\n");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return buf.toString()+"\n";
+	}
+	
+	/**
+	 * 
+	 * @param type
+	 * @return
+	 */
 	private static Person getPersonType(String type){
 		Person person = null;
 		switch(type){
-		case "w":
+		case "1":
 			Worker w = new Worker(
-					new Stamp("w").getTimeStampRandom(),
+					new Stamp("1").getTimeStampRandom(),
 					input.getString("Saisir le nom d'employée:"),
 					input.getInt("Saisir l'age:"),
 					input.getFloat("Saisir le salary:"));
 			person = (Worker) w;
 			break;
-		case "s":
+		case "2":
 			Student s = new Student(
-					new Stamp("s").getTimeStampRandom(),
+					new Stamp("2").getTimeStampRandom(),
 					input.getString("Saisir le nom d'étudiant:"),
 					input.getInt("Saisir l'age:"),
 					input.getFloat("Saisir le score:"));

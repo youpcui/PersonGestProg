@@ -49,7 +49,7 @@ public class PersonDAOImplFile implements PersonDAO {
 		//id不变
 		boolean flag = false;
 		try {
-			Person orig = this.findById(person.getId());
+			Person orig = this.doFindById(person.getId());
 			if(orig instanceof Student){ // 如果匹配学生
 				Student dest = (Student) person;
 				orig.setId(dest.getId());
@@ -78,7 +78,7 @@ public class PersonDAOImplFile implements PersonDAO {
 	public boolean doDelete(String id) throws DAOException {
 		boolean flag = false;
 		try {
-			this.allPerson.remove(this.findById(id));
+			this.allPerson.remove(this.doFindById(id));
 			this.fo.save(this.allPerson);
 			flag = true;
 		} catch (FileIOException e) {
@@ -103,19 +103,19 @@ public class PersonDAOImplFile implements PersonDAO {
 	}
 
 	@Override
-	public Set<Person> findAll() throws DAOException {
+	public Set<Person> doFindAll() throws DAOException {
 		return this.allPerson;
 	}
 
 	@Override
-	public Person findById(String id) throws DAOException {
+	public Person doFindById(String id) throws DAOException {
 		Person p = null;
 		try {
 			Iterator<Person> iter = this.allPerson.iterator();
 			while(iter.hasNext()){
-				if(iter.next().getId().equals(id)){
+			p = iter.next();
+				if(p.getId().equals(id)){
 					// id一致
-					p = iter.next();
 					break;
 				}
 			}
@@ -127,7 +127,7 @@ public class PersonDAOImplFile implements PersonDAO {
 	}
 
 	@Override
-	public Set<Person> findByKey(String keyWord) throws DAOException {
+	public Set<Person> doFindByKey(String keyWord) throws DAOException {
 		Set<Person> search = new TreeSet<Person>();
 		Iterator<Person> iter = this.allPerson.iterator();
 		while(iter.hasNext()){
@@ -138,5 +138,4 @@ public class PersonDAOImplFile implements PersonDAO {
 		}
 		return null;
 	}
-	
 }

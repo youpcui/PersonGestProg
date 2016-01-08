@@ -69,7 +69,7 @@ public interface PersonDAO {
 	 * 
 	 * @throws DAOException 
 	 */
-	public Set<Person> findAll() throws DAOException;
+	public Set<Person> doFindAll() throws DAOException;
 	
 	/**
 	 * Rechercher une donn¨¦e par rapoort au ID.
@@ -83,7 +83,7 @@ public interface PersonDAO {
 	 * 
 	 * @throws DAOException 
 	 */
-	public Person findById(String id) throws DAOException;
+	public Person doFindById(String id) throws DAOException;
 	
 	/**
 	 * Rechercher une liste de donn¨¦e par rapoort au mot cl¨¦.
@@ -95,7 +95,7 @@ public interface PersonDAO {
 	 * 
 	 * @throws DAOException 
 	 */
-	public Set<Person> findByKey(String keyWord) throws DAOException;
+	public Set<Person> doFindByKey(String keyWord) throws DAOException;
 	
 
 
