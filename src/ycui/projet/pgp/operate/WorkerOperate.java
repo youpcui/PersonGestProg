@@ -46,6 +46,7 @@ public class WorkerOperate extends PersonOperate {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
 			while(iter.hasNext()){
 				Person p = (Person) iter.next();
+				nobody = false;
 				if(p instanceof Worker){
 					if(buf.length() == 0){
 						buf.append(WORKERHEAD);
