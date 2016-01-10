@@ -22,6 +22,9 @@ public class Student extends Person {
 	}
 	@Override
 	public int compareTo(Person p) {
+		if(p.equals(this)){
+			return -1;
+		}
 		if (p instanceof Worker) {
 			return -1;
 		} else if (p instanceof Student) {
@@ -35,11 +38,9 @@ public class Student extends Person {
 					return -1;
 				} else if (super.getAge() < s.getAge()) {
 					return 1;
-				} else {
-					return 0;
 				}
 			}
-		} else
-			return 0;
+		}
+		return 0;
 	}
 }

@@ -1,50 +1,11 @@
 package ycui.projet.pgp.main;
 
-import java.util.Iterator;
-import java.util.Set;
-
-import ycui.projet.pgp.dao.PersonDAO;
-import ycui.projet.pgp.exception.DAOException;
-import ycui.projet.pgp.proxy.PersonDAOProxyFile;
-import ycui.projet.pgp.util.InputData;
-import ycui.projet.pgp.util.Stamp;
-import ycui.projet.pgp.vo.*;
+import ycui.projet.pgp.menu.Menu;
 
 public class Main{
-	public static InputData input = new InputData();
-	
 	public static void main(String[] args) {
-		PersonDAO dao = new PersonDAOProxyFile();	
-/*		
-		//Test create
-		//增加一个新的数据
-		Person p1 = getPersonType("1");
-		Person p2 = getPersonType("2");
-		Person p3 = getPersonType("2");
-		Person p4 = getPersonType("2");
-		Person p5 = getPersonType("1");	
+		new Menu();
 
-		//保存内容
-		try {
-			dao.doCreate(p1);
-			dao.doCreate(p2);
-			dao.doCreate(p3);
-			dao.doCreate(p4);
-			dao.doCreate(p5);
-
-		} catch (DAOException e) {
-			e.printStackTrace();
-		}
-*/
-		//查询列表
-		try {
-		System.out.println("\n------------------------Find all------------------------\n");
-			System.out.println(printAllPerson(dao.doFindAll()));
-		} catch (DAOException e) {
-			e.printStackTrace();
-		}
-		
-		
 /*		
 		// Test research by id
 		//按id查询
@@ -60,20 +21,20 @@ public class Main{
 		//Test Update
 		try {
 			//取得对象
-			Person p = dao.doFindById("220160108234328445702");
-			if(p instanceof Worker){
-				Worker w = (Worker) p;
-			}else if(p instanceof Student){
-				Student s = (Student) p;
-			}
+			String str = new String("220160108234351870174");
+			Person p = str.substring(0, 1).equals("1")?
+					(Worker)dao.doFindById(str):(Student)dao.doFindById(str);
+			System.out.println(printPerson(p));
+			Student s = (Student)p;
+			s.setAge(19);
+			s.setScore(19f);
 			//修改数据
 			System.out.println("\n-------------------------Update-------------------------\n");
-			System.out.println(dao.doUpdate(p));
+			System.out.println(dao.doUpdate(s));
 			
 		} catch (DAOException e1) {
 			e1.printStackTrace();
 		}
-		 
 		//查询结果
 		try {
 			System.out.println("\n------------------------Find all------------------------\n");
@@ -89,8 +50,7 @@ public class Main{
 			dao.doDeleteAll();
 		} catch (DAOException e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		//查询结果
 		try {
 			System.out.println("\n------------------------Find all------------------------\n");
@@ -105,7 +65,7 @@ public class Main{
 	 * 
 	 * @param allPerson
 	 * @return
-	 */
+	 *
 	private static String printAllPerson(Set<Person> allPerson){
 		StringBuffer bufW = new StringBuffer("");
 		StringBuffer bufS = new StringBuffer("");
@@ -133,12 +93,12 @@ public class Main{
 		}
 		return bufW.toString()+"\n"+bufS.toString();
 	}
-	
+*/	
 	/**
 	 *  
 	 * @param person
 	 * @return
-	 */
+	 
 	private static String printPerson(Person person){
 		StringBuffer buf = new StringBuffer("");
 		try {
@@ -156,12 +116,12 @@ public class Main{
 		}
 		return buf.toString()+"\n";
 	}
-	
+	*/
 	/**
 	 * 
 	 * @param type
 	 * @return
-	 */
+	 
 	private static Person getPersonType(String type){
 		Person person = null;
 		switch(type){
@@ -184,5 +144,5 @@ public class Main{
 		}
 		return person;
 	}
-
+	*/
 }

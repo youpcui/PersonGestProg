@@ -35,11 +35,9 @@ public class Worker extends Person {
 					return -1;
 				} else if (super.getAge() < w.getAge()) {
 					return 1;
-				} else {
-					return 0;
 				}
 			}
-		} else
-			return 0;
+		} 
+		return 0;
 	}
 }

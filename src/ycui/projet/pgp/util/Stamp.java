@@ -7,7 +7,7 @@ import java.util.Random;
 //取得时间戳的类
 public class Stamp {
 	private Calendar calendar = null;
-	private String type = null;
+	private String type = null; // type.equals("1") ? Worker : Student
 	
 	public Stamp(){
 		this.calendar = new GregorianCalendar();

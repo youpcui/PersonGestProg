@@ -34,7 +34,7 @@ public class InputData {
 			str = this.getString(prompt);
 			/*accepte qu'un nombre entier*/
 			if(!(str.matches("\\d+"))){
-				System.out.println("Il faudra saisir un nombre entier!");
+				System.err.println("Il faudra saisir un nombre entier!");
 			}else{
 				//数字正确
 				i = Integer.parseInt(str);
@@ -53,7 +53,7 @@ public class InputData {
 			str = this.getString(prompt);
 			/*accepte un nombre décimal avec 2 chiffre après virgule ou un nombre entier*/
 			if(!(str.matches("\\d+.?\\d{1,2}|\\d+"))){ 
-				System.out.println("Il faudra saisir un nombre décimal(deux chiffre après virgule)!");
+				System.err.println("Il faudra saisir un nombre décimal(deux chiffre après virgule)!");
 			}else{
 				//数字正确
 				f = Float.parseFloat(str);

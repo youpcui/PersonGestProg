@@ -36,6 +36,6 @@ public abstract class Person implements Comparable<Person>,Serializable {
 		this.age = age;
 	}
 	public String toString(){
-		return this.getId() + "\t" + this.getName() + "\t\t" + this.getAge() + "\t";
+		return this.getId() + "\t" + this.getName() + ((this.getName().length()<8)?"\t\t":"\t") + this.getAge() + "\t";
 	}
 }

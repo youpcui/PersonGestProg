@@ -17,14 +17,14 @@ public class PersonDAOImplFile implements PersonDAO {
 	/* 所有的内容都保存在一个集合之中，因为集合可以直接向文件中保存。
 	 * 此集合的内容最好由文件读取，因为文件本身要保存对象
 	 */
-	private Set<Person> allPerson = null ; 
-	private FileOperate fo = new FileOperate("person.pgp");
+	private Set<Person> allPerson = null; 
+	private FileOperate fo = new FileOperate("person.obj");
 	
 	public PersonDAOImplFile(){
 		try {
 			this.allPerson =  (Set<Person>) fo.load();
 		} catch (FileIOException e) {
-			System.err.println("Echec d'ouvrir person.pgp!-->"
+			System.err.println("Echec d'ouvrir person.obj!-->"
 					+e.getMessage());
 		}
 	} 
@@ -52,14 +52,14 @@ public class PersonDAOImplFile implements PersonDAO {
 			Person orig = this.doFindById(person.getId());
 			if(orig instanceof Student){ // 如果匹配学生
 				Student dest = (Student) person;
-				orig.setId(dest.getId());
+//				orig.setId(dest.getId());
 				orig.setName(dest.getName());
 				orig.setAge(dest.getAge());
 				((Student) orig).setScore(dest.getScore());
 			}
 			if(orig instanceof Worker){ // 如果匹配工人
 				Worker dest = (Worker) person;
-				orig.setId(dest.getId());
+//				orig.setId(dest.getId());
 				orig.setName(dest.getName());
 				orig.setAge(dest.getAge());
 				((Worker) orig).setSalary(dest.getSalary());
@@ -113,9 +113,8 @@ public class PersonDAOImplFile implements PersonDAO {
 		try {
 			Iterator<Person> iter = this.allPerson.iterator();
 			while(iter.hasNext()){
-			p = iter.next();
-				if(p.getId().equals(id)){
-					// id一致
+			p = iter.next();//先赋值
+				if(p.getId().equals(id)){//再判断
 					break;
 				}
 			}
