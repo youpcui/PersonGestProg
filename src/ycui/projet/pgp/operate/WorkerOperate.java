@@ -3,7 +3,6 @@ package ycui.projet.pgp.operate;
 import java.util.Iterator;
 
 import ycui.projet.pgp.exception.DAOException;
-import ycui.projet.pgp.proxy.PersonDAOProxyFile;
 import ycui.projet.pgp.util.*;
 import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Worker;
@@ -11,8 +10,6 @@ import ycui.projet.pgp.vo.Worker;
 public class WorkerOperate extends PersonOperate {
 	public WorkerOperate(){
 		super();
-		this.dao = new PersonDAOProxyFile();
-		this.input = new InputData();
 	}
 	@Override
 	public void add() {
@@ -29,10 +26,10 @@ public class WorkerOperate extends PersonOperate {
 			System.err.println("Echec d'insérer employé(e)-->"
 					+e.getMessage());
 		}
-		System.out.println("-->L'employé(e) "+
-				w.getName()+ // 员工名字
-				(flag?" est bien ":" n'est pas ")+ //成功与否
-				"ajouté(e)");
+		System.out.println(RESULTHEAD
+				+ "-->L'employé(e) "+ w.getName() // 员工名字
+				+ (flag?" est bien ":" n'est pas ")//成功与否
+				+ "ajouté(e).\n" + RESULTEND);
 	}
 
 	@Override
@@ -44,14 +41,14 @@ public class WorkerOperate extends PersonOperate {
 	@Override
 	public void findAll() {
 		StringBuffer buf = new StringBuffer("");
-
+		boolean nobody = true;
 		try {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
 			while(iter.hasNext()){
 				Person p = (Person) iter.next();
 				if(p instanceof Worker){
 					if(buf.length() == 0){
-						buf.append("Employé(e)(s)\t\tNom\t\tAge\tSalaire\n");
+						buf.append(WORKERHEAD);
 					}
 					buf.append(p.toString());
 					buf.append("\n");
@@ -60,18 +57,21 @@ public class WorkerOperate extends PersonOperate {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println(buf.toString());
+		System.out.println(RESULTHEAD
+				+ (nobody?("-->La liste est vide.\n"):buf.toString())
+				+ RESULTEND);
 	}
 
 	@Override
 	public void findById() {
 		StringBuffer buf = new StringBuffer("");
+		Person p = null;
 		String id = this.input.getString("Saisir id:");
 		try {
-			Person p = this.dao.doFindById(id);
+			p = this.dao.doFindById(id);
 			if(p!=null){
 				if(buf.length() == 0){
-					buf.append("Employé(e)(s)\t\tNom\t\tAge\tSalaire\n");
+					buf.append(WORKERHEAD);
 				}
 				buf.append(p.toString());
 				buf.append("\n");
@@ -79,13 +79,35 @@ public class WorkerOperate extends PersonOperate {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(buf.toString());
+		System.out.println(RESULTHEAD
+				+ ((p==null)?"-->L'employé(e) n'est pas trouvé.\n":buf.toString())
+				+ RESULTEND);
 	}
 
 	@Override
 	public void findByKey() {
-		// TODO Auto-generated method stub
-		
+		StringBuffer buf = new StringBuffer("");
+		String keyWord = this.input.getString("Saisir mot clé:");
+		boolean nobody = true;
+		try {
+			Iterator<Person> iter = this.dao.doFindByKey(keyWord).iterator();
+			while(iter.hasNext()){
+				Person p = (Person) iter.next();
+				if(p instanceof Worker){
+					nobody = false;
+					if(buf.length() == 0){
+						buf.append(WORKERHEAD);
+					}
+					buf.append(p.toString());
+					buf.append("\n");
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(RESULTHEAD
+				+ (nobody?("-->Ne personne correspond à \""+keyWord+"\".\n"):buf.toString())
+				+ RESULTEND);
 	}
 
 	@Override
@@ -99,17 +121,4 @@ public class WorkerOperate extends PersonOperate {
 		// TODO Auto-generated method stub
 		
 	}
-/*	
-	private String printWorker(Person p){
-		StringBuffer buf = new StringBuffer("");
-		if(p instanceof Worker){
-			if(buf.length() == 0){
-				buf.append("Employé(e)(s)\t\tNom\t\tAge\tSalaire\n");
-			}
-			buf.append(p.toString());
-			buf.append("\n");
-		}
-		return buf.toString();
-	}
-*/
 }

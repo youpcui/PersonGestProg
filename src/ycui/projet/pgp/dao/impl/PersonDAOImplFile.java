@@ -113,8 +113,9 @@ public class PersonDAOImplFile implements PersonDAO {
 		try {
 			Iterator<Person> iter = this.allPerson.iterator();
 			while(iter.hasNext()){
-			p = iter.next();//先赋值
-				if(p.getId().equals(id)){//再判断
+			Person tmp = iter.next();//先赋值
+				if(tmp.getId().equals(id)){//再判断
+					p = tmp;
 					break;
 				}
 			}
@@ -135,6 +136,6 @@ public class PersonDAOImplFile implements PersonDAO {
 				search.add(p);
 			}
 		}
-		return null;
+		return search;
 	}
 }

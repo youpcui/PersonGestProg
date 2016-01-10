@@ -4,52 +4,51 @@ import ycui.projet.pgp.operate.*;
 import ycui.projet.pgp.util.InputData;
 
 public class Menu {
+	private static final String DEFAULTINFO = "Veuillez saisir un choix correct!";
+	private static final String CHOICE = "\nChoisir le numéro:";
 	private InputData input = null;
 	private PersonOperate po = null;
 	
 	public Menu() {
 		this.input = new InputData();
-		while(true){
-			this.showMain();
-		}
+		this.showMain();
 	}
 
 	// 主菜单
 	public void showMain() {
-		System.out.println("\n           Système d'information de gestion           ");
-		System.out.println("********************************************************");
-		System.out.println("*                  1. Gestion d'employés               *");
-		System.out.println("*                  2. Gestion d'étudiants              *");
-		System.out.println("*                  3. Afficher tous personnes          *");
-		System.out.println("*                  4. Sortie                           *");
-		System.out.println("********************************************************");
-		//选择操作
-		switch(input.getInt("\nChoisir le numéro:")){
-			case 1: {
-				showWorker();
-				break;
-			}
-			case 2: {
-				showStudent();
-				break;
-				
-			}
-			case 3: {
-				PersonOperate po1 = new WorkerOperate();
-				PersonOperate po2 = new StudentOperate();
-				System.out.println("\n------------------------Résultat------------------------\n");
-				po1.findAll();
-				po2.findAll();
-				System.out.println("--------------------------------------------------------\n");
-				break;
-			}
-			case 4: {
-				System.exit(1);
-				break;
-			}
-			default: {
-				System.out.println("Veuillez saisir un choix correct!");
-				break;
+		while(true){
+			this.po = new PersonOperate();
+			System.out.println("\n           Système d'information de gestion           ");
+			System.out.println("********************************************************");
+			System.out.println("*                  1. Gestion d'employés               *");
+			System.out.println("*                  2. Gestion d'étudiants              *");
+			System.out.println("*                  3. Afficher tous personnes          *");
+			System.out.println("*                  4. Sortie                           *");
+			System.out.println("********************************************************");
+			//选择操作
+			switch(input.getInt(CHOICE)){
+				case 1: {
+					showWorker();
+					break;
+				}
+				case 2: {
+					showStudent();
+					break;
+					
+				}
+				case 3: {
+					
+					po.findAll();
+					break;
+				}
+				case 4: {
+					System.exit(1);
+					break;
+				}
+				default: {
+					System.out.println(DEFAULTINFO);
+					break;
+				}
 			}
 		}
 	}
@@ -68,15 +67,15 @@ public class Menu {
 			System.out.println("*        6. Retour à l'acceuil                         *");
 			System.out.println("********************************************************");
 			//选择操作
-			switch(input.getInt("\nChoisir le numéro:")){
+			switch(input.getInt(CHOICE)){
 				case 1: {
 					po.add();
 					break;
 				}
 				case 2: {
-					System.out.println("\n------------------------Résultat------------------------\n");
+//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findAll();
-					System.out.println("--------------------------------------------------------\n");
+//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 3: {
@@ -96,7 +95,7 @@ public class Menu {
 					break;
 				}
 				default: {
-					System.out.println("Veuillez saisir un choix correct!");
+					System.out.println(DEFAULTINFO);
 					break;
 				}
 			}
@@ -117,15 +116,15 @@ public class Menu {
 			System.out.println("*        6. Retour à l'acceuil                         *");
 			System.out.println("********************************************************");
 			//选择操作
-			switch(input.getInt("\nChoisir le numéro:")){
+			switch(input.getInt(CHOICE)){
 				case 1: {
 					po.add();
 					break;
 				}
 				case 2: {
-					System.out.println("\n------------------------Résultat------------------------\n");
+//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findAll();
-					System.out.println("--------------------------------------------------------\n");
+//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 3: {
@@ -145,7 +144,7 @@ public class Menu {
 					break;
 				}
 				default: {
-					System.out.println("Veuillez saisir un choix correct!");
+					System.out.println(DEFAULTINFO);
 					break;
 				}
 			}
@@ -166,11 +165,11 @@ public class Menu {
 			System.out.println("*               5. Retour à l'acceuil                  *");
 			System.out.println("********************************************************");
 			//选择操作
-			switch(input.getInt("\nChoisir le numéro:")){
+			switch(input.getInt(CHOICE)){
 				case 1: {
-					System.out.println("\n------------------------Résultat------------------------\n");
+//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findAll();
-					System.out.println("--------------------------------------------------------\n");
+//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 2: {
@@ -180,9 +179,9 @@ public class Menu {
 					break;
 				}
 				case 3: {
-					System.out.println("\n------------------------Résultat------------------------\n");
+//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findByKey();
-					System.out.println("--------------------------------------------------------\n");
+//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 4: {
@@ -194,7 +193,7 @@ public class Menu {
 					break;
 				}
 				default: {
-					System.out.println("Veuillez saisir un choix correct!");
+					System.out.println(DEFAULTINFO);
 					break;
 				}
 			}
@@ -214,23 +213,23 @@ public class Menu {
 				System.out.println("*               5. Retour à l'acceuil                  *");
 				System.out.println("********************************************************");
 				//选择操作
-				switch(input.getInt("\nChoisir le numéro:")){
+				switch(input.getInt(CHOICE)){
 					case 1: {
-						System.out.println("\n------------------------Résultat------------------------\n");
+//						System.out.println("\n------------------------Résultat------------------------\n");
 						po.findAll();
-						System.out.println("--------------------------------------------------------\n");
+//						System.out.println("--------------------------------------------------------\n");
 						break;
 					}
 					case 2: {
-						System.out.println("\n------------------------Résultat------------------------\n");
+//						System.out.println("\n------------------------Résultat------------------------\n");
 						po.findById();
-						System.out.println("--------------------------------------------------------\n");
+//						System.out.println("--------------------------------------------------------\n");
 						break;
 					}
 					case 3: {
-						System.out.println("\n------------------------Résultat------------------------\n");
+//						System.out.println("\n------------------------Résultat------------------------\n");
 						po.findByKey();
-						System.out.println("--------------------------------------------------------\n");
+//						System.out.println("--------------------------------------------------------\n");
 						break;
 					}
 					case 4: {
@@ -242,7 +241,7 @@ public class Menu {
 						break;
 					}
 					default: {
-						System.out.println("Veuillez saisir un choix correct!");
+						System.out.println(DEFAULTINFO);
 						break;
 					}
 				}
