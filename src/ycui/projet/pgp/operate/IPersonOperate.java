@@ -35,8 +35,4 @@ public interface IPersonOperate {
 	 * Supprimer une donn¨¦e
 	 */
 	public void delete();
-	/**
-	 * Supprimer tous les donn¨¦es
-	 */
-	public void deleteAll();
 }

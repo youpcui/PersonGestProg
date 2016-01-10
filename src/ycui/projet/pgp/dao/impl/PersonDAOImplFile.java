@@ -50,21 +50,25 @@ public class PersonDAOImplFile implements PersonDAO {
 		boolean flag = false;
 		try {
 			Person orig = this.doFindById(person.getId());
+			Person dest = person;
+/*
 			if(orig instanceof Student){ // 如果匹配学生
-				Student dest = (Student) person;
+				destS = (Student) person;
 //				orig.setId(dest.getId());
-				orig.setName(dest.getName());
-				orig.setAge(dest.getAge());
-				((Student) orig).setScore(dest.getScore());
+//				orig.setName(dest.getName());
+//				orig.setAge(dest.getAge());
+//				((Student) orig).setScore(dest.getScore());
 			}
 			if(orig instanceof Worker){ // 如果匹配工人
-				Worker dest = (Worker) person;
+				destW = (Worker) person;
 //				orig.setId(dest.getId());
-				orig.setName(dest.getName());
-				orig.setAge(dest.getAge());
-				((Worker) orig).setSalary(dest.getSalary());
+//				orig.setName(dest.getName());
+//				orig.setAge(dest.getAge());
+//				((Worker) orig).setSalary(dest.getSalary());
 			}
-			this.allPerson.add(orig);
+*/
+			this.allPerson.remove(orig);
+			this.allPerson.add(dest);
 			this.fo.save(this.allPerson);
 			flag = true;
 		} catch (FileIOException e) {
@@ -78,7 +82,8 @@ public class PersonDAOImplFile implements PersonDAO {
 	public boolean doDelete(String id) throws DAOException {
 		boolean flag = false;
 		try {
-			this.allPerson.remove(this.doFindById(id));
+			Person p = this.doFindById(id);
+			this.allPerson.remove(p);
 			this.fo.save(this.allPerson);
 			flag = true;
 		} catch (FileIOException e) {

@@ -22,9 +22,6 @@ public class Student extends Person {
 	}
 	@Override
 	public int compareTo(Person p) {
-		if(p.equals(this)){
-			return -1;
-		}
 		if (p instanceof Worker) {
 			return -1;
 		} else if (p instanceof Student) {

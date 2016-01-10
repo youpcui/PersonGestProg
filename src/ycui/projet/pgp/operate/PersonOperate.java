@@ -3,6 +3,7 @@ package ycui.projet.pgp.operate;
 import java.util.Iterator;
 
 import ycui.projet.pgp.dao.PersonDAO;
+import ycui.projet.pgp.exception.DAOException;
 import ycui.projet.pgp.proxy.PersonDAOProxyFile;
 import ycui.projet.pgp.util.InputData;
 import ycui.projet.pgp.vo.Person;
@@ -84,5 +85,19 @@ public class PersonOperate implements IPersonOperate{
 	/**
 	 * Supprimer tous les données
 	 */
-	public void deleteAll(){}
+	public void deleteAll(){
+		boolean flag = false;
+		try {
+			this.dao.doDeleteAll();
+			flag = true;
+		} catch (DAOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(RESULTHEAD
+				+ "Tous les personnes" // 员工名字
+				+ (flag?" est bien ":" n'est pas ")//成功与否
+				+ "supprimé(e).\n" + RESULTEND);
+		
+	}
 }

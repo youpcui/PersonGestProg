@@ -10,7 +10,7 @@ public class Menu {
 	private PersonOperate po = null;
 	
 	public Menu() {
-		this.input = new InputData();
+		this.input = new InputData(); // check value
 		this.showMain();
 	}
 
@@ -20,10 +20,10 @@ public class Menu {
 			this.po = new PersonOperate();
 			System.out.println("\n           Système d'information de gestion           ");
 			System.out.println("********************************************************");
-			System.out.println("*                  1. Gestion d'employés               *");
-			System.out.println("*                  2. Gestion d'étudiants              *");
-			System.out.println("*                  3. Afficher tous personnes          *");
-			System.out.println("*                  4. Sortie                           *");
+			System.out.println("*        1. Gestion d'information des employés         *");
+			System.out.println("*        2. Gestion d'inforamtion des étudiants        *");
+			System.out.println("*        3. Afficher tous personnes                    *");
+			System.out.println("*        4. Sortie                                     *");
 			System.out.println("********************************************************");
 			//选择操作
 			switch(input.getInt(CHOICE)){
@@ -34,7 +34,6 @@ public class Menu {
 				case 2: {
 					showStudent();
 					break;
-					
 				}
 				case 3: {
 					
@@ -73,9 +72,7 @@ public class Menu {
 					break;
 				}
 				case 2: {
-//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findAll();
-//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 3: {
@@ -122,9 +119,7 @@ public class Menu {
 					break;
 				}
 				case 2: {
-//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findAll();
-//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 3: {
@@ -162,26 +157,20 @@ public class Menu {
 			System.out.println("*               2. Rechercher par id                   *");
 			System.out.println("*               3. Rechercher par mot clé              *");
 			System.out.println("*               4. Retour au menu employé              *");
-			System.out.println("*               5. Retour à l'acceuil                  *");
+			System.out.println("*               5. Retour à précédant                  *");
 			System.out.println("********************************************************");
 			//选择操作
 			switch(input.getInt(CHOICE)){
 				case 1: {
-//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findAll();
-//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 2: {
-//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findById();
-//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 3: {
-//					System.out.println("\n------------------------Résultat------------------------\n");
 					po.findByKey();
-//					System.out.println("--------------------------------------------------------\n");
 					break;
 				}
 				case 4: {
@@ -210,26 +199,20 @@ public class Menu {
 				System.out.println("*               2. Rechercher par id                   *");
 				System.out.println("*               3. Rechercher par mot clé              *");
 				System.out.println("*               4. Retour au menu étudiant             *");
-				System.out.println("*               5. Retour à l'acceuil                  *");
+				System.out.println("*               5. Retour à précédant                  *");
 				System.out.println("********************************************************");
 				//选择操作
 				switch(input.getInt(CHOICE)){
 					case 1: {
-//						System.out.println("\n------------------------Résultat------------------------\n");
 						po.findAll();
-//						System.out.println("--------------------------------------------------------\n");
 						break;
 					}
 					case 2: {
-//						System.out.println("\n------------------------Résultat------------------------\n");
 						po.findById();
-//						System.out.println("--------------------------------------------------------\n");
 						break;
 					}
 					case 3: {
-//						System.out.println("\n------------------------Résultat------------------------\n");
 						po.findByKey();
-//						System.out.println("--------------------------------------------------------\n");
 						break;
 					}
 					case 4: {

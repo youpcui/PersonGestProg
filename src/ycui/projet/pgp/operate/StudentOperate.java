@@ -115,14 +115,37 @@ public class StudentOperate extends PersonOperate{
 
 	@Override
 	public void delete() {
-		// TODO Auto-generated method stub
-		
+		StringBuffer buf = new StringBuffer("");
+		Person p = null;
+		String id = this.input.getString("Saisir id:");
+		try {
+			p = this.dao.doFindById(id);
+			if(p!=null){
+				if(p instanceof Student){
+					this.dao.doDelete(id);
+					buf.append("-->L'¨¦tudiantloy¨¦(e) ");
+					buf.append(p.getName());
+					buf.append("(");
+					buf.append(p.getId());
+					buf.append(") est bien supprim¨¦(e)\n");
+				}else{
+					buf.append("-->");
+					buf.append(p.getId());
+					buf.append(" est trouv¨¦, mais pas l'¨¦tudiant(e).\n");
+				}
+			}else{
+				buf.append("-->L'¨¦tudiant(e) ");
+				buf.append(id);
+				buf.append(" n'est pas trouv¨¦(e).\n");
+			}
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
 	}
-
+	
 	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void deleteAll(){
+			System.out.println(RESULTHEAD+"Vous avez pas d'autoris¨¦ ¨¤ supprimer tous!"+RESULTEND);
+		}
 }

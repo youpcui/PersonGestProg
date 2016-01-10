@@ -34,8 +34,37 @@ public class WorkerOperate extends PersonOperate {
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		StringBuffer buf = new StringBuffer("");
+		Person p = null;
+		String id = this.input.getString("Saisir id:");
+		try {
+			p = this.dao.doFindById(id);
+			if(p!=null){
+				if(p instanceof Worker){
+					Worker tmp = (Worker) p;
+					Worker w = new Worker(
+							p.getId(),
+							input.getString(("Saisir le nouveau nom d'employ¨¦ (original " + tmp.getName() + "):")),
+							input.getInt(("Saisir le nouvel age (original "+ tmp.getAge() + "):")),
+							input.getFloat(("Saisir le nouveau salaire (original " + tmp.getSalary() + "):")));
+					this.dao.doUpdate(w);
+					buf.append("-->L'employ¨¦(e) ");
+					buf.append(p.getId());
+					buf.append(" est bien modifi¨¦(e)\n");
+				}else{
+					buf.append("-->");
+					buf.append(p.getId());
+					buf.append(" est trouv¨¦, mais pas l'employ¨¦(e).\n");
+				}
+			}else{
+				buf.append("-->L'employ¨¦(e) ");
+				buf.append(id);
+				buf.append(" n'est pas trouv¨¦(e).\n");
+			}
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
 	}
 
 	@Override
@@ -46,8 +75,8 @@ public class WorkerOperate extends PersonOperate {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
 			while(iter.hasNext()){
 				Person p = (Person) iter.next();
-				nobody = false;
 				if(p instanceof Worker){
+					nobody = false;
 					if(buf.length() == 0){
 						buf.append(WORKERHEAD);
 					}
@@ -55,7 +84,7 @@ public class WorkerOperate extends PersonOperate {
 					buf.append("\n");
 				}
 			}
-		} catch (Exception e) {
+		} catch (DAOException e) {
 			e.printStackTrace();
 		}
 		System.out.println(RESULTHEAD
@@ -103,23 +132,47 @@ public class WorkerOperate extends PersonOperate {
 					buf.append("\n");
 				}
 			}
-		} catch (Exception e) {
+		} catch (DAOException e) {
 			e.printStackTrace();
 		}
 		System.out.println(RESULTHEAD
-				+ (nobody?("-->Ne personne correspond ¨¤ \""+keyWord+"\".\n"):buf.toString())
+				+ (nobody ? ("-->Ne personne correspond ¨¤ \"" + keyWord + "\".\n") : buf.toString())
 				+ RESULTEND);
 	}
 
 	@Override
 	public void delete() {
-		// TODO Auto-generated method stub
-		
+		StringBuffer buf = new StringBuffer("");
+		Person p = null;
+		String id = this.input.getString("Saisir id:");
+		try {
+			p = this.dao.doFindById(id);
+			if(p!=null){
+				if(p instanceof Worker){
+					this.dao.doDelete(id);
+					buf.append("-->L'employ¨¦(e) ");
+					buf.append(p.getName());
+					buf.append("(");
+					buf.append(p.getId());
+					buf.append(") est bien supprim¨¦(e)\n");
+				}else{
+					buf.append("-->");
+					buf.append(p.getId());
+					buf.append(" est trouv¨¦, mais pas l'employ¨¦(e).\n");
+				}
+			}else{
+				buf.append("-->L'employ¨¦(e) ");
+				buf.append(id);
+				buf.append(" n'est pas trouv¨¦(e).\n");
+			}
+		} catch (DAOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
 	}
-
+	
 	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void deleteAll(){
+			System.out.println(RESULTHEAD+"Vous avez pas d'autoris¨¦ ¨¤ supprimer tous!"+RESULTEND);
+		}
 }
