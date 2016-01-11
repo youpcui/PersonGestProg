@@ -28,16 +28,18 @@ public class InputData {
 		// 如果不是数字，应有一个提示。告诉用户输入错误
 		// 可以使用正则表达式
 		String str = null;
-		boolean flag = true;
-		while (flag) {
+		boolean flag = false;
+		while (!flag) {
 			str = this.getString(prompt);
-			/* accepte qu'un nombre entier */
-			if (!(str.matches("\\d+"))) {
-				System.err.println("Il faudra saisir un nombre entier!");
+			if (str.matches("\\d+")) { // accepte qu'un nombre entier
+				try {//
+					i = Integer.parseInt(str);
+					flag = true;
+				} catch (NumberFormatException e) {
+					System.err.println("\nLe nombre est mal format!");
+				}
 			} else {
-				i = Integer.parseInt(str);
-				// 数字正确
-				flag = false;
+				System.err.println("\nIl faudra saisir un nombre entier!");
 			}
 		}
 		return i;
@@ -46,21 +48,23 @@ public class InputData {
 	public float getFloat(String prompt) {
 		float f = 0.0f;
 		String str = null;
-		boolean flag = true;
-		while (flag) {
+		boolean flag = false;
+		while (!flag) {
 			str = this.getString(prompt);
 			/*
 			 * accepte un nombre décimal avec 2 chiffre après virgule ou un
 			 * nombre entier
 			 */
-			if (!(str.matches("\\d+.?\\d{1,2}|\\d+"))) {
-				System.err
-						.println("Il faudra saisir un nombre décimal(deux chiffre après virgule)!");
+			if (str.matches("\\d+.?\\d{1,2}|\\d+")) {
+				try {
+					f = Float.parseFloat(str);
+					flag = true;
+				} catch (NumberFormatException e) {
+					System.err.println("\nLe nombre est mal format!");
+				}
 			} else {
-				// 数字正确
-				f = Float.parseFloat(str);
-				// 退出循环
-				flag = false;
+				System.err
+				.println("\nIl faudra saisir un nombre décimal(deux chiffre après virgule)!");
 			}
 		}
 		return f;

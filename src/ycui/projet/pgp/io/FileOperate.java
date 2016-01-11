@@ -37,12 +37,14 @@ public class FileOperate {
 	 * 			
 	 * @throws FileIOException
 	 */
-	public void save(Object obj) throws FileIOException{
+	public boolean save(Object obj) throws FileIOException{
 		ObjectOutputStream out = null;
+		boolean flag = false;
 		try { 
 			out = new ObjectOutputStream(
 					new FileOutputStream(this.file));
 			out.writeObject(obj);
+			flag = true;
 		} catch (FileNotFoundException e) {
 			System.err.println("Le fichier n'est pas trouv¨¦!-->"
 					+e.getMessage());
@@ -57,6 +59,7 @@ public class FileOperate {
 						+e.getMessage());
 			}
 		}
+		return flag;
 	}
 	
 	/**

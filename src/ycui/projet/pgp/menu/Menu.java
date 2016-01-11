@@ -156,8 +156,8 @@ public class Menu {
 			System.out.println("*               1. Rechercher tous                     *");
 			System.out.println("*               2. Rechercher par id                   *");
 			System.out.println("*               3. Rechercher par mot clé              *");
-			System.out.println("*               4. Retour au menu employé              *");
-			System.out.println("*               5. Retour à précédant                  *");
+			System.out.println("*               4. Retour au menu précédant            *");
+			System.out.println("*               5. Retour à l'acceuil                  *");
 			System.out.println("********************************************************");
 			//选择操作
 			switch(input.getInt(CHOICE)){
@@ -198,8 +198,8 @@ public class Menu {
 				System.out.println("*               1. Rechercher tous                     *");
 				System.out.println("*               2. Rechercher par id                   *");
 				System.out.println("*               3. Rechercher par mot clé              *");
-				System.out.println("*               4. Retour au menu étudiant             *");
-				System.out.println("*               5. Retour à précédant                  *");
+				System.out.println("*               4. Retour au menu précédant            *");
+				System.out.println("*               5. Retour à l'acceuil                  *");
 				System.out.println("********************************************************");
 				//选择操作
 				switch(input.getInt(CHOICE)){

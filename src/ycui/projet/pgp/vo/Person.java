@@ -38,4 +38,22 @@ public abstract class Person implements Comparable<Person>,Serializable {
 	public String toString(){
 		return this.getId() + "\t" + this.getName() + ((this.getName().length()<8)?"\t\t":"\t") + this.getAge() + "\t";
 	}
+	public int compareTo(Person p) {
+		String thisType = this.getId().substring(0, 1);
+		String argType = p.getId().substring(0, 1);
+		String thisSerial = this.getId().substring(3, 21);
+		String argSerial = p.getId().substring(3, 21);
+		if (Integer.parseInt(thisType) < Integer.parseInt(argType)){ //如果是员工
+			return -1;
+		} else if (Integer.parseInt(thisType) > Integer.parseInt(argType)){ //如果是学生
+			return 1;
+		} else { //如果同类型
+			if(Long.parseLong(thisSerial) < Long.parseLong(argSerial)){ //如果先加入
+				return -1;
+			}else if(Long.parseLong(thisSerial) > Long.parseLong(argSerial)){ //如果后加入
+				return 1;
+			}
+		}
+		return 0; //即本人
+	}
 }

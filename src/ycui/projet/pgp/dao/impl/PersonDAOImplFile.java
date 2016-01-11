@@ -9,8 +9,6 @@ import ycui.projet.pgp.exception.DAOException;
 import ycui.projet.pgp.exception.FileIOException;
 import ycui.projet.pgp.io.FileOperate;
 import ycui.projet.pgp.vo.Person;
-import ycui.projet.pgp.vo.Student;
-import ycui.projet.pgp.vo.Worker;
 
 
 public class PersonDAOImplFile implements PersonDAO {
@@ -34,9 +32,8 @@ public class PersonDAOImplFile implements PersonDAO {
 		// 在原有的基础上增加
 		boolean flag = false;
 		try {
-			this.allPerson.add(person);
-			this.fo.save(this.allPerson);
-			flag = true;
+			flag = this.allPerson.add(person);
+			flag = flag && this.fo.save(this.allPerson);
 		} catch (FileIOException e) {
 			System.err.println("Echec d'insérer "+person.getId()+"!-->"
 					+e.getMessage());
@@ -49,6 +46,7 @@ public class PersonDAOImplFile implements PersonDAO {
 		//id不变
 		boolean flag = false;
 		try {
+			
 			Person orig = this.doFindById(person.getId());
 			Person dest = person;
 /*
@@ -67,10 +65,9 @@ public class PersonDAOImplFile implements PersonDAO {
 //				((Worker) orig).setSalary(dest.getSalary());
 			}
 */
-			this.allPerson.remove(orig);
-			this.allPerson.add(dest);
-			this.fo.save(this.allPerson);
-			flag = true;
+			flag = this.allPerson.remove(orig);
+			flag = flag && this.allPerson.add(dest);
+			flag = flag && this.fo.save(this.allPerson);
 		} catch (FileIOException e) {
 			System.err.println("Echec de mettre à jour "+person.getId()+"!-->"
 					+e.getMessage());
@@ -83,9 +80,10 @@ public class PersonDAOImplFile implements PersonDAO {
 		boolean flag = false;
 		try {
 			Person p = this.doFindById(id);
-			this.allPerson.remove(p);
-			this.fo.save(this.allPerson);
-			flag = true;
+				if(p.getId().equals(id)){
+					flag = this.allPerson.remove(p);
+				}
+				flag = flag && this.fo.save(this.allPerson);
 		} catch (FileIOException e) {
 			System.err.println("Echec de supprimer "+id+"!-->"
 					+e.getMessage());
@@ -97,9 +95,8 @@ public class PersonDAOImplFile implements PersonDAO {
 	public boolean doDeleteAll() throws DAOException {
 		boolean flag = false;
 		try{
-		this.allPerson.removeAll(allPerson);
-		this.fo.save(allPerson);
-		flag = true;
+			flag = this.allPerson.removeAll(allPerson);
+			flag = flag && this.fo.save(allPerson);
 		} catch (FileIOException e) {
 			System.err.println("Echec de supprimer!-->"
 					+e.getMessage());

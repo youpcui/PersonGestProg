@@ -22,22 +22,20 @@ public class Student extends Person {
 	}
 	@Override
 	public int compareTo(Person p) {
-		if (p instanceof Worker) {
-			return -1;
-		} else if (p instanceof Student) {
+		if (p instanceof Student) {
 			Student s = (Student) p;
-			if (this.getScore() > s.getScore()) {
+			if (this.getScore() > s.getScore()) { //如果成绩高
 				return -1;
-			} else if (this.getScore() < s.getScore()) {
+			} else if (this.getScore() < s.getScore()) { //如果成绩低
 				return 1;
-			} else {
-				if (super.getAge() > s.getAge()) {
+			} else { //如果成绩一样
+				if (super.getAge() > s.getAge()) { //如果年龄大
 					return -1;
-				} else if (super.getAge() < s.getAge()) {
+				} else if (super.getAge() < s.getAge()) { //如果年龄小
 					return 1;
 				}
 			}
 		}
-		return 0;
+		return super.compareTo(p); // 比较类型或先后加入顺序
 	}
 }
