@@ -24,5 +24,10 @@ Desktop.ini
 
 #dev
 bin/
+lib/
 bin*
 *.obj
+
+#JRat
+jrat.xml
+
