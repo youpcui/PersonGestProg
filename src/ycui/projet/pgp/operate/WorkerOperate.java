@@ -3,6 +3,7 @@ package ycui.projet.pgp.operate;
 import java.util.Iterator;
 
 import ycui.projet.pgp.exception.DAOException;
+import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.util.*;
 import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Worker;
@@ -71,9 +72,10 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public void findAll() {
+	public MessageProxy findAll() {
 		StringBuffer buf = new StringBuffer("");
 		boolean nobody = true;
+		MessageProxy mp = null;
 		try {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
 			while (iter.hasNext()) {
@@ -93,6 +95,7 @@ public class WorkerOperate extends PersonOperate {
 		System.out.println(RESULTHEAD
 				+ (nobody ? ("-->La liste est vide.\n") : buf.toString())
 				+ RESULTEND);
+		return mp;
 	}
 
 	@Override
@@ -178,4 +181,11 @@ public class WorkerOperate extends PersonOperate {
 		System.out.println(RESULTHEAD
 				+ "Vous avez pas d'autoris¨¦ ¨¤ supprimer tous!" + RESULTEND);
 	}
+/*	
+	public static void main(String args[]){
+		WorkerOperate wo = new WorkerOperate();
+		
+		wo.findAll();
+	}
+*/
 }

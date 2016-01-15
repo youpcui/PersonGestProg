@@ -1,32 +1,35 @@
 package ycui.projet.pgp.menu;
 
+import ycui.projet.pgp.lang.*;
 import ycui.projet.pgp.operate.*;
 import ycui.projet.pgp.util.InputData;
+import ycui.projet.pgp.util.PrintFormat;
 
-public class Menu {
-	private static final String DEFAULTINFO = "Veuillez saisir un choix correct!";
-	private static final String CHOICE = "\nChoisir le numéro:";
+public class Menu implements LANG{
 	private InputData input = null;
 	private PersonOperate po = null;
+	private Language lang = null;
 	
-	public Menu() {
+	public Menu(LangType type) {
 		this.input = new InputData(); // check value
+		this.lang = LanguageFactory.getLanguage(type);
 		this.showMain();
 	}
 
+	
 	// 主菜单
 	public void showMain() {
 		while(true){
-			this.po = new PersonOperate();
-			System.out.println("\n           Système d'information de gestion           ");
-			System.out.println("********************************************************");
-			System.out.println("*        1. Gestion d'information des employés         *");
-			System.out.println("*        2. Gestion d'inforamtion des étudiants        *");
-			System.out.println("*        3. Afficher tous personnes                    *");
-			System.out.println("*        4. Sortie                                     *");
-			System.out.println("********************************************************");
+			this.po = new PersonOperate(); 
+			System.out.println(lang.getM00_00());
+			System.out.println(PrintFormat.setFormatFull(STAR));
+			System.out.println(lang.getM00_01());
+			System.out.println(lang.getM00_02());
+			System.out.println(lang.getM00_03());
+			System.out.println(lang.getM00_04());
+			System.out.println(PrintFormat.setFormatFull(STAR));
 			//选择操作
-			switch(input.getInt(CHOICE)){
+			switch(input.getInt(lang.getCHOICE())){
 				case 1: {
 					showWorker();
 					break;
@@ -36,7 +39,6 @@ public class Menu {
 					break;
 				}
 				case 3: {
-					
 					po.findAll();
 					break;
 				}
@@ -45,7 +47,7 @@ public class Menu {
 					break;
 				}
 				default: {
-					System.out.println(DEFAULTINFO);
+					System.out.println(lang.getDEFAULTINFO());
 					break;
 				}
 			}
@@ -56,17 +58,17 @@ public class Menu {
 	public void showWorker() {
 		while(true){
 			this.po = new WorkerOperate();
-			System.out.println("\n          Gestion d'information des employés          ");
-			System.out.println("********************************************************");
-			System.out.println("*        1. Ajouter un(e) nouvel(le) employé(e)        *");
-			System.out.println("*        2. Afficher tous les employées                *");
-			System.out.println("*        3. Rechercher l'information des employés      *");
-			System.out.println("*        4. Supprimer un(e) employé(e)                 *");
-			System.out.println("*        5. Modifier l'information de l'employé(e)     *");
-			System.out.println("*        6. Retour à l'acceuil                         *");
-			System.out.println("********************************************************");
+			System.out.println(lang.getM01_00_R01());
+			System.out.println(PrintFormat.setFormatFull(STAR));
+			System.out.println(lang.getM01_01_R01());
+			System.out.println(lang.getM01_02_R01());
+			System.out.println(lang.getM01_03_R01());
+			System.out.println(lang.getM01_04_R01());
+			System.out.println(lang.getM01_05_R01());
+			System.out.println(lang.getM01_06_R01());
+			System.out.println(PrintFormat.setFormatFull(STAR));
 			//选择操作
-			switch(input.getInt(CHOICE)){
+			switch(input.getInt(lang.getCHOICE())){
 				case 1: {
 					po.add();
 					break;
@@ -92,7 +94,7 @@ public class Menu {
 					break;
 				}
 				default: {
-					System.out.println(DEFAULTINFO);
+					System.out.println(lang.getDEFAULTINFO());
 					break;
 				}
 			}
@@ -103,17 +105,17 @@ public class Menu {
 	public void showStudent() {
 		while(true){
 			this.po = new StudentOperate();
-			System.out.println("\n          Gestion d'information des étudiants         ");
-			System.out.println("********************************************************");
-			System.out.println("*        1. Ajouter un(e) nouvel(le) étudiant(e)       *");
-			System.out.println("*        2. Afficher tous les étudiants                *");
-			System.out.println("*        3. Rechercher l'information des étudiants     *");
-			System.out.println("*        4. Supprimer un(e) étudiant(e)                *");
-			System.out.println("*        5. Modifier l'information de l'étudiant(e)    *");
-			System.out.println("*        6. Retour à l'acceuil                         *");
-			System.out.println("********************************************************");
+			System.out.println(lang.getM01_00_R02());
+			System.out.println(PrintFormat.setFormatFull(STAR));
+			System.out.println(lang.getM01_01_R02());
+			System.out.println(lang.getM01_02_R02());
+			System.out.println(lang.getM01_03_R02());
+			System.out.println(lang.getM01_04_R02());
+			System.out.println(lang.getM01_05_R02());
+			System.out.println(lang.getM01_06_R02());
+			System.out.println(PrintFormat.setFormatFull(STAR));
 			//选择操作
-			switch(input.getInt(CHOICE)){
+			switch(input.getInt(lang.getCHOICE())){
 				case 1: {
 					po.add();
 					break;
@@ -139,7 +141,7 @@ public class Menu {
 					break;
 				}
 				default: {
-					System.out.println(DEFAULTINFO);
+					System.out.println(lang.getDEFAULTINFO());
 					break;
 				}
 			}
@@ -151,16 +153,16 @@ public class Menu {
 	public void showResearchWorker() {
 		while(true){
 			this.po = new WorkerOperate();
-			System.out.println("\n         Rechercher d'information des employés        ");
-			System.out.println("********************************************************");
-			System.out.println("*               1. Rechercher tous                     *");
-			System.out.println("*               2. Rechercher par id                   *");
-			System.out.println("*               3. Rechercher par mot clé              *");
-			System.out.println("*               4. Retour au menu précédant            *");
-			System.out.println("*               5. Retour à l'acceuil                  *");
-			System.out.println("********************************************************");
+			System.out.println(lang.getM02_00_R01());
+			System.out.println(PrintFormat.setFormatFull(STAR));
+			System.out.println(lang.getM02_01_R01());
+			System.out.println(lang.getM02_02_R01());
+			System.out.println(lang.getM02_03_R01());
+			System.out.println(lang.getM02_04_R01());
+			System.out.println(lang.getM02_05_R01());
+			System.out.println(PrintFormat.setFormatFull(STAR));
 			//选择操作
-			switch(input.getInt(CHOICE)){
+			switch(input.getInt(lang.getCHOICE())){
 				case 1: {
 					po.findAll();
 					break;
@@ -182,7 +184,7 @@ public class Menu {
 					break;
 				}
 				default: {
-					System.out.println(DEFAULTINFO);
+					System.out.println(lang.getDEFAULTINFO());
 					break;
 				}
 			}
@@ -193,16 +195,16 @@ public class Menu {
 		public void showResearchStudent() {
 			while(true){
 				this.po = new StudentOperate();
-				System.out.println("\n         Rechercher d'information des étudiants       ");
-				System.out.println("********************************************************");
-				System.out.println("*               1. Rechercher tous                     *");
-				System.out.println("*               2. Rechercher par id                   *");
-				System.out.println("*               3. Rechercher par mot clé              *");
-				System.out.println("*               4. Retour au menu précédant            *");
-				System.out.println("*               5. Retour à l'acceuil                  *");
-				System.out.println("********************************************************");
+				System.out.println(lang.getM02_00_R02());
+				System.out.println(PrintFormat.setFormatFull(STAR));
+				System.out.println(lang.getM02_01_R02());
+				System.out.println(lang.getM02_02_R02());
+				System.out.println(lang.getM02_03_R02());
+				System.out.println(lang.getM02_04_R02());
+				System.out.println(lang.getM02_05_R02());
+				System.out.println(PrintFormat.setFormatFull(STAR));
 				//选择操作
-				switch(input.getInt(CHOICE)){
+				switch(input.getInt(lang.getCHOICE())){
 					case 1: {
 						po.findAll();
 						break;
@@ -224,7 +226,7 @@ public class Menu {
 						break;
 					}
 					default: {
-						System.out.println(DEFAULTINFO);
+						System.out.println(lang.getDEFAULTINFO());
 						break;
 					}
 				}

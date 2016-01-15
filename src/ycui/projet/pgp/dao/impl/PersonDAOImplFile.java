@@ -26,7 +26,6 @@ public class PersonDAOImplFile implements PersonDAO {
 					+e.getMessage());
 		}
 	} 
-	@Override
 	public boolean doCreate(Person person) throws DAOException {
 		// 插入 数据
 		// 在原有的基础上增加
@@ -41,7 +40,6 @@ public class PersonDAOImplFile implements PersonDAO {
 		return flag;
 	}
 
-	@Override
 	public boolean doUpdate(Person person) throws DAOException {
 		//id不变
 		boolean flag = false;
@@ -75,7 +73,6 @@ public class PersonDAOImplFile implements PersonDAO {
 		return flag;
 	}
 
-	@Override
 	public boolean doDelete(String id) throws DAOException {
 		boolean flag = false;
 		try {
@@ -91,7 +88,6 @@ public class PersonDAOImplFile implements PersonDAO {
 		return flag;
 	}
 	
-	@Override
 	public boolean doDeleteAll() throws DAOException {
 		boolean flag = false;
 		try{
@@ -104,12 +100,10 @@ public class PersonDAOImplFile implements PersonDAO {
 		return flag;
 	}
 
-	@Override
 	public Set<Person> doFindAll() throws DAOException {
 		return this.allPerson;
 	}
 
-	@Override
 	public Person doFindById(String id) throws DAOException {
 		Person p = null;
 		try {
@@ -128,7 +122,6 @@ public class PersonDAOImplFile implements PersonDAO {
 		return p;
 	}
 
-	@Override
 	public Set<Person> doFindByKey(String keyWord) throws DAOException {
 		Set<Person> search = new TreeSet<Person>();
 		Iterator<Person> iter = this.allPerson.iterator();

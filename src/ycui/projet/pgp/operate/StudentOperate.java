@@ -3,6 +3,7 @@ package ycui.projet.pgp.operate;
 import java.util.Iterator;
 
 import ycui.projet.pgp.exception.DAOException;
+import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.util.Stamp;
 import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Student;
@@ -71,9 +72,10 @@ public class StudentOperate extends PersonOperate {
 	}
 
 	@Override
-	public void findAll() {
+	public MessageProxy findAll() {
 		StringBuffer buf = new StringBuffer("");
 		boolean nobody = true;
+		MessageProxy mp = null;
 		try {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
 			while (iter.hasNext()) {
@@ -93,7 +95,7 @@ public class StudentOperate extends PersonOperate {
 		System.out.println(RESULTHEAD
 				+ (nobody ? ("-->La liste est vide.\n") : buf.toString())
 				+ RESULTEND);
-
+		return mp;
 	}
 
 	@Override

@@ -15,37 +15,30 @@ private PersonDAO dao = null;
 		this.dao = new PersonDAOImplFile();
 	}
 
-	@Override
 	public boolean doCreate(Person person) throws DAOException {
 		return this.dao.doCreate(person);
 	}
 
-	@Override
 	public boolean doUpdate(Person person) throws DAOException {
 		return this.dao.doUpdate(person);
 	}
 
-	@Override
 	public boolean doDelete(String id) throws DAOException {
 		return this.dao.doDelete(id);
 	}
 
-	@Override
 	public boolean doDeleteAll() throws DAOException {
 		return this.dao.doDeleteAll();
 	}
 	
-	@Override
 	public Set<Person> doFindAll() throws DAOException {
 		return this.dao.doFindAll();
 	}
 
-	@Override
 	public Person doFindById(String id) throws DAOException {
 		return this.dao.doFindById(id);
 	}
 
-	@Override
 	public Set<Person> doFindByKey(String keyWord) throws DAOException {
 		return this.dao.doFindByKey(keyWord);
 	}

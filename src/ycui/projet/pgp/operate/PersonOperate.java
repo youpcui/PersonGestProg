@@ -4,8 +4,12 @@ import java.util.Iterator;
 
 import ycui.projet.pgp.dao.PersonDAO;
 import ycui.projet.pgp.exception.DAOException;
+import ycui.projet.pgp.lang.LANG;
+import ycui.projet.pgp.lang.LanguageFactory;
+import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.proxy.PersonDAOProxyFile;
 import ycui.projet.pgp.util.InputData;
+import ycui.projet.pgp.util.PrintFormat;
 import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Student;
 import ycui.projet.pgp.vo.Worker;
@@ -13,10 +17,15 @@ import ycui.projet.pgp.vo.Worker;
 public class PersonOperate implements IPersonOperate{
 	protected PersonDAO dao = null;
 	protected InputData input = null;
+	protected LANG lang = null;
 	
 	public PersonOperate(){
 		this.dao = new PersonDAOProxyFile();
 		this.input = new InputData();
+	}
+	public PersonOperate(LangType type){
+		this();
+		this.lang = LanguageFactory.getLanguage(type);
 	}
 	/**
 	 * Ajouter les donn¨¦es.
@@ -30,21 +39,23 @@ public class PersonOperate implements IPersonOperate{
 
 	/**
 	 * Rechercher tous les donn¨¦es.
+	 * @return 
 	 */
-	public void findAll(){
+	public MessageProxy findAll(){
 		StringBuffer bufW = new StringBuffer("");
 		StringBuffer bufS = new StringBuffer("");
 		boolean nobodyW = true;
 		boolean nobodyS = true;
+		MessageProxy mp = null;
 
 		try {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
 			while(iter.hasNext()){
 				Person p = (Person) iter.next();
 				if(p instanceof Worker){
-					nobodyW =false;
+					nobodyW = false;
 					if(bufW.length() == 0){
-						bufW.append(WORKERHEAD);
+						bufW.append(PrintFormat.setFormatCenter("*"));
 					}
 					bufW.append(p.toString());
 					bufW.append("\n");
@@ -60,11 +71,18 @@ public class PersonOperate implements IPersonOperate{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		System.out.println(RESULTHEAD
-				+ (nobodyW?("-->La liste d'employ¨¦ est vide.\n"):bufW.toString())
+				+ (nobodyW?("-->La liste d'¨¦tudiant est vide.\n"):bufW.toString())
 				+ "\n"
 				+ (nobodyS?("-->La liste d'¨¦tudiant est vide.\n"):bufS.toString())
 				+ RESULTEND); 
+		
+		return mp;
+		
+		
+		
+
 	}
 
 	/**
