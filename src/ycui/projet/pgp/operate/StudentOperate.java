@@ -70,7 +70,7 @@ public class StudentOperate extends PersonOperate {
 		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
 
 	}
-
+	
 	@Override
 	public MessageProxy findAll() {
 		StringBuffer buf = new StringBuffer("");

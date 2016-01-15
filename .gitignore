@@ -28,6 +28,8 @@ lib/
 bin*
 *.obj
 
-#JRat
+#jrat
 jrat.xml
+jrat.output/
+jrat.output/*
 

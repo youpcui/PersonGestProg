@@ -9,7 +9,7 @@ public class Main implements LANG {
 	public static void main(String[] args) {
 		// new Menu();
 		String star = PrintFormat.setFormatFull(STAR);
-		String title = PrintFormat.setFormatCenter("System information");
+		String title = PrintFormat.setFormatCenter("Welcome to System");
 		String english = PrintFormat.setFormatCenter(NUM01 + "ENGLISH");
 		String french = PrintFormat.setFormatAlign(english,NUM02 + "FRANCAIS");
 		String chinese = PrintFormat.setFormatAlign(english,NUM03 + "ÖÐÎÄ");

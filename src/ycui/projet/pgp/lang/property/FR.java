@@ -1,0 +1,62 @@
+package ycui.projet.pgp.lang.property;
+
+public interface FR{
+	
+	/* FR elements */
+	public static final String L1 = " le";
+	public static final String L2 = " la";
+	public static final String L3 = " les";
+	public static final String L4 = " l'";
+
+	public static final String D1 = " de";
+	public static final String D2 = " du";
+	public static final String D3 = " des";
+	public static final String D4 = " d'";
+
+	public static final String A1 = " ¨¤";
+	public static final String A2 = " au";
+	public static final String A3 = " aux";
+
+	public static final String FEM = "(e)";
+	public static final String PLS = "(s)";
+	public static final String SIG = " un" + FEM;
+
+	/* role */
+	public static final String R01A = " employ¨¦" + FEM;// employ¨¦(e)
+	public static final String R01B = D4 + R01A;// d'employ¨¦(e)
+	public static final String R01S = SIG + R01A;// un(e) employ¨¦(e)
+	public static final String R01P = D3 + R01A + PLS;// des employ¨¦(e)(s)
+	public static final String R01Q = L3 + R01A + PLS;// les employ¨¦(e)(s)
+
+	public static final String R02A = " ¨¦tudiant" + FEM;// ¨¦tudiant(e)
+	public static final String R02B = D4 + R02A;// d'¨¦tudiant(e)
+	public static final String R02S = SIG + R02A;// un(e) ¨¦tudiant(e)
+	public static final String R02P = D3 + R02A + PLS;// des ¨¦tudiant(e)(s)
+	public static final String R02Q = L3 + R02A + PLS;// les ¨¦tudiant(e)(s)
+
+	/* system */
+	public static final String GEST = "Gestion";
+	public static final String INFO = " information";
+	public static final String LKG = "Afficher";
+	public static final String CRT = "Ajouter";
+	public static final String UPD = "Modifier";
+	public static final String RSC = "Rechercher";
+	public static final String DLT = "Supprimer";
+	public static final String LKGN = "Affichage";
+	public static final String CRTN = "Ajoute";
+	public static final String UPDN = "Modification";
+	public static final String RSCN = "Recherche";
+	public static final String DLTN = "Suppression";
+	public static final String BACK = "Retour";
+	public static final String HOME = " l'acceuil";
+	public static final String PREV = " pr¨¦c¨¦dant";
+	public static final String RESULT = "R¨¦sltat";
+
+	/**/
+
+	public static final String LIST = "La liste ";
+	public static final String EMPTY = " est vide.";
+
+	/* Exception */
+	public static final String EX1 = "";
+}

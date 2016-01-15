@@ -22,6 +22,7 @@ public class PersonOperate implements IPersonOperate{
 	public PersonOperate(){
 		this.dao = new PersonDAOProxyFile();
 		this.input = new InputData();
+		this.lang = LanguageFactory.getLanguage(LangType.Lang_EN);
 	}
 	public PersonOperate(LangType type){
 		this();
@@ -55,7 +56,7 @@ public class PersonOperate implements IPersonOperate{
 				if(p instanceof Worker){
 					nobodyW = false;
 					if(bufW.length() == 0){
-						bufW.append(PrintFormat.setFormatCenter("*"));
+						bufW.append(WORKERHEAD);
 					}
 					bufW.append(p.toString());
 					bufW.append("\n");
