@@ -1,13 +1,14 @@
 package ycui.projet.pgp.lang;
 
+
+
 import java.util.Properties;
 
 
 public abstract class Language implements LANG {
 	protected LangType type = LANG.LangType.Lang_EN;
 	public Properties menus = null;
-	
-	protected static final int space = 20; 
+	public Properties operate = null;
 	
 	public Language(){
 		this.setType(type);
@@ -21,5 +22,14 @@ public abstract class Language implements LANG {
 	public void setType(LangType type) {
 		this.type = type;
 	}
+	
+	public void Formatter(Properties prop){
+
+	}
+	
+	public static void main(String args[]){
+
+	}
+	
 }
 

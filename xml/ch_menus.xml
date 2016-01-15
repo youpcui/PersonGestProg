@@ -9,8 +9,7 @@
 <entry key="M01_02_R02">2. 显示所有学生</entry>
 <entry key="M01_02_R01">2. 显示所有员工</entry>
 <entry key="M02_03_R02">3. 通过关键字查找学生</entry>
-<entry key="WRONGCHOICE">
-请选择：</entry>
+<entry key="WRONGCHOICE">请选择：</entry>
 <entry key="M02_03_R01">3. 通过关键字查找员工</entry>
 <entry key="M01_04_R02">4. 删除一个学生</entry>
 <entry key="M02_00_R02">查找学生信息</entry>

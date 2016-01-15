@@ -16,11 +16,18 @@ public class SaveProperties_FR implements LANG,FR{
 	
 	public SaveProperties_FR(){
 		this.setFrMenus();
+		this.setFrOperate();
 	}
 
-	/* menus properties */
+	//operate properties
+	private void setFrOperate() {
+		this.prop.setProperty("M00_00", "Syst¨¨me" + D1 + " gestion" + D4 + INFO);
+		
+	}
+/*
+	// menus properties
 	private void setFrMenus() {
-		this.prop.setProperty("CHOICE", "\nChoisir le num¨¦ro:");
+		this.prop.setProperty("CHOICE", "Choisir le num¨¦ro:");
 		this.prop.setProperty("WRONGCHOICE", "Veuillez saisir un choix correct!");
 
 		this.prop.setProperty("M00_00", "Syst¨¨me" + D1 + " gestion" + D4 + INFO);
@@ -58,6 +65,7 @@ public class SaveProperties_FR implements LANG,FR{
 		this.prop.setProperty("M02_03_R02", NUM03 + RSC + " par mot cl¨¦");
 		this.prop.setProperty("M02_04_R02", NUM04 + BACK + A2 + PREV);
 		this.prop.setProperty("M02_05_R02", NUM05 + BACK + A1 + HOME);
+*/
 	}
 	
 	public static void main(String args[]){

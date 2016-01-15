@@ -21,7 +21,7 @@ public class SaveProperties_CH implements LANG,CH{
 	/* menus properties */
 	private void setChMenus() {
 		this.prop.setProperty("CHOICE", "请输入正确的选择！");
-		this.prop.setProperty("WRONGCHOICE", "\n请选择：");
+		this.prop.setProperty("WRONGCHOICE", "请选择：");
 
 		this.prop.setProperty("M00_00", INFO+GEST+"系统");
 		this.prop.setProperty("M00_01", NUM01+R01A+GEST);

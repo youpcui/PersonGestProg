@@ -52,10 +52,10 @@ public interface FR{
 	public static final String PREV = " pr¨¦c¨¦dant";
 	public static final String RESULT = "R¨¦sltat";
 
-	/**/
-
+	/*operate*/
 	public static final String LIST = "La liste ";
 	public static final String EMPTY = " est vide.";
+	
 
 	/* Exception */
 	public static final String EX1 = "";

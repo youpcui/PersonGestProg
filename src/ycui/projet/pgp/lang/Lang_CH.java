@@ -19,7 +19,7 @@ import java.util.Properties;
 		}
 		private void setChMenus() {
 			try {
-				this.ChMenus.loadFromXML(new FileInputStream("xml"+File.pathSeparator+"ch_menus.xml"));
+				this.ChMenus.loadFromXML(new FileInputStream("xml"+File.separator+"ch_menus.xml"));
 			} catch (InvalidPropertiesFormatException e) {
 				e.printStackTrace();
 			} catch (FileNotFoundException e) {
@@ -38,7 +38,7 @@ import java.util.Properties;
 		
 		private void setChOperate() {
 			try {
-				this.chOperate.loadFromXML(new FileInputStream("xml"+File.pathSeparator+"ch_operate.xml"));
+				this.chOperate.loadFromXML(new FileInputStream("xml"+File.separator+"ch_operate.xml"));
 			} catch (InvalidPropertiesFormatException e) {
 				e.printStackTrace();
 			} catch (FileNotFoundException e) {

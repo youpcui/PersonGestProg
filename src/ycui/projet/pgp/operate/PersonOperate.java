@@ -9,7 +9,6 @@ import ycui.projet.pgp.lang.LanguageFactory;
 import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.proxy.PersonDAOProxyFile;
 import ycui.projet.pgp.util.InputData;
-import ycui.projet.pgp.util.PrintFormat;
 import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Student;
 import ycui.projet.pgp.vo.Worker;

@@ -18,7 +18,7 @@ class Lang_FR extends Language {
 	}
 	private void setFrMenus() {
 		try {
-			this.frMenus.loadFromXML(new FileInputStream("xml"+File.pathSeparator+"fr_menus.xml"));
+			this.frMenus.loadFromXML(new FileInputStream("xml"+File.separator+"fr_menus.xml"));
 		} catch (InvalidPropertiesFormatException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
@@ -37,7 +37,7 @@ class Lang_FR extends Language {
 	
 	private void setFrOperate() {
 		try {
-			this.frOperate.loadFromXML(new FileInputStream("xml"+File.pathSeparator+"fr_operate.xml"));
+			this.frOperate.loadFromXML(new FileInputStream("xml"+File.separator+"fr_operate.xml"));
 		} catch (InvalidPropertiesFormatException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
@@ -52,5 +52,6 @@ class Lang_FR extends Language {
 		this.setFrMenus();
 //		this.setFrOperate();
 		super.menus = this.getFrMenus();
+		super.operate = this.getFrOperate();
 	}
 }

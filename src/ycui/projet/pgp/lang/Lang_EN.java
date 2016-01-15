@@ -19,7 +19,7 @@ import java.util.Properties;
 		}
 		private void setEnMenus() {
 			try {
-				this.enMenus.loadFromXML(new FileInputStream("xml"+File.pathSeparator+"en_menus.xml"));
+				this.enMenus.loadFromXML(new FileInputStream("xml"+File.separator+"en_menus.xml"));
 			} catch (InvalidPropertiesFormatException e) {
 				e.printStackTrace();
 			} catch (FileNotFoundException e) {
@@ -38,7 +38,7 @@ import java.util.Properties;
 		
 		private void setEnOperate() {
 			try {
-				this.enOperate.loadFromXML(new FileInputStream("xml"+File.pathSeparator+"en_operate.xml"));
+				this.enOperate.loadFromXML(new FileInputStream("xml"+File.separator+"en_operate.xml"));
 			} catch (InvalidPropertiesFormatException e) {
 				e.printStackTrace();
 			} catch (FileNotFoundException e) {
