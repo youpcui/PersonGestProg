@@ -77,15 +77,7 @@ public class PersonOperate implements IPersonOperate{
 					+ bufS.toString()
 					+ PrintFormat.setFormatFull(SEPARATOR));
 		}
-			mp.setMessage(lang.getProperty("PO_F_EX1")); //LIST EMPTY
-/*
-		System.out.println(lang.getProperty("RESULT")
-				+ PrintFormat.setFormatFull(SEPARATOR)
-				+ (nobodyW?("-->La liste d'¨¦tudiant est vide.\n"):bufW.toString())
-				+ "\n"
-				+ (nobodyS?("-->La liste d'¨¦tudiant est vide.\n"):bufS.toString())
-				+ RESULTEND); 
-*/		
+			mp.setMessage(lang.getProperty("PO_F_EX1")); //LIST EMPTY	
 		return mp;
 	}
 

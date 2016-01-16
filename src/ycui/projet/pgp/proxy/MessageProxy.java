@@ -3,7 +3,7 @@ package ycui.projet.pgp.proxy;
 import java.io.Serializable;
 
 public class MessageProxy implements Serializable {
-	
+	private static final long serialVersionUID = -2138855284216336998L;	
 	private String message = null;
 	private String data = null;
 	private boolean dataReady = false;
@@ -11,10 +11,8 @@ public class MessageProxy implements Serializable {
 	public MessageProxy() {
 		this.setData(null);
 		this.setMessage(null);
-	}
-	private static final long serialVersionUID = -2138855284216336998L;
-	
-	
+		this.setdataReady(false);
+	}	
 	public String getMessage() {
 		return this.message;
 	}
