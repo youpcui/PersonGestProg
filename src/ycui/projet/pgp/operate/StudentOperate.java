@@ -9,10 +9,9 @@ import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Student;
 
 public class StudentOperate extends PersonOperate {
-	public StudentOperate() {
-		super();
+	public StudentOperate(LangType type) {
+		super(type);
 	}
-
 	@Override
 	public void add() {
 		boolean flag = false;
@@ -83,7 +82,7 @@ public class StudentOperate extends PersonOperate {
 				if (p instanceof Student) {
 					nobody = false;
 					if (buf.length() == 0) {
-						buf.append(STUDENTHEAD);
+						buf.append(this.lang.operate.getProperty("STUDENTHEAD"));
 					}
 					buf.append(p.toString());
 					buf.append("\n");
@@ -109,7 +108,7 @@ public class StudentOperate extends PersonOperate {
 			if (p != null && p instanceof Student) {
 				nobody = false;
 				if (buf.length() == 0) {
-					buf.append(STUDENTHEAD);
+					buf.append(this.lang.operate.getProperty("STUDENTHEAD"));
 				}
 				buf.append(p.toString());
 				buf.append("\n");
@@ -135,7 +134,7 @@ public class StudentOperate extends PersonOperate {
 				if (p instanceof Student) {
 					nobody = false;
 					if (buf.length() == 0) {
-						buf.append(STUDENTHEAD);
+						buf.append(this.lang.operate.getProperty("STUDENTHEAD"));
 					}
 					buf.append(p.toString());
 					buf.append("\n");
@@ -181,5 +180,8 @@ public class StudentOperate extends PersonOperate {
 	public void deleteAll() {
 		System.out.println(RESULTHEAD
 				+ "Vous avez pas d'autoris¨¦ ¨¤ supprimer tous!" + RESULTEND);
+	}
+	
+	public static void main(String args[]){
 	}
 }

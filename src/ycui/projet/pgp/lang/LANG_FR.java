@@ -50,7 +50,7 @@ class Lang_FR extends Language {
 	public Lang_FR() {
 		super(type);
 		this.setFrMenus();
-//		this.setFrOperate();
+		this.setFrOperate();
 		super.menus = this.getFrMenus();
 		super.operate = this.getFrOperate();
 	}

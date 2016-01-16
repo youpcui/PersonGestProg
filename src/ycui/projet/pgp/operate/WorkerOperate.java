@@ -9,8 +9,8 @@ import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Worker;
 
 public class WorkerOperate extends PersonOperate {
-	public WorkerOperate() {
-		super();
+	public WorkerOperate(LangType type) {
+		super(type);
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class WorkerOperate extends PersonOperate {
 				if (p instanceof Worker) {
 					nobody = false;
 					if (buf.length() == 0) {
-						buf.append(WORKERHEAD);
+						buf.append(this.lang.operate.getProperty("WORKERHEAD"));
 					}
 					buf.append(p.toString());
 					buf.append("\n");
@@ -109,7 +109,7 @@ public class WorkerOperate extends PersonOperate {
 			if (p != null && p instanceof Worker) {
 				nobody = false;
 				if (buf.length() == 0) {
-					buf.append(WORKERHEAD);
+					buf.append(this.lang.operate.getProperty("WORKERHEAD"));
 				}
 				buf.append(p.toString());
 				buf.append("\n");
@@ -134,7 +134,7 @@ public class WorkerOperate extends PersonOperate {
 				if (p instanceof Worker) {
 					nobody = false;
 					if (buf.length() == 0) {
-						buf.append(WORKERHEAD);
+						buf.append(this.lang.operate.getProperty("WORKERHEAD"));
 					}
 					buf.append(p.toString());
 					buf.append("\n");

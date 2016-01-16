@@ -37,6 +37,7 @@ public interface FR{
 	/* system */
 	public static final String GEST = "Gestion";
 	public static final String INFO = " information";
+	public static final String INPUT = "Saisir";
 	public static final String LKG = "Afficher";
 	public static final String CRT = "Ajouter";
 	public static final String UPD = "Modifier";
@@ -50,13 +51,19 @@ public interface FR{
 	public static final String BACK = "Retour";
 	public static final String HOME = " l'acceuil";
 	public static final String PREV = " pr¨¦c¨¦dant";
-	public static final String RESULT = "R¨¦sltat";
+	
+
 
 	/*operate*/
-	public static final String LIST = "La liste ";
+	public static final String ID = "ID";
+	public static final String NAME = "NOM";
+	public static final String AGE = "AGE";
+	public static final String SALARY = "SALAIRE";
+	public static final String SCORE = "NOTES";
+	
+	public static final String RESULT = "R¨¦sultat";
+	public static final String LIST = "La liste";
 	public static final String EMPTY = " est vide.";
 	
 
-	/* Exception */
-	public static final String EX1 = "";
 }

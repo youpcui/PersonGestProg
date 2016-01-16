@@ -2,6 +2,7 @@ package ycui.projet.pgp.menu;
 
 import ycui.projet.pgp.lang.*;
 import ycui.projet.pgp.operate.*;
+import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.util.InputData;
 import ycui.projet.pgp.util.PrintFormat;
 
@@ -9,6 +10,7 @@ public class Menu implements LANG{
 	private InputData input = null;
 	private PersonOperate po = null;
 	private Language lang = null;
+	private MessageProxy mp = null;
 	
 	public Menu(LangType type) {
 		this.input = new InputData(); // check value
@@ -39,7 +41,8 @@ public class Menu implements LANG{
 					break;
 				}
 				case 3: {
-					po.findAll();
+					mp = po.findAll();
+					System.out.println(mp.isdataReady()?mp.getData():mp.getMessage());
 					break;
 				}
 				case 4: {
@@ -57,7 +60,7 @@ public class Menu implements LANG{
 	// 员工信息管理菜单
 	public void showWorker() {
 		while(true){
-			this.po = new WorkerOperate();
+			this.po = new WorkerOperate(this.lang.getType());
 			System.out.println(formatMenus("M01_00_R01"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			System.out.println(formatMenus("M01_01_R01"));
@@ -104,7 +107,7 @@ public class Menu implements LANG{
 	// 学生信息管理菜单
 	public void showStudent() {
 		while(true){
-			this.po = new StudentOperate();
+			this.po = new StudentOperate(this.lang.getType());
 			System.out.println(formatMenus("M01_00_R02"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			System.out.println(formatMenus("M01_01_R02"));
@@ -152,7 +155,7 @@ public class Menu implements LANG{
 	// 查找员工信息菜单
 	public void showResearchWorker() {
 		while(true){
-			this.po = new WorkerOperate();
+			this.po = new WorkerOperate(this.lang.getType());
 			System.out.println(formatMenus("M02_00_R01"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			System.out.println(formatMenus("M02_01_R01"));
@@ -194,7 +197,7 @@ public class Menu implements LANG{
 	// 查找学生信息菜单
 		public void showResearchStudent() {
 			while(true){
-				this.po = new StudentOperate();
+				this.po = new StudentOperate(this.lang.getType());
 				System.out.println(formatMenus("M02_00_R02"));
 				System.out.println(PrintFormat.setFormatFull(STAR));
 				System.out.println(formatMenus("M02_01_R02"));

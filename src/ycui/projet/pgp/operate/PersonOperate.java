@@ -4,11 +4,12 @@ import java.util.Iterator;
 
 import ycui.projet.pgp.dao.PersonDAO;
 import ycui.projet.pgp.exception.DAOException;
-import ycui.projet.pgp.lang.LANG;
+import ycui.projet.pgp.lang.Language;
 import ycui.projet.pgp.lang.LanguageFactory;
 import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.proxy.PersonDAOProxyFile;
 import ycui.projet.pgp.util.InputData;
+import ycui.projet.pgp.util.PrintFormat;
 import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Student;
 import ycui.projet.pgp.vo.Worker;
@@ -16,15 +17,11 @@ import ycui.projet.pgp.vo.Worker;
 public class PersonOperate implements IPersonOperate{
 	protected PersonDAO dao = null;
 	protected InputData input = null;
-	protected LANG lang = null;
-	
-	public PersonOperate(){
+	protected Language lang = null;
+
+	public PersonOperate(LangType type){
 		this.dao = new PersonDAOProxyFile();
 		this.input = new InputData();
-		this.lang = LanguageFactory.getLanguage(LangType.Lang_EN);
-	}
-	public PersonOperate(LangType type){
-		this();
 		this.lang = LanguageFactory.getLanguage(type);
 	}
 	/**
@@ -46,7 +43,7 @@ public class PersonOperate implements IPersonOperate{
 		StringBuffer bufS = new StringBuffer("");
 		boolean nobodyW = true;
 		boolean nobodyS = true;
-		MessageProxy mp = null;
+		MessageProxy mp = new MessageProxy();
 
 		try {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
@@ -55,14 +52,14 @@ public class PersonOperate implements IPersonOperate{
 				if(p instanceof Worker){
 					nobodyW = false;
 					if(bufW.length() == 0){
-						bufW.append(WORKERHEAD);
+						bufW.append(lang.getProperty("WORKERHEAD"));
 					}
 					bufW.append(p.toString());
 					bufW.append("\n");
 				}else if(p instanceof Student){
 					nobodyS = false;
 					if(bufS.length() == 0){
-						bufS.append(STUDENTHEAD);
+						bufS.append(lang.getProperty("STUDENTHEAD"));
 					}
 					bufS.append(p.toString());
 					bufS.append("\n");
@@ -71,18 +68,25 @@ public class PersonOperate implements IPersonOperate{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println(RESULTHEAD
+		if(!nobodyW || !nobodyS){
+			mp.setData(PrintFormat.setFormatCenter(lang.getProperty("RESULT"))
+					+ "\n"
+					+ PrintFormat.setFormatFull(SEPARATOR)
+					+ bufW.toString()
+					+ "\n"
+					+ bufS.toString()
+					+ PrintFormat.setFormatFull(SEPARATOR));
+		}
+			mp.setMessage(lang.getProperty("PO_F_EX1")); //LIST EMPTY
+/*
+		System.out.println(lang.getProperty("RESULT")
+				+ PrintFormat.setFormatFull(SEPARATOR)
 				+ (nobodyW?("-->La liste d'¨¦tudiant est vide.\n"):bufW.toString())
 				+ "\n"
 				+ (nobodyS?("-->La liste d'¨¦tudiant est vide.\n"):bufS.toString())
 				+ RESULTEND); 
-		
+*/		
 		return mp;
-		
-		
-		
-
 	}
 
 	/**

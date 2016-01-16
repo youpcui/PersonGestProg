@@ -6,13 +6,10 @@ import java.util.Properties;
 
 
 public abstract class Language implements LANG {
-	protected LangType type = LANG.LangType.Lang_EN;
+	protected LangType type = null;
 	public Properties menus = null;
 	public Properties operate = null;
-	
-	public Language(){
-		this.setType(type);
-	}
+
 	public Language(LangType lt){
 		this.setType(lt);
 	}
@@ -22,14 +19,8 @@ public abstract class Language implements LANG {
 	public void setType(LangType type) {
 		this.type = type;
 	}
-	
-	public void Formatter(Properties prop){
-
+	public String getProperty(String key){
+		return this.operate.getProperty(key);
 	}
-	
-	public static void main(String args[]){
-
-	}
-	
 }
 

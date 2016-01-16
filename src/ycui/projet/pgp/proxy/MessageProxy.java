@@ -2,13 +2,18 @@ package ycui.projet.pgp.proxy;
 
 import java.io.Serializable;
 
-import ycui.projet.pgp.lang.Language;
-
-public class MessageProxy extends Language implements Serializable {
-	private static final long serialVersionUID = -2138855284216336998L;
+public class MessageProxy implements Serializable {
+	
 	private String message = null;
 	private String data = null;
 	private boolean dataReady = false;
+	
+	public MessageProxy() {
+		this.setData(null);
+		this.setMessage(null);
+	}
+	private static final long serialVersionUID = -2138855284216336998L;
+	
 	
 	public String getMessage() {
 		return this.message;

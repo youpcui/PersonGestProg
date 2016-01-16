@@ -4,8 +4,6 @@ import ycui.projet.pgp.lang.LANG;
 import ycui.projet.pgp.proxy.MessageProxy;
 
 public interface IPersonOperate extends LANG{
-	public static final String WORKERHEAD = "Employ¨¦(e)(s)\t\tNom\t\tAge\tSalaire\n";
-	public static final String STUDENTHEAD = "Etudiant(e)(s)\t\tNom\t\tAge\tNotes\n";
 	public static final String RESULTHEAD = "\n------------------------R¨¦sultat------------------------\n";
 	public static final String RESULTEND = "--------------------------------------------------------\n";
 
