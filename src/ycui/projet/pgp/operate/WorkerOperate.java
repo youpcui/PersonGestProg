@@ -14,25 +14,30 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public void add() {
+	public MessageProxy add() {
+		MessageProxy mp = new MessageProxy();
 		boolean flag = false;
 		Worker w = new Worker(new Stamp("1").getTimeStampRandom(),
-				input.getString("Saisir le nom d'employé:"),
-				input.getInt("Saisir l'age:"),
-				input.getFloat("Saisir le salaire:"));
+				input.getString(lang.getProperty("PO_01_NAME")),
+				input.getInt(lang.getProperty("PO_01_AGE")),
+				input.getFloat(lang.getProperty("PO_01_R01_SALARY")));
 		try {
 			flag = this.dao.doCreate(w);
 		} catch (DAOException e) {
-			System.err
-					.println("Echec d'insérer employé(e)-->" + e.getMessage());
+			e.printStackTrace();
 		}
-		System.out.println(RESULTHEAD + "-->L'employé(e) " + w.getName() // 员工名字
-				+ (flag ? " est bien " : " n'est pas ")// 成功与否
-				+ "ajouté(e).\n" + RESULTEND);
+		mp.setStatus(flag);
+		if(mp.isStatus()){
+			mp.setMessage(SYSINFO + lang.getProperty("PO_01_R01_OK")+w.getName());
+		}else{
+			mp.setMessage(SYSINFO + lang.getProperty("PO_01_R01_KO")+w.getName());
+		}
+		return mp;
 	}
-
+/*
 	@Override
-	public void update() {
+	public MessageProxy update() {
+		MessageProxy mp = new MessageProxy();
 		boolean flag = false;
 		StringBuffer buf = new StringBuffer("");
 		Person p = null;
@@ -69,10 +74,12 @@ public class WorkerOperate extends PersonOperate {
 			e.printStackTrace();
 		}
 		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
+		return mp;
 	}
 
 	@Override
 	public MessageProxy findAll() {
+		MessageProxy mp = new MessageProxy();
 		StringBuffer buf = new StringBuffer("");
 		boolean nobody = true;
 		MessageProxy mp = null;
@@ -83,7 +90,7 @@ public class WorkerOperate extends PersonOperate {
 				if (p instanceof Worker) {
 					nobody = false;
 					if (buf.length() == 0) {
-						buf.append(this.lang.operate.getProperty("WORKERHEAD"));
+						buf.append(lang.getProperty("WORKERHEAD"));
 					}
 					buf.append(p.toString());
 					buf.append("\n");
@@ -99,7 +106,8 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public void findById() {
+	public MessageProxy findById() {
+		MessageProxy mp = new MessageProxy();
 		StringBuffer buf = new StringBuffer("");
 		Person p = null;
 		boolean nobody = true;
@@ -109,7 +117,7 @@ public class WorkerOperate extends PersonOperate {
 			if (p != null && p instanceof Worker) {
 				nobody = false;
 				if (buf.length() == 0) {
-					buf.append(this.lang.operate.getProperty("WORKERHEAD"));
+					buf.append(lang.getProperty("WORKERHEAD"));
 				}
 				buf.append(p.toString());
 				buf.append("\n");
@@ -120,10 +128,12 @@ public class WorkerOperate extends PersonOperate {
 		System.out.println(RESULTHEAD
 				+ (nobody ? "-->L'employé(e) n'est pas trouvé.\n" : buf
 						.toString()) + RESULTEND);
+		return mp;
 	}
 
 	@Override
-	public void findByKey() {
+	public MessageProxy findByKey() {
+		MessageProxy mp = new MessageProxy();
 		StringBuffer buf = new StringBuffer("");
 		String keyWord = this.input.getString("Saisir mot clé:");
 		boolean nobody = true;
@@ -134,7 +144,7 @@ public class WorkerOperate extends PersonOperate {
 				if (p instanceof Worker) {
 					nobody = false;
 					if (buf.length() == 0) {
-						buf.append(this.lang.operate.getProperty("WORKERHEAD"));
+						buf.append(lang.getProperty("WORKERHEAD"));
 					}
 					buf.append(p.toString());
 					buf.append("\n");
@@ -147,10 +157,12 @@ public class WorkerOperate extends PersonOperate {
 				.println(RESULTHEAD
 						+ (nobody ? ("-->Ne personne correspond à \"" + keyWord + "\".\n")
 								: buf.toString()) + RESULTEND);
+		return mp;
 	}
 
 	@Override
-	public void delete() {
+	public MessageProxy delete() {
+		MessageProxy mp = new MessageProxy();
 		boolean flag = false;
 		StringBuffer buf = new StringBuffer("");
 		Person p = null;
@@ -174,18 +186,7 @@ public class WorkerOperate extends PersonOperate {
 			e.printStackTrace();
 		}
 		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
+		return mp;
 	}
-
-	@Override
-	public void deleteAll() {
-		System.out.println(RESULTHEAD
-				+ "Vous avez pas d'autorisé à supprimer tous!" + RESULTEND);
-	}
-/*	
-	public static void main(String args[]){
-		WorkerOperate wo = new WorkerOperate();
-		
-		wo.findAll();
-	}
-*/
+	*/
 }

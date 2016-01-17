@@ -22,8 +22,7 @@ public class PersonDAOImplFile implements PersonDAO {
 		try {
 			this.allPerson =  (Set<Person>) fo.load();
 		} catch (FileIOException e) {
-			System.err.println("Echec d'ouvrir person.obj!-->"
-					+e.getMessage());
+			e.printStackTrace();
 		}
 	} 
 	public boolean doCreate(Person person) throws DAOException {
@@ -34,41 +33,21 @@ public class PersonDAOImplFile implements PersonDAO {
 			flag = this.allPerson.add(person);
 			flag = flag && this.fo.save(this.allPerson);
 		} catch (FileIOException e) {
-			System.err.println("Echec d'insérer "+person.getId()+"!-->"
-					+e.getMessage());
+			e.printStackTrace();
 		}
 		return flag;
 	}
 
 	public boolean doUpdate(Person person) throws DAOException {
-		//id不变
 		boolean flag = false;
 		try {
-			
 			Person orig = this.doFindById(person.getId());
 			Person dest = person;
-/*
-			if(orig instanceof Student){ // 如果匹配学生
-				destS = (Student) person;
-//				orig.setId(dest.getId());
-//				orig.setName(dest.getName());
-//				orig.setAge(dest.getAge());
-//				((Student) orig).setScore(dest.getScore());
-			}
-			if(orig instanceof Worker){ // 如果匹配工人
-				destW = (Worker) person;
-//				orig.setId(dest.getId());
-//				orig.setName(dest.getName());
-//				orig.setAge(dest.getAge());
-//				((Worker) orig).setSalary(dest.getSalary());
-			}
-*/
 			flag = this.allPerson.remove(orig);
 			flag = flag && this.allPerson.add(dest);
 			flag = flag && this.fo.save(this.allPerson);
 		} catch (FileIOException e) {
-			System.err.println("Echec de mettre à jour "+person.getId()+"!-->"
-					+e.getMessage());
+			e.printStackTrace();
 		}
 		return flag;
 	}
@@ -82,8 +61,7 @@ public class PersonDAOImplFile implements PersonDAO {
 				}
 				flag = flag && this.fo.save(this.allPerson);
 		} catch (FileIOException e) {
-			System.err.println("Echec de supprimer "+id+"!-->"
-					+e.getMessage());
+			e.printStackTrace();
 		}
 		return flag;
 	}
@@ -94,8 +72,7 @@ public class PersonDAOImplFile implements PersonDAO {
 			flag = this.allPerson.removeAll(allPerson);
 			flag = flag && this.fo.save(allPerson);
 		} catch (FileIOException e) {
-			System.err.println("Echec de supprimer!-->"
-					+e.getMessage());
+			e.printStackTrace();
 		}
 		return flag;
 	}
@@ -116,8 +93,7 @@ public class PersonDAOImplFile implements PersonDAO {
 				}
 			}
 		} catch (Exception e) {
-			System.err.println("Personne correspond à "+id+"!-->"
-					+e.getMessage());
+			e.printStackTrace();
 		}
 		return p;
 	}

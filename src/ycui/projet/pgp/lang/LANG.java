@@ -5,7 +5,7 @@ public interface LANG{
 		Lang_EN,
 		Lang_FR,
 		Lang_CH
-	}
+	};
 	
 	public static final String SYSINFO = "-->";
 	public static final String STAR = "*";

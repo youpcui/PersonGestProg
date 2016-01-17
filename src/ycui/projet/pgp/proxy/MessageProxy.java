@@ -4,36 +4,32 @@ import java.io.Serializable;
 
 public class MessageProxy implements Serializable {
 	private static final long serialVersionUID = -2138855284216336998L;	
-	private String message = null;
-	private String data = null;
-	private boolean dataReady = false;
-	
-	public MessageProxy() {
-		this.setData(null);
-		this.setMessage(null);
-		this.setdataReady(false);
-	}	
+	private String message;
+	private boolean status;
+
+	public MessageProxy(){
+		message = null;
+		status = false;
+	}
+	public boolean isStatus() {
+		return status;
+	}
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	public String getMessage() {
-		return this.message;
+		return message;
 	}
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public String getData() {
-		return this.data;
-	}
-	public void setData(String data) {
-		if(data==null){
-			setMessage("No data!");
-			setdataReady(false);
-		}
-		this.data = data;
-		setdataReady(true);
-	}
-	public boolean isdataReady() {
-		return dataReady;
-	}
-	private void setdataReady(boolean flag) {
-		this.dataReady = flag;
+	
+	public static void main(String args[]){
+		MessageProxy proxy = new MessageProxy();
+//		boolean b = true;
+		String str = "str";
+		proxy.setMessage(str);
+		System.out.println(proxy.getMessage());
+		
 	}
 }

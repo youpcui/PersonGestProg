@@ -30,15 +30,15 @@ public class Main implements LANG {
 				break;
 			}
 			case 1: {
-				new Menu(LANG.LangType.Lang_EN);
+				new Menu(LangType.Lang_EN);
 				break;
 			}
 			case 2: {
-				new Menu(LANG.LangType.Lang_FR);
+				new Menu(LangType.Lang_FR);
 				break;
 			}
 			case 3: {
-				new Menu(LANG.LangType.Lang_CH);
+				new Menu(LangType.Lang_CH);
 				break;
 			}
 			default: {

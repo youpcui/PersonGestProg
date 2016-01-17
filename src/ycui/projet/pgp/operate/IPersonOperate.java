@@ -4,18 +4,15 @@ import ycui.projet.pgp.lang.LANG;
 import ycui.projet.pgp.proxy.MessageProxy;
 
 public interface IPersonOperate extends LANG{
-	public static final String RESULTHEAD = "\n------------------------R¨¦sultat------------------------\n";
-	public static final String RESULTEND = "--------------------------------------------------------\n";
-
 	/**
 	 * Ajouter les donn¨¦es.
 	 */
-	public void add();
+	public MessageProxy add();
 
 	/**
 	 * Modifier les donn¨¦es.
 	 */
-	public void update();
+	public MessageProxy update();
 
 	/**
 	 * Rechercher tous les donn¨¦es.
@@ -25,15 +22,15 @@ public interface IPersonOperate extends LANG{
 	/**
 	 * Rechercher une donn¨¦e par id 
 	 */
-	public void findById();
+	public MessageProxy findById();
 
 	/**
 	 * REchercher une donn¨¦e par mot cl¨¦
 	 */
-	public void findByKey();
+	public MessageProxy findByKey();
 
 	/**
 	 * Supprimer une donn¨¦e
 	 */
-	public void delete();
+	public MessageProxy delete();
 }

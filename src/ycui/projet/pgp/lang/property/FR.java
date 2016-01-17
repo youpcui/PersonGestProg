@@ -20,16 +20,24 @@ public interface FR{
 	public static final String FEM = "(e)";
 	public static final String PLS = "(s)";
 	public static final String SIG = " un" + FEM;
+	
+	public static final String NOT = " pas";
+	public static final String BE = " est";
+	public static final String BES = " sont";
+	public static final String ALL = " tous";
+	
 
 	/* role */
 	public static final String R01A = " employ¨¦" + FEM;// employ¨¦(e)
 	public static final String R01B = D4 + R01A;// d'employ¨¦(e)
+	public static final String R01C = L4 + R01A;// l'employ¨¦(e)
 	public static final String R01S = SIG + R01A;// un(e) employ¨¦(e)
 	public static final String R01P = D3 + R01A + PLS;// des employ¨¦(e)(s)
 	public static final String R01Q = L3 + R01A + PLS;// les employ¨¦(e)(s)
 
 	public static final String R02A = " ¨¦tudiant" + FEM;// ¨¦tudiant(e)
 	public static final String R02B = D4 + R02A;// d'¨¦tudiant(e)
+	public static final String R02C = L4 + R02A;// l'employ¨¦(e)
 	public static final String R02S = SIG + R02A;// un(e) ¨¦tudiant(e)
 	public static final String R02P = D3 + R02A + PLS;// des ¨¦tudiant(e)(s)
 	public static final String R02Q = L3 + R02A + PLS;// les ¨¦tudiant(e)(s)
@@ -44,13 +52,16 @@ public interface FR{
 	public static final String RSC = "Rechercher";
 	public static final String DLT = "Supprimer";
 	public static final String LKGN = "Affichage";
-	public static final String CRTN = "Ajoute";
-	public static final String UPDN = "Modification";
-	public static final String RSCN = "Recherche";
-	public static final String DLTN = "Suppression";
+	public static final String CRTN = " ajoute";
+	public static final String UPDN = " modification";
+	public static final String RSCN = " recherche";
+	public static final String DLTN = " suppression";
 	public static final String BACK = "Retour";
 	public static final String HOME = " l'acceuil";
 	public static final String PREV = " pr¨¦c¨¦dant";
+	
+	public static final String OK= "Succ¨¨s";
+	public static final String KO= "Echec";
 	
 
 

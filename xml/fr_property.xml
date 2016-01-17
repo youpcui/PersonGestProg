@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>francais</comment>
+<entry key="M02_02_R01">2. Rechercher par id</entry>
+<entry key="PO_02_R02_OK">--</entry>
+<entry key="PO_04_R01_KO">Echec de suppression l' employé(e)</entry>
+<entry key="M00_05">5. Sortie</entry>
+<entry key="M01_05_R02">5. Modifier l' information d' étudiant(e)</entry>
+<entry key="M00_04">4. Supprimer tous personnes</entry>
+<entry key="M01_05_R01">5. Modifier l' information d' employé(e)</entry>
+<entry key="PO_04_OK">Succès de suppression tous</entry>
+<entry key="M00_03">3. Afficher tous personnes</entry>
+<entry key="PO_01_R02_SCORE">NOTES:</entry>
+<entry key="M00_02">2. Gestion des étudiant(e)(s)</entry>
+<entry key="M00_01">1. Gestion des employé(e)(s)</entry>
+<entry key="WORKERHEAD">ID d' employé(e)	NOM		AGE	SALAIRE
+</entry>
+<entry key="M00_00">Système de gestion d' information</entry>
+<entry key="M02_05_R02">5. Retour à l'acceuil</entry>
+<entry key="M01_01_R02">1. Ajouter un(e) étudiant(e)</entry>
+<entry key="M02_05_R01">5. Retour à l'acceuil</entry>
+<entry key="M01_01_R01">1. Ajouter un(e) employé(e)</entry>
+<entry key="WRONGCHOICE">Veuillez saisir un choix correct!</entry>
+<entry key="PO_04_R02_OK">Succès de suppression l' étudiant(e)</entry>
+<entry key="PO_01_R02_KO">Echec d' ajoute un(e) étudiant(e):</entry>
+<entry key="CHOICE">Saisir le choix:</entry>
+<entry key="M02_01_R02">1. Rechercher tous</entry>
+<entry key="M02_01_R01">1. Rechercher tous</entry>
+<entry key="STUDENTHEAD">ID d' étudiant(e)	NOM		AGE	NOTES
+</entry>
+<entry key="PO_02_R02_KO">--</entry>
+<entry key="M01_04_R02">4. Supprimer un(e) étudiant(e)</entry>
+<entry key="PO_04_KO">Echec de suppression tous</entry>
+<entry key="M01_04_R01">4. Supprimer un(e) employé(e)</entry>
+<entry key="PO_03_R02_KO">La liste est vide.</entry>
+<entry key="PO_01_AGE">AGE:</entry>
+<entry key="M02_04_R02">4. Retour au précédant</entry>
+<entry key="M01_00_R02">Gestion des étudiant(e)(s)</entry>
+<entry key="M02_04_R01">4. Retour au précédant</entry>
+<entry key="M01_00_R01">Gestion des employé(e)(s)</entry>
+<entry key="PO_04_R02_KO">Echec de suppression l' étudiant(e)</entry>
+<entry key="M02_00_R02">Rechercher l' information des étudiant(e)(s)</entry>
+<entry key="M02_00_R01">Rechercher l' information des employé(e)(s)</entry>
+<entry key="PO_01_R01_OK">Succès d' ajoute un(e) employé(e):</entry>
+<entry key="PO_01_R01_SALARY">SALAIRE:</entry>
+<entry key="M01_03_R02">3. Rechercher l' information des étudiant(e)(s)</entry>
+<entry key="PO_02_R01_OK">--</entry>
+<entry key="M01_03_R01">3. Rechercher l' information des employé(e)(s)</entry>
+<entry key="M02_03_R02">3. Rechercher par mot clé</entry>
+<entry key="PO_01_NAME">NOM:</entry>
+<entry key="M02_03_R01">3. Rechercher par mot clé</entry>
+<entry key="PO_04_R01_OK">Succès de suppression l' employé(e)</entry>
+<entry key="M01_06_R02">6. Retour à l'acceuil</entry>
+<entry key="PO_01_R01_KO">Echec d' ajoute un(e) employé(e):</entry>
+<entry key="M01_06_R01">6. Retour à l'acceuil</entry>
+<entry key="PO_02_R01_KO">--</entry>
+<entry key="M01_02_R02">2. Afficher les étudiant(e)(s)</entry>
+<entry key="M01_02_R01">2. Afficher les employé(e)(s)</entry>
+<entry key="PO_03_KO">La liste est vide.</entry>
+<entry key="PO_01_R02_OK">Succès d' ajoute un(e) étudiant(e):</entry>
+<entry key="RESULT">Résultat</entry>
+<entry key="PO_03_R01_KO">La liste est vide.</entry>
+<entry key="M02_02_R02">2. Rechercher par id</entry>
+</properties>

@@ -27,12 +27,12 @@ public class PersonOperate implements IPersonOperate{
 	/**
 	 * Ajouter les données.
 	 */
-	public void add(){}
+	public MessageProxy add(){return null;}
 
 	/**
 	 * Modifier les données.
 	 */
-	public void update(){}
+	public MessageProxy update(){return null;}
 
 	/**
 	 * Rechercher tous les données.
@@ -68,50 +68,53 @@ public class PersonOperate implements IPersonOperate{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		if(!nobodyW || !nobodyS){
-			mp.setData(PrintFormat.setFormatCenter(lang.getProperty("RESULT"))
+		mp.setStatus(!nobodyW || !nobodyS);
+		if(mp.isStatus()){
+			mp.setMessage(PrintFormat.setFormatCenter(lang.getProperty("RESULT"))
 					+ "\n"
-					+ PrintFormat.setFormatFull(SEPARATOR)
+					+ PrintFormat.setFormatFull(SEPARATOR)+"\n"
 					+ bufW.toString()
 					+ "\n"
 					+ bufS.toString()
 					+ PrintFormat.setFormatFull(SEPARATOR));
+		}else{
+			mp.setMessage(SYSINFO + lang.getProperty("PO_03_KO")); //LIST EMPTY
 		}
-			mp.setMessage(lang.getProperty("PO_F_EX1")); //LIST EMPTY	
 		return mp;
 	}
 
 	/**
 	 * Rechercher une donnée par id 
 	 */
-	public void findById(){}
+	public MessageProxy findById(){return null;}
 
 	/**
 	 * REchercher une donnée par mot clé
 	 */
-	public void findByKey(){}
+	public MessageProxy findByKey(){return null;}
 
 	/**
 	 * Supprimer une donnée
 	 */
-	public void delete(){}
+	public MessageProxy delete(){return null;}
 
 	/**
 	 * Supprimer tous les données
 	 */
-	public void deleteAll(){
+	public MessageProxy deleteAll(){
+		MessageProxy mp = new MessageProxy();
 		boolean flag = false;
 		try {
-			this.dao.doDeleteAll();
-			flag = true;
+			flag = this.dao.doDeleteAll();
 		} catch (DAOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(RESULTHEAD
-				+ "Tous les personnes" // 员工名字
-				+ (flag?" est bien ":" n'est pas ")//成功与否
-				+ "supprimé(e).\n" + RESULTEND);
-		
+		mp.setStatus(flag);
+		if(mp.isStatus()){
+			mp.setMessage(lang.getProperty("PO_04_OK"));
+		}else{
+			mp.setMessage(lang.getProperty("PO_04_KO"));
+		}
+		return mp;
 	}
 }

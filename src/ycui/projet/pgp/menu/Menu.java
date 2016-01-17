@@ -21,16 +21,17 @@ public class Menu implements LANG {
 	// 主菜单
 	public void showMain() {
 		while (true) {
-			this.po = new PersonOperate(this.lang.getType());
+			this.po = new PersonOperate(lang.getType());
 			System.out.println(formatMenus("M00_00"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			System.out.println(formatMenus("M00_01"));
 			System.out.println(formatMenus("M00_02"));
 			System.out.println(formatMenus("M00_03"));
 			System.out.println(formatMenus("M00_04"));
+			System.out.println(formatMenus("M00_05"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.menus.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.getProperty("CHOICE"))) {
 			case 1: {
 				showWorker();
 				break;
@@ -41,16 +42,20 @@ public class Menu implements LANG {
 			}
 			case 3: {
 				mp = po.findAll();
-				System.out.println(mp.isdataReady() ? 
-						mp.getData(): SYSINFO + mp.getMessage());
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 4: {
+				mp = po.deleteAll();
+				System.out.println(mp.getMessage());
+				break;
+			}
+			case 5: {
 				System.exit(1);
 				break;
 			}
 			default: {
-				System.out.println(lang.menus.getProperty("WRONGCHOICE"));
+				System.out.println(lang.getProperty("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -60,7 +65,7 @@ public class Menu implements LANG {
 	// 员工信息管理菜单
 	public void showWorker() {
 		while (true) {
-			this.po = new WorkerOperate(this.lang.getType());
+			this.po = new WorkerOperate(lang.getType());
 			System.out.println(formatMenus("M01_00_R01"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			System.out.println(formatMenus("M01_01_R01"));
@@ -71,13 +76,15 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M01_06_R01"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.menus.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.getProperty("CHOICE"))) {
 			case 1: {
-				po.add();
+				mp = po.add();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 2: {
-				po.findAll();
+				mp = po.findAll();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 3: {
@@ -85,11 +92,13 @@ public class Menu implements LANG {
 				break;
 			}
 			case 4: {
-				po.delete();
+				mp = po.delete();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 5: {
-				po.update();
+				mp = po.update();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 6: {
@@ -97,7 +106,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.menus.getProperty("WRONGCHOICE"));
+				System.out.println(lang.getProperty("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -107,7 +116,7 @@ public class Menu implements LANG {
 	// 学生信息管理菜单
 	public void showStudent() {
 		while (true) {
-			this.po = new StudentOperate(this.lang.getType());
+			this.po = new StudentOperate(lang.getType());
 			System.out.println(formatMenus("M01_00_R02"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			System.out.println(formatMenus("M01_01_R02"));
@@ -118,13 +127,15 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M01_06_R02"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.menus.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.getProperty("CHOICE"))) {
 			case 1: {
-				po.add();
+				mp = po.add();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 2: {
-				po.findAll();
+				mp = po.findAll();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 3: {
@@ -132,11 +143,13 @@ public class Menu implements LANG {
 				break;
 			}
 			case 4: {
-				po.delete();
+				mp = po.delete();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 5: {
-				po.update();
+				mp = po.update();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 6: {
@@ -144,7 +157,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.menus.getProperty("WRONGCHOICE"));
+				System.out.println(lang.getProperty("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -155,7 +168,7 @@ public class Menu implements LANG {
 	// 查找员工信息菜单
 	public void showResearchWorker() {
 		while (true) {
-			this.po = new WorkerOperate(this.lang.getType());
+			this.po = new WorkerOperate(lang.getType());
 			System.out.println(formatMenus("M02_00_R01"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			System.out.println(formatMenus("M02_01_R01"));
@@ -165,17 +178,20 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M02_05_R01"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.menus.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.getProperty("CHOICE"))) {
 			case 1: {
-				po.findAll();
+				mp = po.findAll();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 2: {
-				po.findById();
+				mp = po.findById();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 3: {
-				po.findByKey();
+				mp = po.findByKey();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 4: {
@@ -187,7 +203,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.menus.getProperty("WRONGCHOICE"));
+				System.out.println(lang.getProperty("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -197,7 +213,7 @@ public class Menu implements LANG {
 	// 查找学生信息菜单
 	public void showResearchStudent() {
 		while (true) {
-			this.po = new StudentOperate(this.lang.getType());
+			this.po = new StudentOperate(lang.getType());
 			System.out.println(formatMenus("M02_00_R02"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			System.out.println(formatMenus("M02_01_R02"));
@@ -207,17 +223,20 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M02_05_R02"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.menus.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.getProperty("CHOICE"))) {
 			case 1: {
-				po.findAll();
+				mp = po.findAll();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 2: {
-				po.findById();
+				mp = po.findById();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 3: {
-				po.findByKey();
+				mp = po.findByKey();
+				System.out.println(mp.getMessage());
 				break;
 			}
 			case 4: {
@@ -229,7 +248,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.menus.getProperty("WRONGCHOICE"));
+				System.out.println(lang.getProperty("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -240,15 +259,15 @@ public class Menu implements LANG {
 		String sub = key.substring(0, 1);
 		if (sub.equals("M") && key.substring(4, 6).equals("00")) {
 			return PrintFormat
-					.setFormatCenter(this.lang.menus.getProperty(key));
+					.setFormatCenter(lang.getProperty(key));
 		} else if (sub.equals("M") && !key.substring(4, 6).equals("00")) {
-			if (this.lang.getType() == LangType.Lang_CH)
+			if (lang.getType() == LangType.Lang_CH)
 				return PrintFormat.setFormatAlign(30,
-						this.lang.menus.getProperty(key));
+						lang.getProperty(key));
 			else
 				return PrintFormat.setFormatAlign(20,
-						this.lang.menus.getProperty(key));
+						lang.getProperty(key));
 		}
-		return this.lang.menus.getProperty(key);
+		return lang.getProperty(key);
 	}
 }
