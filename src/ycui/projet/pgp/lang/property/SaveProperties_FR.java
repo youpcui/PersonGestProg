@@ -81,21 +81,25 @@ public class SaveProperties_FR implements LANG, FR {
 		this.prop.setProperty("PO_01_R01_SALARY", SALARY+":");
 		this.prop.setProperty("PO_01_R01_OK", OK+D4+CRTN+R01S+":");
 		this.prop.setProperty("PO_01_R01_KO", KO+D4+CRTN+R01S+":");
-		this.prop.setProperty("PO_02_R01_OK", "--");
-		this.prop.setProperty("PO_02_R01_KO", "--");
-		this.prop.setProperty("PO_03_R01_KO", LIST + EMPTY);
-		this.prop.setProperty("PO_04_R01_OK", OK+D1+DLTN+R01C);
-		this.prop.setProperty("PO_04_R01_KO", KO+D1+DLTN+R01C);
+		this.prop.setProperty("PO_02_R01_OK", OK+D1+UPDN+R01C+":");
+		this.prop.setProperty("PO_02_R01_KO", KO+D1+UPDN+R01C+":");
+		
+		this.prop.setProperty("PO_03_R01_KO", KO+D1+UPDN+R01C+":");
+		
+		this.prop.setProperty("PO_04_R01_OK", OK+D1+DLTN+R01C+":");
+		this.prop.setProperty("PO_04_R01_KO", KO+D1+DLTN+R01C+":");
 		
 		//student
 		this.prop.setProperty("PO_01_R02_SCORE", SCORE+":");
 		this.prop.setProperty("PO_01_R02_OK", OK+D4+CRTN+R02S+":");
 		this.prop.setProperty("PO_01_R02_KO", KO+D4+CRTN+R02S+":");		
-		this.prop.setProperty("PO_02_R02_OK", "--");
-		this.prop.setProperty("PO_02_R02_KO", "--");		
-		this.prop.setProperty("PO_03_R02_KO", LIST + EMPTY);		
-		this.prop.setProperty("PO_04_R02_OK", OK+D1+DLTN+R02C);
-		this.prop.setProperty("PO_04_R02_KO", KO+D1+DLTN+R02C);
+		this.prop.setProperty("PO_02_R02_OK", OK+D1+UPDN+R02C+":");
+		this.prop.setProperty("PO_02_R02_KO", KO+D1+UPDN+R02C+":");	
+		
+		this.prop.setProperty("PO_03_R02_KO", KO+D1+UPDN+R01C+":");
+		
+		this.prop.setProperty("PO_04_R02_OK", OK+D1+DLTN+R02C+":");
+		this.prop.setProperty("PO_04_R02_KO", KO+D1+DLTN+R02C+":");
 	}
 
 	public static void main(String args[]) {

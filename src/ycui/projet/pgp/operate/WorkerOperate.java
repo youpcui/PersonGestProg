@@ -76,13 +76,12 @@ public class WorkerOperate extends PersonOperate {
 		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
 		return mp;
 	}
-
+*/
 	@Override
 	public MessageProxy findAll() {
 		MessageProxy mp = new MessageProxy();
 		StringBuffer buf = new StringBuffer("");
 		boolean nobody = true;
-		MessageProxy mp = null;
 		try {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
 			while (iter.hasNext()) {
@@ -99,12 +98,19 @@ public class WorkerOperate extends PersonOperate {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(RESULTHEAD
-				+ (nobody ? ("-->La liste est vide.\n") : buf.toString())
-				+ RESULTEND);
+		mp.setStatus(!nobody);
+		if(mp.isStatus()){
+			mp.setMessage(PrintFormat.setFormatCenter(lang.getProperty("RESULT"))
+					+ "\n"
+					+ PrintFormat.setFormatFull(SEPARATOR)+"\n"
+					+ buf.toString()
+					+ PrintFormat.setFormatFull(SEPARATOR));
+		}else{
+			mp.setMessage(SYSINFO + lang.getProperty("PO_03_KO")); //LIST EMPTY
+		}
 		return mp;
 	}
-
+/*
 	@Override
 	public MessageProxy findById() {
 		MessageProxy mp = new MessageProxy();
@@ -130,7 +136,8 @@ public class WorkerOperate extends PersonOperate {
 						.toString()) + RESULTEND);
 		return mp;
 	}
-
+*/
+/*
 	@Override
 	public MessageProxy findByKey() {
 		MessageProxy mp = new MessageProxy();
@@ -159,7 +166,8 @@ public class WorkerOperate extends PersonOperate {
 								: buf.toString()) + RESULTEND);
 		return mp;
 	}
-
+*/
+/*
 	@Override
 	public MessageProxy delete() {
 		MessageProxy mp = new MessageProxy();
@@ -188,5 +196,5 @@ public class WorkerOperate extends PersonOperate {
 		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
 		return mp;
 	}
-	*/
+*/
 }

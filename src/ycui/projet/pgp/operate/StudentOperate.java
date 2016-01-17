@@ -25,6 +25,7 @@ public class StudentOperate extends PersonOperate {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
+		
 		System.out.println(RESULTHEAD + "-->L'étudiant(e) " + s.getName() // 学生名字
 				+ (flag ? " est bien " : " n'est pas ")// 成功与否
 				+ "ajouté(e).\n" + RESULTEND);
