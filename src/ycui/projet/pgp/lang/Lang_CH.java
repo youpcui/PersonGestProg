@@ -10,35 +10,14 @@ import java.util.Properties;
  class Lang_CH extends Language{
 
 	 private static final LangType type = LANG.LangType.Lang_CH;
-
-		/* 菜单属性 */
-		private Properties ChMenus = new Properties();
-
-		private Properties getChMenus() {
-			return ChMenus;
-		}
-		private void setChMenus() {
-			try {
-				this.ChMenus.loadFromXML(new FileInputStream("xml"+File.separator+"ch_menus.xml"));
-			} catch (InvalidPropertiesFormatException e) {
-				e.printStackTrace();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		/* 操作属性 */
-		private Properties chOperate = new Properties(); 
-
-		public Properties getChOperate() {
-			return chOperate;
-		}
+	 private Properties chProperty = new Properties();
 		
-		private void setChOperate() {
+		private Properties getChProperty() {
+			return chProperty;
+		}
+		private void setChProperty() {
 			try {
-				this.chOperate.loadFromXML(new FileInputStream("xml"+File.separator+"ch_operate.xml"));
+				this.chProperty.loadFromXML(new FileInputStream("xml"+File.separator+"ch_property.xml"));
 			} catch (InvalidPropertiesFormatException e) {
 				e.printStackTrace();
 			} catch (FileNotFoundException e) {
@@ -47,11 +26,9 @@ import java.util.Properties;
 				e.printStackTrace();
 			}
 		}
-
 		public Lang_CH() {
-			super(type);
-			this.setChMenus();
-//			this.setChOperate();
-			super.menus = this.getChMenus();
+			super.setType(type);
+			setChProperty();
+			super.setProperty(getChProperty());
 		}
 }

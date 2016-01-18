@@ -10,16 +10,14 @@ import java.util.Properties;
  class Lang_EN extends Language{
 
 	 private static final LangType type = LANG.LangType.Lang_EN;
+	 private Properties enProperty = new Properties();
 
-		/* 菜单属性 */
-		private Properties enMenus = new Properties();
-
-		private Properties getEnMenus() {
-			return enMenus;
+	 private Properties getEnProperty() {
+			return enProperty;
 		}
-		private void setEnMenus() {
+		private void setEnProperty() {
 			try {
-				this.enMenus.loadFromXML(new FileInputStream("xml"+File.separator+"en_menus.xml"));
+				this.enProperty.loadFromXML(new FileInputStream("xml"+File.separator+"en_property.xml"));
 			} catch (InvalidPropertiesFormatException e) {
 				e.printStackTrace();
 			} catch (FileNotFoundException e) {
@@ -28,30 +26,9 @@ import java.util.Properties;
 				e.printStackTrace();
 			}
 		}
-
-		/* 操作属性 */
-		private Properties enOperate = new Properties(); 
-
-		public Properties getEnOperate() {
-			return enOperate;
-		}
-		
-		private void setEnOperate() {
-			try {
-				this.enOperate.loadFromXML(new FileInputStream("xml"+File.separator+"en_operate.xml"));
-			} catch (InvalidPropertiesFormatException e) {
-				e.printStackTrace();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
 		public Lang_EN() {
-			super(type);
-//			this.setEnMenus();
-//			this.setEnOperate();
-			super.menus = this.getEnMenus();
+			super.setType(type);
+			setEnProperty();
+			super.setProperty(getEnProperty());
 		}
 }

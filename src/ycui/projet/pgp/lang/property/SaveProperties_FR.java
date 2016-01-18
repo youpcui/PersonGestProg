@@ -21,13 +21,10 @@ public class SaveProperties_FR implements LANG, FR {
 
 	// operate properties
 	private void setProp() {
-
 		this.prop.setProperty("CHOICE", INPUT + " le choix:");
-		this.prop.setProperty("WRONGCHOICE",
-				"Veuillez saisir un choix correct!");
-
-		this.prop
-				.setProperty("M00_00", "Syst¨¨me" + D1 + " gestion" + D4 + INFO);
+		this.prop.setProperty("WRONGCHOICE","Veuillez saisir un choix correct!");
+		
+		this.prop.setProperty("M00_00", "Syst¨¨me" + D1 + " gestion" + D4 + INFO);
 		this.prop.setProperty("M00_01", NUM01 + GEST + R01P);
 		this.prop.setProperty("M00_02", NUM02 + GEST + R02P);
 		this.prop.setProperty("M00_03", NUM03 + LKG + ALL + " personnes");
@@ -64,40 +61,38 @@ public class SaveProperties_FR implements LANG, FR {
 		this.prop.setProperty("M02_04_R02", NUM04 + BACK + A2 + PREV);
 		this.prop.setProperty("M02_05_R02", NUM05 + BACK + A1 + HOME);
 
-		this.prop.setProperty("RESULT", RESULT);
-		this.prop.setProperty("WORKERHEAD", ID + R01B + "\t" + NAME + "\t\t"
-				+ AGE + "\t" + SALARY + "\n");
-		this.prop.setProperty("STUDENTHEAD", ID + R02B + "\t" + NAME + "\t\t"
-				+ AGE + "\t" + SCORE + "\n");
-//01C 02U 03R 04D
 		//Person
-		this.prop.setProperty("PO_01_NAME", NAME+":");
-		this.prop.setProperty("PO_01_AGE", AGE+":");
+		this.prop.setProperty("PO_00_ID", ID+":");
+		this.prop.setProperty("PO_00_NAME", NAME+":");
+		this.prop.setProperty("PO_00_AGE", AGE+":");
+		
+		this.prop.setProperty("PO_03_KEY", KEY+":");
+		this.prop.setProperty("PO_03_RESULT", RESULT);		
 		this.prop.setProperty("PO_03_KO", LIST + EMPTY);
 		this.prop.setProperty("PO_04_OK", OK+D1+DLTN+ALL);
 		this.prop.setProperty("PO_04_KO", KO+D1+DLTN+ALL);
 		
 		//worker
-		this.prop.setProperty("PO_01_R01_SALARY", SALARY+":");
+		this.prop.setProperty("PO_00_R01_SALARY", SALARY+":");
 		this.prop.setProperty("PO_01_R01_OK", OK+D4+CRTN+R01S+":");
 		this.prop.setProperty("PO_01_R01_KO", KO+D4+CRTN+R01S+":");
 		this.prop.setProperty("PO_02_R01_OK", OK+D1+UPDN+R01C+":");
 		this.prop.setProperty("PO_02_R01_KO", KO+D1+UPDN+R01C+":");
-		
-		this.prop.setProperty("PO_03_R01_KO", KO+D1+UPDN+R01C+":");
-		
+		this.prop.setProperty("PO_03_R01_HEAD", ID + R01B + "\t" + NAME + "\t\t"
+				+ AGE + "\t" + SALARY + "\n");
+		this.prop.setProperty("PO_03_R01_KO", KO+D1+RSCN+R01C+":");
 		this.prop.setProperty("PO_04_R01_OK", OK+D1+DLTN+R01C+":");
 		this.prop.setProperty("PO_04_R01_KO", KO+D1+DLTN+R01C+":");
 		
 		//student
-		this.prop.setProperty("PO_01_R02_SCORE", SCORE+":");
+		this.prop.setProperty("PO_00_R02_SCORE", SCORE+":");
 		this.prop.setProperty("PO_01_R02_OK", OK+D4+CRTN+R02S+":");
 		this.prop.setProperty("PO_01_R02_KO", KO+D4+CRTN+R02S+":");		
 		this.prop.setProperty("PO_02_R02_OK", OK+D1+UPDN+R02C+":");
 		this.prop.setProperty("PO_02_R02_KO", KO+D1+UPDN+R02C+":");	
-		
-		this.prop.setProperty("PO_03_R02_KO", KO+D1+UPDN+R01C+":");
-		
+		this.prop.setProperty("PO_03_R02_HEAD", ID + R02B + "\t" + NAME + "\t\t"
+				+ AGE + "\t" + SCORE + "\n");
+		this.prop.setProperty("PO_03_R02_KO", KO+D1+RSCN+R01C+":");
 		this.prop.setProperty("PO_04_R02_OK", OK+D1+DLTN+R02C+":");
 		this.prop.setProperty("PO_04_R02_KO", KO+D1+DLTN+R02C+":");
 	}
@@ -108,6 +103,7 @@ public class SaveProperties_FR implements LANG, FR {
 		try {
 			p.storeToXML(new FileOutputStream("xml" + File.separator
 					+ "fr_property.xml"), "francais");
+			System.out.println("Succ¨¨s d'enregistrer");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

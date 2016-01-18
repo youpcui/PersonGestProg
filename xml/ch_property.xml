@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>中文</comment>
+<entry key="M02_02_R01">2. 通过编号查询员工</entry>
+<entry key="PO_02_R02_OK">成功修改一个学生:</entry>
+<entry key="PO_00_R01_SALARY">工资:</entry>
+<entry key="PO_04_R01_KO">删除员工失败:</entry>
+<entry key="M00_05">5. 退出系统</entry>
+<entry key="M01_05_R02">5. 修改一个学生</entry>
+<entry key="M00_04">4. 删除所有人员信息</entry>
+<entry key="M01_05_R01">5. 修改一个员工</entry>
+<entry key="PO_04_OK">删除所有人员成功</entry>
+<entry key="M00_03">3. 显示所有人员信息</entry>
+<entry key="M00_02">2. 学生管理</entry>
+<entry key="M00_01">1. 员工管理</entry>
+<entry key="M00_00">信息管理系统</entry>
+<entry key="PO_03_KEY">关键字:</entry>
+<entry key="M02_05_R02">5. 返回到主菜单</entry>
+<entry key="M01_01_R02">1. 添加一个学生</entry>
+<entry key="M02_05_R01">5. 返回到主菜单</entry>
+<entry key="M01_01_R01">1. 添加一个员工</entry>
+<entry key="WRONGCHOICE">请输入正确的选择！</entry>
+<entry key="PO_00_NAME">姓名:</entry>
+<entry key="PO_04_R02_OK">成功删除一个学生:</entry>
+<entry key="PO_01_R02_KO">添加学生失败:</entry>
+<entry key="CHOICE">请选择：</entry>
+<entry key="M02_01_R02">1. 查询所有学生</entry>
+<entry key="M02_01_R01">1. 查询所有员工</entry>
+<entry key="PO_02_R02_KO">修改学生失败:</entry>
+<entry key="M01_04_R02">4. 删除一个学生</entry>
+<entry key="PO_04_KO">删除所有人员失败</entry>
+<entry key="M01_04_R01">4. 删除一个员工</entry>
+<entry key="PO_03_R01_HEAD">员工编号	姓名		年龄	工资
+</entry>
+<entry key="PO_03_R02_KO">查询学生失败:</entry>
+<entry key="M02_04_R02">4. 返回到上级菜单</entry>
+<entry key="M01_00_R02">学生管理</entry>
+<entry key="M02_04_R01">4. 返回到上级菜单</entry>
+<entry key="M01_00_R01">员工管理</entry>
+<entry key="PO_04_R02_KO">删除学生失败:</entry>
+<entry key="PO_00_ID">编号:</entry>
+<entry key="M02_00_R02">查询学生信息</entry>
+<entry key="M02_00_R01">查询员工信息</entry>
+<entry key="PO_01_R01_OK">成功添加一个员工:</entry>
+<entry key="M01_03_R02">3. 查询学生信息</entry>
+<entry key="PO_02_R01_OK">成功修改一个员工:</entry>
+<entry key="M01_03_R01">3. 查询员工信息</entry>
+<entry key="PO_00_R02_SCORE">成绩:</entry>
+<entry key="PO_00_AGE">年龄:</entry>
+<entry key="M02_03_R02">3. 通过关键字查询学生</entry>
+<entry key="M02_03_R01">3. 通过关键字查询员工</entry>
+<entry key="PO_04_R01_OK">成功删除一个员工:</entry>
+<entry key="M01_06_R02">6. 返回到主菜单</entry>
+<entry key="PO_01_R01_KO">添加一个员工失败:</entry>
+<entry key="M01_06_R01">6. 返回到主菜单</entry>
+<entry key="PO_03_R02_HEAD">学生编号	姓名		年龄	成绩
+</entry>
+<entry key="PO_02_R01_KO">修改员工失败:</entry>
+<entry key="M01_02_R02">2. 显示所有学生</entry>
+<entry key="M01_02_R01">2. 显示所有员工</entry>
+<entry key="PO_03_KO">查询列表空</entry>
+<entry key="PO_01_R02_OK">成功添加一个学生:</entry>
+<entry key="PO_03_RESULT">查询结果</entry>
+<entry key="PO_03_R01_KO">查询员工失败:</entry>
+<entry key="M02_02_R02">2. 通过编号查询学生</entry>
+</properties>

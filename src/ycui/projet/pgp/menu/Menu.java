@@ -31,7 +31,7 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M00_05"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.translate("CHOICE"))) {
 			case 1: {
 				showWorker();
 				break;
@@ -42,12 +42,12 @@ public class Menu implements LANG {
 			}
 			case 3: {
 				mp = po.findAll();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 4: {
 				mp = po.deleteAll();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 5: {
@@ -55,7 +55,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.getProperty("WRONGCHOICE"));
+				System.out.println(lang.translate("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -76,15 +76,15 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M01_06_R01"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.translate("CHOICE"))) {
 			case 1: {
 				mp = po.add();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 2: {
 				mp = po.findAll();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 3: {
@@ -93,12 +93,12 @@ public class Menu implements LANG {
 			}
 			case 4: {
 				mp = po.delete();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 5: {
 				mp = po.update();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 6: {
@@ -106,7 +106,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.getProperty("WRONGCHOICE"));
+				System.out.println(lang.translate("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -127,15 +127,15 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M01_06_R02"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.translate("CHOICE"))) {
 			case 1: {
 				mp = po.add();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 2: {
 				mp = po.findAll();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 3: {
@@ -144,12 +144,12 @@ public class Menu implements LANG {
 			}
 			case 4: {
 				mp = po.delete();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 5: {
 				mp = po.update();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 6: {
@@ -157,7 +157,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.getProperty("WRONGCHOICE"));
+				System.out.println(lang.translate("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -178,20 +178,20 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M02_05_R01"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.translate("CHOICE"))) {
 			case 1: {
 				mp = po.findAll();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 2: {
 				mp = po.findById();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 3: {
 				mp = po.findByKey();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 4: {
@@ -203,7 +203,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.getProperty("WRONGCHOICE"));
+				System.out.println(lang.translate("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -223,20 +223,20 @@ public class Menu implements LANG {
 			System.out.println(formatMenus("M02_05_R02"));
 			System.out.println(PrintFormat.setFormatFull(STAR));
 			// 选择操作
-			switch (input.getInt(lang.getProperty("CHOICE"))) {
+			switch (input.getInt(lang.translate("CHOICE"))) {
 			case 1: {
 				mp = po.findAll();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 2: {
 				mp = po.findById();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 3: {
 				mp = po.findByKey();
-				System.out.println(mp.getMessage());
+				System.out.println(mp);
 				break;
 			}
 			case 4: {
@@ -248,7 +248,7 @@ public class Menu implements LANG {
 				break;
 			}
 			default: {
-				System.out.println(lang.getProperty("WRONGCHOICE"));
+				System.out.println(lang.translate("WRONGCHOICE"));
 				break;
 			}
 			}
@@ -259,15 +259,15 @@ public class Menu implements LANG {
 		String sub = key.substring(0, 1);
 		if (sub.equals("M") && key.substring(4, 6).equals("00")) {
 			return PrintFormat
-					.setFormatCenter(lang.getProperty(key));
+					.setFormatCenter(lang.translate(key));
 		} else if (sub.equals("M") && !key.substring(4, 6).equals("00")) {
 			if (lang.getType() == LangType.Lang_CH)
 				return PrintFormat.setFormatAlign(30,
-						lang.getProperty(key));
+						lang.translate(key));
 			else
 				return PrintFormat.setFormatAlign(20,
-						lang.getProperty(key));
+						lang.translate(key));
 		}
-		return lang.getProperty(key);
+		return lang.translate(key);
 	}
 }

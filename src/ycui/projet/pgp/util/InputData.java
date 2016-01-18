@@ -36,10 +36,10 @@ public class InputData {
 					i = Integer.parseInt(str);
 					flag = true;
 				} catch (NumberFormatException e) {
-					System.err.println("\nLe nombre est mal format!");
+					System.err.println("Input error");
 				}
 			} else {
-				System.err.println("\nIl faudra saisir un nombre entier!");
+				System.err.println("Input error");
 			}
 		}
 		return i;
@@ -60,11 +60,10 @@ public class InputData {
 					f = Float.parseFloat(str);
 					flag = true;
 				} catch (NumberFormatException e) {
-					System.err.println("\nLe nombre est mal format!");
+					System.err.println("Input error");
 				}
 			} else {
-				System.err
-				.println("\nIl faudra saisir un nombre d¨¦cimal(deux chiffre apr¨¨s virgule)!");
+				System.err.println("Input error");
 			}
 		}
 		return f;

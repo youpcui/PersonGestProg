@@ -17,66 +17,68 @@ public class WorkerOperate extends PersonOperate {
 	public MessageProxy add() {
 		MessageProxy mp = new MessageProxy();
 		boolean flag = false;
-		Worker w = new Worker(new Stamp("1").getTimeStampRandom(),
-				input.getString(lang.getProperty("PO_01_NAME")),
-				input.getInt(lang.getProperty("PO_01_AGE")),
-				input.getFloat(lang.getProperty("PO_01_R01_SALARY")));
+		Worker w = null;
+		String name;
+		int age;
+		float salary;
+		do {
+			name = input.getString(lang.translate("PO_00_NAME"));
+		} while (name.equals(""));
+		do {
+			age = input.getInt(lang.translate("PO_00_AGE"));
+		} while (age < 0);
+		do {
+			salary = input.getFloat(lang.translate("PO_00_R01_SALARY"));
+		} while (salary < 0);
+		w = new Worker(new Stamp("1").getTimeStampRandom(), name, age, salary);
 		try {
 			flag = this.dao.doCreate(w);
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		mp.setStatus(flag);
-		if(mp.isStatus()){
-			mp.setMessage(SYSINFO + lang.getProperty("PO_01_R01_OK")+w.getName());
-		}else{
-			mp.setMessage(SYSINFO + lang.getProperty("PO_01_R01_KO")+w.getName());
-		}
+		mp.setMessage(SYSINFO
+				+ (flag ? lang.translate("PO_01_R01_OK") : lang
+						.translate("PO_01_R01_KO")) + w.getName());
+
 		return mp;
 	}
-/*
+
 	@Override
 	public MessageProxy update() {
 		MessageProxy mp = new MessageProxy();
 		boolean flag = false;
-		StringBuffer buf = new StringBuffer("");
 		Person p = null;
-		String id = this.input.getString("Saisir id:");
+		String id = this.input.getString(lang.translate("PO_00_ID"));
 		try {
 			p = this.dao.doFindById(id);
-			if (p != null) {
-				if (p instanceof Worker) {
-					Worker tmp = (Worker) p;
-					Worker w = new Worker(
-							p.getId(),
-							input.getString(("Saisir le nouveau nom d'employ¨¦ (original "
-									+ tmp.getName() + "):")),
-							input.getInt(("Saisir le nouvel age (original "
-									+ tmp.getAge() + "):")),
-							input.getFloat(("Saisir le nouveau salaire [original "
-									+ tmp.getSalary() + "):")));
-					flag = this.dao.doUpdate(w);
-					buf.append("-->L'employ¨¦(e) [");
-					buf.append(p.getId());
-					buf.append(flag ? "] est bien modifi¨¦(e)\n"
-							: "] n'est pas modifi¨¦(e)\n");
-				} else {
-					buf.append("-->[");
-					buf.append(p.getId());
-					buf.append("] est trouv¨¦, mais pas l'employ¨¦(e).\n");
-				}
-			} else {
-				buf.append("-->L'employ¨¦(e) [");
-				buf.append(id);
-				buf.append("] n'est pas trouv¨¦(e).\n");
+			if (p != null && p instanceof Worker) {
+				Worker tmp = (Worker) p;
+				String name;
+				int age;
+				float salary;
+				name = input.getString(lang.translate("PO_00_NAME") + "("
+						+ tmp.getName() + "?)");
+				do {
+					age = input.getInt(lang.translate("PO_00_AGE") + "("
+							+ tmp.getAge() + "?)");
+				} while (age < 0);
+				do {
+					salary = input.getFloat(lang.translate("PO_00_R01_SALARY")
+							+ "(" + tmp.getSalary() + "?)");
+				} while (salary < 0);
+				Worker w = new Worker(p.getId(),
+						name.equals("") ? tmp.getName() : name, age, salary);
+				flag = this.dao.doUpdate(w);
 			}
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
+		mp.setMessage(SYSINFO
+				+ (flag ? lang.translate("PO_02_R01_OK") : lang
+						.translate("PO_02_R01_KO")) + id);
 		return mp;
 	}
-*/
+
 	@Override
 	public MessageProxy findAll() {
 		MessageProxy mp = new MessageProxy();
@@ -89,7 +91,7 @@ public class WorkerOperate extends PersonOperate {
 				if (p instanceof Worker) {
 					nobody = false;
 					if (buf.length() == 0) {
-						buf.append(lang.getProperty("WORKERHEAD"));
+						buf.append(lang.translate("PO_03_R01_HEAD"));
 					}
 					buf.append(p.toString());
 					buf.append("\n");
@@ -98,32 +100,32 @@ public class WorkerOperate extends PersonOperate {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		mp.setStatus(!nobody);
-		if(mp.isStatus()){
-			mp.setMessage(PrintFormat.setFormatCenter(lang.getProperty("RESULT"))
+		if (!nobody) {
+			mp.setMessage(PrintFormat.setFormatCenter(lang
+					.translate("PO_03_RESULT"))
 					+ "\n"
-					+ PrintFormat.setFormatFull(SEPARATOR)+"\n"
-					+ buf.toString()
-					+ PrintFormat.setFormatFull(SEPARATOR));
-		}else{
-			mp.setMessage(SYSINFO + lang.getProperty("PO_03_KO")); //LIST EMPTY
+					+ PrintFormat.setFormatFull(SEPARATOR)
+					+ "\n"
+					+ buf.toString() + PrintFormat.setFormatFull(SEPARATOR));
+		} else {
+			mp.setMessage(SYSINFO + lang.translate("PO_03_KO")); // LIST EMPTY
 		}
 		return mp;
 	}
-/*
+
 	@Override
 	public MessageProxy findById() {
 		MessageProxy mp = new MessageProxy();
 		StringBuffer buf = new StringBuffer("");
 		Person p = null;
 		boolean nobody = true;
-		String id = this.input.getString("Saisir id:");
+		String id = this.input.getString(lang.translate("PO_00_ID"));
 		try {
 			p = this.dao.doFindById(id);
 			if (p != null && p instanceof Worker) {
 				nobody = false;
 				if (buf.length() == 0) {
-					buf.append(lang.getProperty("WORKERHEAD"));
+					buf.append(lang.translate("PO_03_R01_HEAD"));
 				}
 				buf.append(p.toString());
 				buf.append("\n");
@@ -131,18 +133,24 @@ public class WorkerOperate extends PersonOperate {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(RESULTHEAD
-				+ (nobody ? "-->L'employ¨¦(e) n'est pas trouv¨¦.\n" : buf
-						.toString()) + RESULTEND);
+		if (!nobody) {
+			mp.setMessage(PrintFormat.setFormatCenter(lang
+					.translate("PO_03_RESULT"))
+					+ "\n"
+					+ PrintFormat.setFormatFull(SEPARATOR)
+					+ "\n"
+					+ buf.toString() + PrintFormat.setFormatFull(SEPARATOR));
+		} else {
+			mp.setMessage(SYSINFO + lang.translate("PO_03_KO")); // LIST EMPTY
+		}
 		return mp;
 	}
-*/
-/*
+
 	@Override
 	public MessageProxy findByKey() {
 		MessageProxy mp = new MessageProxy();
 		StringBuffer buf = new StringBuffer("");
-		String keyWord = this.input.getString("Saisir mot cl¨¦:");
+		String keyWord = this.input.getString(lang.translate("PO_03_KEY"));
 		boolean nobody = true;
 		try {
 			Iterator<Person> iter = this.dao.doFindByKey(keyWord).iterator();
@@ -151,7 +159,7 @@ public class WorkerOperate extends PersonOperate {
 				if (p instanceof Worker) {
 					nobody = false;
 					if (buf.length() == 0) {
-						buf.append(lang.getProperty("WORKERHEAD"));
+						buf.append(lang.translate("PO_03_R01_HEAD"));
 					}
 					buf.append(p.toString());
 					buf.append("\n");
@@ -160,41 +168,37 @@ public class WorkerOperate extends PersonOperate {
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		System.out
-				.println(RESULTHEAD
-						+ (nobody ? ("-->Ne personne correspond ¨¤ \"" + keyWord + "\".\n")
-								: buf.toString()) + RESULTEND);
+		if (!nobody) {
+			mp.setMessage(PrintFormat.setFormatCenter(lang
+					.translate("PO_03_RESULT"))
+					+ "\n"
+					+ PrintFormat.setFormatFull(SEPARATOR)
+					+ "\n"
+					+ buf.toString() + PrintFormat.setFormatFull(SEPARATOR));
+		} else {
+			mp.setMessage(SYSINFO + lang.translate("PO_03_KO")); // LIST EMPTY
+		}
 		return mp;
 	}
-*/
-/*
+
 	@Override
 	public MessageProxy delete() {
 		MessageProxy mp = new MessageProxy();
 		boolean flag = false;
-		StringBuffer buf = new StringBuffer("");
 		Person p = null;
-		String id = this.input.getString("Saisir id:");
+		String id = this.input.getString(lang.translate("PO_00_ID"));
 		try {
 			p = this.dao.doFindById(id);
 			if (p != null && p instanceof Worker) {
 				flag = this.dao.doDelete(id);
-				buf.append("-->L'employ¨¦(e) ");
-				buf.append(p.getName());
-				buf.append("[");
-				buf.append(p.getId());
-				buf.append(flag ? "] est bien supprim¨¦(e)\n"
-						: "] n'est pas supprim¨¦(e)\n");
-			} else {
-				buf.append("-->L'employ¨¦(e) [");
-				buf.append(id);
-				buf.append("] n'est pas trouv¨¦(e).\n");
 			}
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		System.out.println(RESULTHEAD + buf.toString() + RESULTEND);
+		mp.setMessage(SYSINFO
+				+ (flag ? lang.translate("PO_04_R01_OK") : lang
+						.translate("PO_04_R01_KO")) + id);
 		return mp;
 	}
-*/
+
 }

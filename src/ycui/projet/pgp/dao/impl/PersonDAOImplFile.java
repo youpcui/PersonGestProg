@@ -18,6 +18,7 @@ public class PersonDAOImplFile implements PersonDAO {
 	private Set<Person> allPerson = null; 
 	private FileOperate fo = new FileOperate("person.obj");
 	
+	@SuppressWarnings("unchecked")
 	public PersonDAOImplFile(){
 		try {
 			this.allPerson =  (Set<Person>) fo.load();

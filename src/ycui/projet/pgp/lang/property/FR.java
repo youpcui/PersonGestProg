@@ -1,8 +1,7 @@
 package ycui.projet.pgp.lang.property;
 
 public interface FR{
-	
-	/* FR elements */
+/* FR elements */
 	public static final String L1 = " le";
 	public static final String L2 = " la";
 	public static final String L3 = " les";
@@ -54,7 +53,7 @@ public interface FR{
 	public static final String LKGN = "Affichage";
 	public static final String CRTN = " ajoute";
 	public static final String UPDN = " modification";
-	public static final String RSCN = " recherche";
+	public static final String RSCN = " trouver";
 	public static final String DLTN = " suppression";
 	public static final String BACK = "Retour";
 	public static final String HOME = " l'acceuil";
@@ -62,19 +61,14 @@ public interface FR{
 	
 	public static final String OK= "Succ¨¨s";
 	public static final String KO= "Echec";
-	
-
-
-	/*operate*/
-	public static final String ID = "ID";
-	public static final String NAME = "NOM";
-	public static final String AGE = "AGE";
-	public static final String SALARY = "SALAIRE";
-	public static final String SCORE = "NOTES";
-	
 	public static final String RESULT = "R¨¦sultat";
 	public static final String LIST = "La liste";
 	public static final String EMPTY = " est vide.";
 	
-
+	public static final String ID = "ID";
+	public static final String NAME = "NOM";
+	public static final String AGE = "AGE";
+	public static final String KEY = "MOT CLE";
+	public static final String SALARY = "SALAIRE";
+	public static final String SCORE = "NOTES";
 }

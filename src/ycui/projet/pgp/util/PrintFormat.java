@@ -105,9 +105,4 @@ public class PrintFormat {
 		format = new String(b);
 		return format;
 	}	
-	public static void main(String args[]){
-		String str = "ии";
-		String f = PrintFormat.setFormatFull(str);
-		System.out.println(f);
-	}
 }

@@ -1,5 +1,6 @@
 package ycui.projet.pgp.lang.property;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,8 +27,9 @@ public class SaveProperties_CH implements LANG,CH{
 		this.prop.setProperty("M00_00", INFO+GEST+"系统");
 		this.prop.setProperty("M00_01", NUM01+R01A+GEST);
 		this.prop.setProperty("M00_02", NUM02+R02A+GEST);
-		this.prop.setProperty("M00_03", NUM03+LKG+"所有人员"+INFO);
-		this.prop.setProperty("M00_04", NUM04+"退出系统");
+		this.prop.setProperty("M00_03", NUM03+LKG+ALL+"人员"+INFO);
+		this.prop.setProperty("M00_04", NUM04+DLT+ALL+"人员"+INFO);
+		this.prop.setProperty("M00_05", NUM05+"退出系统");
 
 		this.prop.setProperty("M01_00_R01", R01A+GEST);
 		this.prop.setProperty("M01_01_R01", NUM01+CRT+R01S);
@@ -47,24 +49,61 @@ public class SaveProperties_CH implements LANG,CH{
 		
 		this.prop.setProperty("M02_00_R01", RSC+R01A+INFO);
 		this.prop.setProperty("M02_01_R01", NUM01+RSC+R01T);
-		this.prop.setProperty("M02_02_R01", NUM02+"通过ID"+RSC+R01A);
-		this.prop.setProperty("M02_03_R01", NUM03+"通过关键字"+RSC+R01A);
+		this.prop.setProperty("M02_02_R01", NUM02+"通过"+ID+RSC+R01A);
+		this.prop.setProperty("M02_03_R01", NUM03+"通过"+KEY+RSC+R01A);
 		this.prop.setProperty("M02_04_R01", NUM04+BACK+PREV);
 		this.prop.setProperty("M02_05_R01", NUM05+BACK+HOME);
 
 		this.prop.setProperty("M02_00_R02", RSC+R02A+INFO);
 		this.prop.setProperty("M02_01_R02", NUM01+RSC+R02T);
-		this.prop.setProperty("M02_02_R02", NUM02+"通过ID"+RSC+R02A);
-		this.prop.setProperty("M02_03_R02", NUM03+"通过关键字"+RSC+R02A);
+		this.prop.setProperty("M02_02_R02", NUM02+"通过"+ID+RSC+R02A);
+		this.prop.setProperty("M02_03_R02", NUM03+"通过"+KEY+RSC+R02A);
 		this.prop.setProperty("M02_04_R02", NUM04+BACK+PREV);
 		this.prop.setProperty("M02_05_R02", NUM05+BACK+HOME);
+
+		//Person
+		this.prop.setProperty("PO_00_ID", ID+":");
+		this.prop.setProperty("PO_00_NAME", NAME+":");
+		this.prop.setProperty("PO_00_AGE", AGE+":");
+		
+		this.prop.setProperty("PO_03_KEY", KEY+":");
+		this.prop.setProperty("PO_03_RESULT", RSC+RESULT);		
+		this.prop.setProperty("PO_03_KO", RSC+LIST+EMPTY);
+		this.prop.setProperty("PO_04_OK", DLT+ALL+"人员"+OK);
+		this.prop.setProperty("PO_04_KO", DLT+ALL+"人员"+KO);
+		
+		//worker
+		this.prop.setProperty("PO_00_R01_SALARY", SALARY+":");
+		this.prop.setProperty("PO_01_R01_OK", OK+CRT+R01S+":");
+		this.prop.setProperty("PO_01_R01_KO", CRT+R01S+KO+":");
+		this.prop.setProperty("PO_02_R01_OK", OK+UPD+R01S+":");
+		this.prop.setProperty("PO_02_R01_KO", UPD+R01A+KO+":");
+		this.prop.setProperty("PO_03_R01_HEAD", R01A+ID+ "\t" + NAME + "\t\t"
+				+ AGE + "\t" + SALARY + "\n");
+		this.prop.setProperty("PO_03_R01_KO", RSC+R01A+KO+":");
+		this.prop.setProperty("PO_04_R01_OK", OK+DLT+R01S+":");
+		this.prop.setProperty("PO_04_R01_KO", DLT+R01A+KO+":");
+		
+		//student
+		this.prop.setProperty("PO_00_R02_SCORE", SCORE+":");
+		this.prop.setProperty("PO_01_R02_OK", OK+CRT+R02S+":");
+		this.prop.setProperty("PO_01_R02_KO", CRT+R02A+KO+":");
+		this.prop.setProperty("PO_02_R02_OK", OK+UPD+R02S+":");
+		this.prop.setProperty("PO_02_R02_KO", UPD+R02A+KO+":");
+		this.prop.setProperty("PO_03_R02_HEAD", R02A+ID+ "\t" + NAME + "\t\t"
+				+ AGE + "\t" + SCORE + "\n");
+		this.prop.setProperty("PO_03_R02_KO", RSC+R02A+KO+":");
+		this.prop.setProperty("PO_04_R02_OK", OK+DLT+R02S+":");
+		this.prop.setProperty("PO_04_R02_KO", DLT+R02A+KO+":");		
 	}
 	
 	public static void main(String args[]){
 		Properties p = new Properties();
 		p = new SaveProperties_CH().getProp();
 		try {
-			p.storeToXML(new FileOutputStream("xml/ch_menus.xml"),"中文菜单");
+			p.storeToXML(new FileOutputStream("xml" + File.separator
+					+ "ch_property.xml"), "中文");
+			System.out.println("保存语言成功！");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

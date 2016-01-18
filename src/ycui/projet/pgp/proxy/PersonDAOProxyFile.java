@@ -9,7 +9,7 @@ import ycui.projet.pgp.vo.Person;
 
 
 public class PersonDAOProxyFile implements PersonDAO {
-private PersonDAO dao = null;
+	private PersonDAO dao = null;
 
 	public PersonDAOProxyFile(){
 		this.dao = new PersonDAOImplFile();

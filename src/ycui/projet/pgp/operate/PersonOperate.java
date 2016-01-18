@@ -52,14 +52,14 @@ public class PersonOperate implements IPersonOperate{
 				if(p instanceof Worker){
 					nobodyW = false;
 					if(bufW.length() == 0){
-						bufW.append(lang.getProperty("WORKERHEAD"));
+						bufW.append(lang.translate("PO_03_R01_HEAD"));
 					}
 					bufW.append(p.toString());
 					bufW.append("\n");
 				}else if(p instanceof Student){
 					nobodyS = false;
 					if(bufS.length() == 0){
-						bufS.append(lang.getProperty("STUDENTHEAD"));
+						bufS.append(lang.translate("PO_03_R02_HEAD"));
 					}
 					bufS.append(p.toString());
 					bufS.append("\n");
@@ -68,9 +68,8 @@ public class PersonOperate implements IPersonOperate{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		mp.setStatus(!nobodyW || !nobodyS);
-		if(mp.isStatus()){
-			mp.setMessage(PrintFormat.setFormatCenter(lang.getProperty("RESULT"))
+		if(!nobodyW || !nobodyS){
+			mp.setMessage(PrintFormat.setFormatCenter(lang.translate("PO_03_RESULT"))
 					+ "\n"
 					+ PrintFormat.setFormatFull(SEPARATOR)+"\n"
 					+ bufW.toString()
@@ -78,7 +77,7 @@ public class PersonOperate implements IPersonOperate{
 					+ bufS.toString()
 					+ PrintFormat.setFormatFull(SEPARATOR));
 		}else{
-			mp.setMessage(SYSINFO + lang.getProperty("PO_03_KO")); //LIST EMPTY
+			mp.setMessage(SYSINFO + lang.translate("PO_03_KO")); //LIST EMPTY
 		}
 		return mp;
 	}
@@ -109,12 +108,10 @@ public class PersonOperate implements IPersonOperate{
 		} catch (DAOException e) {
 			e.printStackTrace();
 		}
-		mp.setStatus(flag);
-		if(mp.isStatus()){
-			mp.setMessage(lang.getProperty("PO_04_OK"));
-		}else{
-			mp.setMessage(lang.getProperty("PO_04_KO"));
-		}
+		mp.setMessage(SYSINFO + (flag?
+				lang.translate("PO_04_OK"):
+					lang.translate("PO_04_KO")));
+
 		return mp;
 	}
 }
