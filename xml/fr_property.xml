@@ -2,7 +2,7 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>francais</comment>
-<entry key="M02_02_R01">2. Rechercher par id</entry>
+<entry key="M02_02_R01">2. Rechercher par ID</entry>
 <entry key="PO_02_R02_OK">Succès de modification l' étudiant(e):</entry>
 <entry key="PO_00_R01_SALARY">SALAIRE:</entry>
 <entry key="PO_04_R01_KO">Echec de suppression l' employé(e):</entry>
@@ -48,8 +48,8 @@
 <entry key="M01_03_R01">3. Rechercher l' information des employé(e)(s)</entry>
 <entry key="PO_00_R02_SCORE">NOTES:</entry>
 <entry key="PO_00_AGE">AGE:</entry>
-<entry key="M02_03_R02">3. Rechercher par mot clé</entry>
-<entry key="M02_03_R01">3. Rechercher par mot clé</entry>
+<entry key="M02_03_R02">3. Rechercher par MOT CLE</entry>
+<entry key="M02_03_R01">3. Rechercher par MOT CLE</entry>
 <entry key="PO_04_R01_OK">Succès de suppression l' employé(e):</entry>
 <entry key="M01_06_R02">6. Retour à l'acceuil</entry>
 <entry key="PO_01_R01_KO">Echec d' ajoute un(e) employé(e):</entry>
@@ -63,5 +63,5 @@
 <entry key="PO_01_R02_OK">Succès d' ajoute un(e) étudiant(e):</entry>
 <entry key="PO_03_RESULT">Résultat</entry>
 <entry key="PO_03_R01_KO">Echec de trouver l' employé(e):</entry>
-<entry key="M02_02_R02">2. Rechercher par id</entry>
+<entry key="M02_02_R02">2. Rechercher par ID</entry>
 </properties>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>English</comment>
+<entry key="M02_02_R01">2. Research with ID</entry>
+<entry key="PO_02_R02_OK">Succeed to update the student:</entry>
+<entry key="PO_00_R01_SALARY">SALARY:</entry>
+<entry key="PO_04_R01_KO">Fail to delete the worker:</entry>
+<entry key="M00_05">5. Exit</entry>
+<entry key="M01_05_R02">5. Update a student</entry>
+<entry key="M00_04">4. Delete all persons</entry>
+<entry key="M01_05_R01">5. Update a worker</entry>
+<entry key="PO_04_OK">Succeed to delete all</entry>
+<entry key="M00_03">3. Find all persons</entry>
+<entry key="M00_02">2. The students' system</entry>
+<entry key="M00_01">1. The workers' system</entry>
+<entry key="M00_00">Gestion information system</entry>
+<entry key="PO_03_KEY">KEY:</entry>
+<entry key="M02_05_R02">5. Back home</entry>
+<entry key="M01_01_R02">1. Add a student</entry>
+<entry key="M02_05_R01">5. Back home</entry>
+<entry key="M01_01_R01">1. Add a worker</entry>
+<entry key="WRONGCHOICE">Please select a correct number!</entry>
+<entry key="PO_00_NAME">NAME:</entry>
+<entry key="PO_04_R02_OK">Succeed to delete the student:</entry>
+<entry key="PO_01_R02_KO">Fail to add a student:</entry>
+<entry key="CHOICE">Please select:</entry>
+<entry key="M02_01_R02">1. Research all student(s)</entry>
+<entry key="M02_01_R01">1. Research all worker(s)</entry>
+<entry key="PO_02_R02_KO">Fail to update the student:</entry>
+<entry key="M01_04_R02">4. Delete a student</entry>
+<entry key="PO_04_KO">Fail to delete all</entry>
+<entry key="M01_04_R01">4. Delete a worker</entry>
+<entry key="PO_03_R01_HEAD">ID of worker	NAME		AGE	SALARY
+</entry>
+<entry key="PO_03_R02_KO"> the worker is not found:</entry>
+<entry key="M02_04_R02">4. Back to previous</entry>
+<entry key="M01_00_R02"> the student(s) system</entry>
+<entry key="M02_04_R01">4. Back to previous</entry>
+<entry key="M01_00_R01"> the worker(s) system</entry>
+<entry key="PO_00_ID">ID:</entry>
+<entry key="M02_00_R02">Research the student(s)</entry>
+<entry key="M02_00_R01">Research the worker(s)</entry>
+<entry key="PO_01_R01_OK">Succeed to add a worker:</entry>
+<entry key="M01_03_R02">3. Research the student(s)</entry>
+<entry key="PO_02_R01_OK">Succeed to update the worker:</entry>
+<entry key="M01_03_R01">3. Research the worker(s)</entry>
+<entry key="PO_00_R02_SCORE">SCORE:</entry>
+<entry key="PO_00_AGE">AGE:</entry>
+<entry key="M02_03_R02">3. Research withKEY</entry>
+<entry key="M02_03_R01">3. Research with KEY</entry>
+<entry key="PO_04_R01_OK">Succeed to delete the worker:</entry>
+<entry key="M01_06_R02">6. Back home</entry>
+<entry key="PO_01_R01_KO">Fail to add a worker:</entry>
+<entry key="M01_06_R01">6. Back home</entry>
+<entry key="PO_03_R02_HEAD">ID of student	NAME		AGE	SCORE
+</entry>
+<entry key="PO_02_R01_KO">Fail to update the worker:</entry>
+<entry key="M01_02_R02">2. Find the student(s)</entry>
+<entry key="M01_02_R01">2. Find the worker(s)</entry>
+<entry key="PO_03_KO"> the list is empty</entry>
+<entry key="PO_01_R02_OK">Succeed to add a student:</entry>
+<entry key="PO_03_RESULT">Result</entry>
+<entry key="PO_03_R01_KO"> the worker is not found:</entry>
+<entry key="M02_02_R02">2. Research withID</entry>
+</properties>

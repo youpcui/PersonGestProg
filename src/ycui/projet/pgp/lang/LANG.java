@@ -10,6 +10,7 @@ public interface LANG{
 	public static final String SYSINFO = "-->";
 	public static final String STAR = "*";
 	public static final String SEPARATOR = "-";
+	public static final String COLON = ":";
 	
 	public static final String NUM00 = "0. ";
 	public static final String NUM01 = "1. ";

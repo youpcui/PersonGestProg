@@ -1,7 +1,7 @@
 package ycui.projet.pgp.lang.property;
 
-public interface FR{
-/* FR elements */
+public interface FR {
+	/* FR elements */
 	public static final String L1 = " le";
 	public static final String L2 = " la";
 	public static final String L3 = " les";
@@ -19,12 +19,13 @@ public interface FR{
 	public static final String FEM = "(e)";
 	public static final String PLS = "(s)";
 	public static final String SIG = " un" + FEM;
-	
+
 	public static final String NOT = " pas";
 	public static final String BE = " est";
 	public static final String BES = " sont";
 	public static final String ALL = " tous";
-	
+	public static final String PERSON = " personnes";
+	public static final String WITH = " par";
 
 	/* role */
 	public static final String R01A = " employ¨¦" + FEM;// employ¨¦(e)
@@ -58,13 +59,13 @@ public interface FR{
 	public static final String BACK = "Retour";
 	public static final String HOME = " l'acceuil";
 	public static final String PREV = " pr¨¦c¨¦dant";
-	
-	public static final String OK= "Succ¨¨s";
-	public static final String KO= "Echec";
+
+	public static final String OK = "Succ¨¨s";
+	public static final String KO = "Echec";
 	public static final String RESULT = "R¨¦sultat";
 	public static final String LIST = "La liste";
 	public static final String EMPTY = " est vide.";
-	
+
 	public static final String ID = "ID";
 	public static final String NAME = "NOM";
 	public static final String AGE = "AGE";

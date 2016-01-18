@@ -24,8 +24,7 @@ public class FileOperate {
 			try {
 				this.save(new TreeSet<Person>());
 			} catch (FileIOException e) {
-				System.err.println("Echec d'initialisation!-->"
-						+e.getMessage());
+				e.printStackTrace();
 			}
 		}
 	}

@@ -22,13 +22,15 @@ public class SaveProperties_FR implements LANG, FR {
 	// operate properties
 	private void setProp() {
 		this.prop.setProperty("CHOICE", INPUT + " le choix:");
-		this.prop.setProperty("WRONGCHOICE","Veuillez saisir un choix correct!");
-		
-		this.prop.setProperty("M00_00", "Syst¨¨me" + D1 + " gestion" + D4 + INFO);
+		this.prop.setProperty("WRONGCHOICE",
+				"Veuillez saisir un choix correct!");
+
+		this.prop
+				.setProperty("M00_00", "Syst¨¨me" + D1 + " gestion" + D4 + INFO);
 		this.prop.setProperty("M00_01", NUM01 + GEST + R01P);
 		this.prop.setProperty("M00_02", NUM02 + GEST + R02P);
-		this.prop.setProperty("M00_03", NUM03 + LKG + ALL + " personnes");
-		this.prop.setProperty("M00_04", NUM04 + DLT + ALL + " personnes");
+		this.prop.setProperty("M00_03", NUM03 + LKG + ALL + PERSON);
+		this.prop.setProperty("M00_04", NUM04 + DLT + ALL + PERSON);
 		this.prop.setProperty("M00_05", NUM05 + "Sortie");
 
 		this.prop.setProperty("M01_00_R01", GEST + R01P);
@@ -48,53 +50,53 @@ public class SaveProperties_FR implements LANG, FR {
 		this.prop.setProperty("M01_06_R02", NUM06 + BACK + A1 + HOME);
 
 		this.prop.setProperty("M02_00_R01", RSC + L4 + INFO + R01P);
-		this.prop.setProperty("M02_01_R01", NUM01 + RSC + " tous");
-		this.prop.setProperty("M02_02_R01", NUM02 + RSC + " par id");
-		this.prop.setProperty("M02_03_R01", NUM03 + RSC + " par mot cl¨¦");
+		this.prop.setProperty("M02_01_R01", NUM01 + RSC + ALL);
+		this.prop.setProperty("M02_02_R01", NUM02 + RSC + WITH + " " + ID);
+		this.prop.setProperty("M02_03_R01", NUM03 + RSC + WITH + " " + KEY);
 		this.prop.setProperty("M02_04_R01", NUM04 + BACK + A2 + PREV);
 		this.prop.setProperty("M02_05_R01", NUM05 + BACK + A1 + HOME);
 
 		this.prop.setProperty("M02_00_R02", RSC + L4 + INFO + R02P);
-		this.prop.setProperty("M02_01_R02", NUM01 + RSC + " tous");
-		this.prop.setProperty("M02_02_R02", NUM02 + RSC + " par id");
-		this.prop.setProperty("M02_03_R02", NUM03 + RSC + " par mot cl¨¦");
+		this.prop.setProperty("M02_01_R02", NUM01 + RSC + ALL);
+		this.prop.setProperty("M02_02_R02", NUM02 + RSC + WITH + " " + ID);
+		this.prop.setProperty("M02_03_R02", NUM03 + RSC + WITH + " " + KEY);
 		this.prop.setProperty("M02_04_R02", NUM04 + BACK + A2 + PREV);
 		this.prop.setProperty("M02_05_R02", NUM05 + BACK + A1 + HOME);
 
-		//Person
-		this.prop.setProperty("PO_00_ID", ID+":");
-		this.prop.setProperty("PO_00_NAME", NAME+":");
-		this.prop.setProperty("PO_00_AGE", AGE+":");
-		
-		this.prop.setProperty("PO_03_KEY", KEY+":");
-		this.prop.setProperty("PO_03_RESULT", RESULT);		
+		// Person
+		this.prop.setProperty("PO_00_ID", ID + COLON);
+		this.prop.setProperty("PO_00_NAME", NAME + COLON);
+		this.prop.setProperty("PO_00_AGE", AGE + COLON);
+
+		this.prop.setProperty("PO_03_KEY", KEY + COLON);
+		this.prop.setProperty("PO_03_RESULT", RESULT);
 		this.prop.setProperty("PO_03_KO", LIST + EMPTY);
-		this.prop.setProperty("PO_04_OK", OK+D1+DLTN+ALL);
-		this.prop.setProperty("PO_04_KO", KO+D1+DLTN+ALL);
-		
-		//worker
-		this.prop.setProperty("PO_00_R01_SALARY", SALARY+":");
-		this.prop.setProperty("PO_01_R01_OK", OK+D4+CRTN+R01S+":");
-		this.prop.setProperty("PO_01_R01_KO", KO+D4+CRTN+R01S+":");
-		this.prop.setProperty("PO_02_R01_OK", OK+D1+UPDN+R01C+":");
-		this.prop.setProperty("PO_02_R01_KO", KO+D1+UPDN+R01C+":");
-		this.prop.setProperty("PO_03_R01_HEAD", ID + R01B + "\t" + NAME + "\t\t"
-				+ AGE + "\t" + SALARY + "\n");
-		this.prop.setProperty("PO_03_R01_KO", KO+D1+RSCN+R01C+":");
-		this.prop.setProperty("PO_04_R01_OK", OK+D1+DLTN+R01C+":");
-		this.prop.setProperty("PO_04_R01_KO", KO+D1+DLTN+R01C+":");
-		
-		//student
-		this.prop.setProperty("PO_00_R02_SCORE", SCORE+":");
-		this.prop.setProperty("PO_01_R02_OK", OK+D4+CRTN+R02S+":");
-		this.prop.setProperty("PO_01_R02_KO", KO+D4+CRTN+R02S+":");		
-		this.prop.setProperty("PO_02_R02_OK", OK+D1+UPDN+R02C+":");
-		this.prop.setProperty("PO_02_R02_KO", KO+D1+UPDN+R02C+":");	
-		this.prop.setProperty("PO_03_R02_HEAD", ID + R02B + "\t" + NAME + "\t\t"
-				+ AGE + "\t" + SCORE + "\n");
-		this.prop.setProperty("PO_03_R02_KO", KO+D1+RSCN+R01C+":");
-		this.prop.setProperty("PO_04_R02_OK", OK+D1+DLTN+R02C+":");
-		this.prop.setProperty("PO_04_R02_KO", KO+D1+DLTN+R02C+":");
+		this.prop.setProperty("PO_04_OK", OK + D1 + DLTN + ALL);
+		this.prop.setProperty("PO_04_KO", KO + D1 + DLTN + ALL);
+
+		// worker
+		this.prop.setProperty("PO_00_R01_SALARY", SALARY + COLON);
+		this.prop.setProperty("PO_01_R01_OK", OK + D4 + CRTN + R01S + COLON);
+		this.prop.setProperty("PO_01_R01_KO", KO + D4 + CRTN + R01S + COLON);
+		this.prop.setProperty("PO_02_R01_OK", OK + D1 + UPDN + R01C + COLON);
+		this.prop.setProperty("PO_02_R01_KO", KO + D1 + UPDN + R01C + COLON);
+		this.prop.setProperty("PO_03_R01_HEAD", ID + R01B + "\t" + NAME
+				+ "\t\t" + AGE + "\t" + SALARY + "\n");
+		this.prop.setProperty("PO_03_R01_KO", KO + D1 + RSCN + R01C + COLON);
+		this.prop.setProperty("PO_04_R01_OK", OK + D1 + DLTN + R01C + COLON);
+		this.prop.setProperty("PO_04_R01_KO", KO + D1 + DLTN + R01C + COLON);
+
+		// student
+		this.prop.setProperty("PO_00_R02_SCORE", SCORE + COLON);
+		this.prop.setProperty("PO_01_R02_OK", OK + D4 + CRTN + R02S + COLON);
+		this.prop.setProperty("PO_01_R02_KO", KO + D4 + CRTN + R02S + COLON);
+		this.prop.setProperty("PO_02_R02_OK", OK + D1 + UPDN + R02C + COLON);
+		this.prop.setProperty("PO_02_R02_KO", KO + D1 + UPDN + R02C + COLON);
+		this.prop.setProperty("PO_03_R02_HEAD", ID + R02B + "\t" + NAME
+				+ "\t\t" + AGE + "\t" + SCORE + "\n");
+		this.prop.setProperty("PO_03_R02_KO", KO + D1 + RSCN + R01C + COLON);
+		this.prop.setProperty("PO_04_R02_OK", OK + D1 + DLTN + R02C + COLON);
+		this.prop.setProperty("PO_04_R02_KO", KO + D1 + DLTN + R02C + COLON);
 	}
 
 	public static void main(String args[]) {
