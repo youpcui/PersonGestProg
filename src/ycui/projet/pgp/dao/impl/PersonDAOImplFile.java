@@ -1,5 +1,6 @@
 package ycui.projet.pgp.dao.impl;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
@@ -16,7 +17,7 @@ public class PersonDAOImplFile implements PersonDAO {
 	 * 此集合的内容最好由文件读取，因为文件本身要保存对象
 	 */
 	private Set<Person> allPerson = null; 
-	private FileOperate fo = new FileOperate("person.obj");
+	private FileOperate fo = new FileOperate("data"+File.separator+"person.obj");
 	
 	@SuppressWarnings("unchecked")
 	public PersonDAOImplFile(){

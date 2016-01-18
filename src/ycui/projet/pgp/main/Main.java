@@ -42,7 +42,7 @@ public class Main implements LANG {
 				break;
 			}
 			default: {
-				System.out.println("Please make a correct choice!");
+				System.out.println("Please select a correct number!");
 				break;
 			}
 			}

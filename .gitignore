@@ -33,3 +33,7 @@ jrat.xml
 jrat.output/
 jrat.output/*
 
+#doc
+doc/
+doc/*
+

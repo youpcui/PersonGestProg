@@ -13,8 +13,8 @@ public class Menu implements LANG {
 	private MessageProxy mp = null;
 
 	public Menu(LangType type) {
-		this.input = new InputData(); // check value
-		this.lang = LanguageFactory.getLanguage(type);
+		this.input = new InputData();
+		this.lang = LanguageFactory.getLanguage(type); //select language
 		this.showMain();
 	}
 
