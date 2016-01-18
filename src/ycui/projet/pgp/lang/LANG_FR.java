@@ -29,5 +29,7 @@ class Lang_FR extends Language {
 		super.setType(type);
 		setFrProperty();
 		super.setProperty(getFrProperty());
+		
+		
 	}
 }

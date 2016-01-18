@@ -8,7 +8,7 @@ import ycui.projet.pgp.util.PrintFormat;
 
 public class Menu implements LANG {
 	private InputData input = null;
-	private PersonOperate po = null;
+	private IPersonOperate po = null;
 	private Language lang = null;
 	private MessageProxy mp = null;
 
@@ -46,7 +46,7 @@ public class Menu implements LANG {
 				break;
 			}
 			case 4: {
-				mp = po.deleteAll();
+				mp = po.delete();
 				System.out.println(mp);
 				break;
 			}

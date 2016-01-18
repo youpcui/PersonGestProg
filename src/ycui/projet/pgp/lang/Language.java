@@ -15,7 +15,6 @@ public abstract class Language implements LANG{
 	protected void setType(LangType type) {
 		this.type = type;
 	}
-	
 	protected String getProperty(String key){
 		return this.property.getProperty(key);
 	}

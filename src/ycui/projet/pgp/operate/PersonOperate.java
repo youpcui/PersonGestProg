@@ -95,12 +95,7 @@ public class PersonOperate implements IPersonOperate{
 	/**
 	 * Supprimer une donn¨¦e
 	 */
-	public MessageProxy delete(){return null;}
-
-	/**
-	 * Supprimer tous les donn¨¦es
-	 */
-	public MessageProxy deleteAll(){
+	public MessageProxy delete(){
 		MessageProxy mp = new MessageProxy();
 		boolean flag = false;
 		try {
@@ -111,7 +106,6 @@ public class PersonOperate implements IPersonOperate{
 		mp.setMessage(SYSINFO + (flag?
 				lang.translate("PO_04_OK"):
 					lang.translate("PO_04_KO")));
-
 		return mp;
 	}
 }
