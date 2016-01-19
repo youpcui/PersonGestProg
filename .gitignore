@@ -26,7 +26,6 @@ Desktop.ini
 bin/
 lib/
 bin*
-*.obj
 
 #jrat
 jrat.xml
