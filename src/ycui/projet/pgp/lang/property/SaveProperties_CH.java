@@ -102,7 +102,7 @@ public class SaveProperties_CH implements LANG, CH {
 		p = new SaveProperties_CH().getProp();
 		try {
 			p.storeToXML(new FileOutputStream("xml" + File.separator
-					+ "ch_property.xml"), "中文");
+					+ LangType.Lang_CH + ".xml"), "中文");
 			System.out.println("保存语言成功！");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

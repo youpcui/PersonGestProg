@@ -5,7 +5,6 @@ import java.util.Iterator;
 import ycui.projet.pgp.dao.PersonDAO;
 import ycui.projet.pgp.exception.DAOException;
 import ycui.projet.pgp.lang.Language;
-import ycui.projet.pgp.lang.LanguageFactory;
 import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.proxy.PersonDAOProxyFile;
 import ycui.projet.pgp.util.InputData;
@@ -22,7 +21,7 @@ public class PersonOperate implements IPersonOperate{
 	public PersonOperate(LangType type){
 		this.dao = new PersonDAOProxyFile();
 		this.input = new InputData();
-		this.lang = LanguageFactory.getLanguage(type);
+		this.lang = new Language(type);
 	}
 	/**
 	 * Ajouter les donn¨¦es.

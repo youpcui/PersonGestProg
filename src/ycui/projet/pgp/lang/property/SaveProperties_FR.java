@@ -104,7 +104,7 @@ public class SaveProperties_FR implements LANG, FR {
 		p = new SaveProperties_FR().getProp();
 		try {
 			p.storeToXML(new FileOutputStream("xml" + File.separator
-					+ "fr_property.xml"), "francais");
+					+ LangType.Lang_FR + ".xml"), "francais");
 			System.out.println("Succ¨¨s d'enregistrer");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

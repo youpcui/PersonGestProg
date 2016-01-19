@@ -101,7 +101,7 @@ public class SaveProperties_EN implements LANG, EN {
 		p = new SaveProperties_EN().getProp();
 		try {
 			p.storeToXML(new FileOutputStream("xml" + File.separator
-					+ "en_property.xml"), "English");
+					+ LangType.Lang_EN + ".xml"), "English");
 			System.out.println("Succeed to save!");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

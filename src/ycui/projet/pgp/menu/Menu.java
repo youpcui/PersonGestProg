@@ -14,7 +14,7 @@ public class Menu implements LANG {
 
 	public Menu(LangType type) {
 		this.input = new InputData();
-		this.lang = LanguageFactory.getLanguage(type); //select language
+		this.lang = new Language(type); //select language
 		this.showMain();
 	}
 
