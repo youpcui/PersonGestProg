@@ -3,7 +3,6 @@ package ycui.projet.pgp.dao.impl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.Set;
 
 import ycui.projet.pgp.dao.PersonDAO;
@@ -13,13 +12,9 @@ import ycui.projet.pgp.vo.*;
 
 public class PersonDAOImplJDBC implements PersonDAO {
 	private DataBaseConnection dbc = null;
-	private String type = null;
-	
-	public PersonDAOImplJDBC(){
-		this.dbc = new DataBaseConnection();
-	}
 
 	public boolean doCreate(Person person) throws DAOException {
+		this.dbc = new DataBaseConnection();
 		boolean flag = false;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -40,8 +35,9 @@ public class PersonDAOImplJDBC implements PersonDAO {
 			pstmt.setString(2, person.getName());
 			pstmt.setInt(3, person.getAge());
 			pstmt.setFloat(4, f);
-			flag = pstmt.execute();
+			int i = pstmt.executeUpdate();
 			pstmt.close();
+			flag = i!=0?true:false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -56,6 +52,7 @@ public class PersonDAOImplJDBC implements PersonDAO {
 	}
 
 	public boolean doDelete(String id) throws DAOException {
+		this.dbc = new DataBaseConnection();
 		boolean flag = false;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -63,8 +60,9 @@ public class PersonDAOImplJDBC implements PersonDAO {
 		try {
 			pstmt = (PreparedStatement) dbc.getConnection().prepareStatement(sql);
 			pstmt.setString(1, id);
-			flag = pstmt.execute();
+			int i = pstmt.executeUpdate();
 			pstmt.close();
+			flag = i!=0?true:false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{
@@ -74,8 +72,24 @@ public class PersonDAOImplJDBC implements PersonDAO {
 	}
 
 	public boolean doDeleteAll() throws DAOException {
-		// TODO Auto-generated method stub
-		return false;
+		this.dbc = new DataBaseConnection();
+		boolean flag = false;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		sql = "DELETE FROM tperson WHERE id LIKE ? or ?";
+		try {
+			pstmt = (PreparedStatement) dbc.getConnection().prepareStatement(sql);
+			pstmt.setString(1, "1%");
+			pstmt.setString(2, "2%");
+			int i = pstmt.executeUpdate();
+			pstmt.close();
+			flag = i!=0?true:false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			this.dbc.close();
+		}
+		return flag;
 	}
 
 	public Set<Person> doFindAll() throws DAOException {
@@ -84,6 +98,7 @@ public class PersonDAOImplJDBC implements PersonDAO {
 	}
 
 	public Person doFindById(String id) throws DAOException {
+		this.dbc = new DataBaseConnection();
 		PreparedStatement pstmt = null;
 		String sql = null;
 		Person p = null;
@@ -98,7 +113,6 @@ public class PersonDAOImplJDBC implements PersonDAO {
 				}else if("2".equals(id.substring(0, 1))){
 					p = new Student(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getFloat(5));
 				}
-				
 			}
 			rs.close();
 			pstmt.close();
