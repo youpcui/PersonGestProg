@@ -6,7 +6,7 @@ import ycui.projet.pgp.dao.PersonDAO;
 import ycui.projet.pgp.exception.DAOException;
 import ycui.projet.pgp.lang.Language;
 import ycui.projet.pgp.proxy.MessageProxy;
-import ycui.projet.pgp.proxy.PersonDAOProxyFile;
+import ycui.projet.pgp.proxy.*;
 import ycui.projet.pgp.util.InputData;
 import ycui.projet.pgp.util.PrintFormat;
 import ycui.projet.pgp.vo.Person;
@@ -19,7 +19,7 @@ public class PersonOperate implements IPersonOperate{
 	protected Language lang = null;
 
 	public PersonOperate(LangType type){
-		this.dao = new PersonDAOProxyFile();
+		this.dao = new PersonDAOProxyJDBC();
 		this.input = new InputData();
 		this.lang = new Language(type);
 	}
