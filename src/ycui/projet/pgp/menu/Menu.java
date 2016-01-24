@@ -2,15 +2,15 @@ package ycui.projet.pgp.menu;
 
 import ycui.projet.pgp.lang.*;
 import ycui.projet.pgp.operate.*;
-import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.util.InputData;
 import ycui.projet.pgp.util.PrintFormat;
+import ycui.projet.pgp.vo.MessageComm;
 
 public class Menu implements LANG {
 	private InputData input = null;
 	private IPersonOperate po = null;
 	private Language lang = null;
-	private MessageProxy mp = null;
+	private MessageComm mp = null;
 
 	public Menu(LangType type) {
 		this.input = new InputData();

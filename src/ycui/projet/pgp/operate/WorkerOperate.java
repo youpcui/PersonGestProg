@@ -3,8 +3,8 @@ package ycui.projet.pgp.operate;
 import java.util.Iterator;
 
 import ycui.projet.pgp.exception.DAOException;
-import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.util.*;
+import ycui.projet.pgp.vo.MessageComm;
 import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Worker;
 
@@ -14,8 +14,8 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public MessageProxy add() {
-		MessageProxy mp = new MessageProxy();
+	public MessageComm add() {
+		MessageComm mp = new MessageComm();
 		boolean flag = false;
 		Worker w = null;
 		String name;
@@ -44,8 +44,8 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public MessageProxy update() {
-		MessageProxy mp = new MessageProxy();
+	public MessageComm update() {
+		MessageComm mp = new MessageComm();
 		boolean flag = false;
 		Person p = null;
 		String id = this.input.getString(lang.translate("PO_00_ID"));
@@ -80,8 +80,8 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public MessageProxy findAll() {
-		MessageProxy mp = new MessageProxy();
+	public MessageComm findAll() {
+		MessageComm mp = new MessageComm();
 		StringBuffer buf = new StringBuffer("");
 		boolean nobody = true;
 		try {
@@ -114,8 +114,8 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public MessageProxy findById() {
-		MessageProxy mp = new MessageProxy();
+	public MessageComm findById() {
+		MessageComm mp = new MessageComm();
 		StringBuffer buf = new StringBuffer("");
 		Person p = null;
 		boolean nobody = true;
@@ -147,8 +147,8 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public MessageProxy findByKey() {
-		MessageProxy mp = new MessageProxy();
+	public MessageComm findByKey() {
+		MessageComm mp = new MessageComm();
 		StringBuffer buf = new StringBuffer("");
 		String keyWord = this.input.getString(lang.translate("PO_03_KEY"));
 		boolean nobody = true;
@@ -182,8 +182,8 @@ public class WorkerOperate extends PersonOperate {
 	}
 
 	@Override
-	public MessageProxy delete() {
-		MessageProxy mp = new MessageProxy();
+	public MessageComm delete() {
+		MessageComm mp = new MessageComm();
 		boolean flag = false;
 		Person p = null;
 		String id = this.input.getString(lang.translate("PO_00_ID"));

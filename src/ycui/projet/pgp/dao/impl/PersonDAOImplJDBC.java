@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Set;
+import java.util.TreeSet;
 
 import ycui.projet.pgp.dao.PersonDAO;
 import ycui.projet.pgp.dbc.DataBaseConnection;
@@ -22,12 +23,12 @@ public class PersonDAOImplJDBC implements PersonDAO {
 		if(person instanceof Worker){
 			Worker w = (Worker)person;
 			f = w.getSalary();
-			sql = "INSERT INTO tperson (id, name, age, salary, type) VALUES (?,?,?,?,1)";
+			sql = "INSERT INTO tperson (id, name, age, salary) VALUES (?,?,?,?)";
 		}
 		else if(person instanceof Student){
 			Student s = (Student)person;
 			f = s.getScore();
-			sql = "INSERT INTO tperson (id, name, age, score, type) VALUES (?,?,?,?,2)";
+			sql = "INSERT INTO tperson (id, name, age, score) VALUES (?,?,?,?)";
 		}
 		try {
 			pstmt = (PreparedStatement) dbc.getConnection().prepareStatement(sql);
@@ -47,8 +48,36 @@ public class PersonDAOImplJDBC implements PersonDAO {
 	}
 
 	public boolean doUpdate(Person person) throws DAOException {
-		// TODO Auto-generated method stub
-		return false;
+		this.dbc = new DataBaseConnection();
+		boolean flag = false;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		float f = 0.0f;
+		if(person instanceof Worker){
+			Worker w = (Worker)person;
+			f = w.getSalary();
+			sql = "UPDATE tperson SET name=?, age=?, salary=? WHERE id=?";
+		}
+		else if(person instanceof Student){
+			Student s = (Student)person;
+			f = s.getScore();
+			sql = "UPDATE tperson SET name=?, age=?, score=? WHERE id=?";
+		}
+		try {
+			pstmt = (PreparedStatement) dbc.getConnection().prepareStatement(sql);
+			pstmt.setString(1, person.getName());
+			pstmt.setInt(2, person.getAge());
+			pstmt.setFloat(3, f);
+			pstmt.setString(4, person.getId());
+			int i = pstmt.executeUpdate();
+			pstmt.close();
+			flag = i!=0?true:false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			this.dbc.close();
+		}
+		return flag;
 	}
 
 	public boolean doDelete(String id) throws DAOException {
@@ -93,8 +122,31 @@ public class PersonDAOImplJDBC implements PersonDAO {
 	}
 
 	public Set<Person> doFindAll() throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		this.dbc = new DataBaseConnection();
+		PreparedStatement pstmt = null;
+		String sql = null;
+		Set<Person> allPerson = new TreeSet<Person>();
+		Person p = null;
+		sql = "SELECT id,name,age,salary,score FROM tperson";
+		try {
+			pstmt = (PreparedStatement) dbc.getConnection().prepareStatement(sql);
+			ResultSet rs = (ResultSet) pstmt.executeQuery();
+			while(rs.next()){
+				if("1".equals(rs.getString(1).substring(0, 1))){
+					p = new Worker(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getFloat(4));
+				}else if("2".equals(rs.getString(1).substring(0, 1))){
+					p = new Student(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getFloat(5));
+				}
+				allPerson.add(p);
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			this.dbc.close();
+		}
+		return allPerson;
 	}
 
 	public Person doFindById(String id) throws DAOException {
@@ -102,7 +154,7 @@ public class PersonDAOImplJDBC implements PersonDAO {
 		PreparedStatement pstmt = null;
 		String sql = null;
 		Person p = null;
-		sql = "SELECT id,name,age,salary,score,type FROM tperson WHERE id=?";
+		sql = "SELECT id,name,age,salary,score FROM tperson WHERE id=?";
 		try {
 			pstmt = (PreparedStatement) dbc.getConnection().prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -125,8 +177,32 @@ public class PersonDAOImplJDBC implements PersonDAO {
 	}
 
 	public Set<Person> doFindByKey(String keyWord) throws DAOException {
-		// TODO Auto-generated method stub
-		return null;
+		this.dbc = new DataBaseConnection();
+		PreparedStatement pstmt = null;
+		String sql = null;
+		Set<Person> allPerson = new TreeSet<Person>();
+		Person p = null;
+		sql = "SELECT id,name,age,salary,score FROM tperson WHERE name like ?";
+		try {
+			pstmt = (PreparedStatement) dbc.getConnection().prepareStatement(sql);
+			pstmt.setString(1, "%"+keyWord+"%");
+			ResultSet rs = (ResultSet) pstmt.executeQuery();
+			while(rs.next()){
+				if("1".equals(rs.getString(1).substring(0, 1))){
+					p = new Worker(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getFloat(4));
+				}else if("2".equals(rs.getString(1).substring(0, 1))){
+					p = new Student(rs.getString(1),rs.getString(2),rs.getInt(3),rs.getFloat(5));
+				}
+				allPerson.add(p);
+			}
+			rs.close();
+			pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			this.dbc.close();
+		}
+		return allPerson;
 	}
 
 }

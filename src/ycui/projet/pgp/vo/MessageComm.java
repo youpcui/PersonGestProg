@@ -1,12 +1,12 @@
-package ycui.projet.pgp.proxy;
+package ycui.projet.pgp.vo;
 
 import java.io.Serializable;
 
-public class MessageProxy implements Serializable {
+public class MessageComm implements Serializable {
 	private static final long serialVersionUID = -2138855284216336998L;	
 	private String message;
 
-	public MessageProxy(){
+	public MessageComm(){
 		message = null;
 	}
 	public String getMessage() {

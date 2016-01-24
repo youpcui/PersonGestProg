@@ -1,36 +1,36 @@
 package ycui.projet.pgp.operate;
 
 import ycui.projet.pgp.lang.LANG;
-import ycui.projet.pgp.proxy.MessageProxy;
+import ycui.projet.pgp.vo.MessageComm;
 
 public interface IPersonOperate extends LANG{
 	/**
 	 * Ajouter les donn¨¦es.
 	 */
-	public MessageProxy add();
+	public MessageComm add();
 
 	/**
 	 * Modifier les donn¨¦es.
 	 */
-	public MessageProxy update();
+	public MessageComm update();
 
 	/**
 	 * Rechercher tous les donn¨¦es.
 	 */
-	public MessageProxy findAll();
+	public MessageComm findAll();
 
 	/**
 	 * Rechercher une donn¨¦e par id 
 	 */
-	public MessageProxy findById();
+	public MessageComm findById();
 
 	/**
 	 * REchercher une donn¨¦e par mot cl¨¦
 	 */
-	public MessageProxy findByKey();
+	public MessageComm findByKey();
 
 	/**
 	 * Supprimer une donn¨¦e
 	 */
-	public MessageProxy delete();
+	public MessageComm delete();
 }

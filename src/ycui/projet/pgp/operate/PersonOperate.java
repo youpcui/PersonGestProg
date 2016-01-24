@@ -5,10 +5,10 @@ import java.util.Iterator;
 import ycui.projet.pgp.dao.PersonDAO;
 import ycui.projet.pgp.exception.DAOException;
 import ycui.projet.pgp.lang.Language;
-import ycui.projet.pgp.proxy.MessageProxy;
 import ycui.projet.pgp.proxy.*;
 import ycui.projet.pgp.util.InputData;
 import ycui.projet.pgp.util.PrintFormat;
+import ycui.projet.pgp.vo.MessageComm;
 import ycui.projet.pgp.vo.Person;
 import ycui.projet.pgp.vo.Student;
 import ycui.projet.pgp.vo.Worker;
@@ -26,23 +26,23 @@ public class PersonOperate implements IPersonOperate{
 	/**
 	 * Ajouter les donn¨¦es.
 	 */
-	public MessageProxy add(){return null;}
+	public MessageComm add(){return null;}
 
 	/**
 	 * Modifier les donn¨¦es.
 	 */
-	public MessageProxy update(){return null;}
+	public MessageComm update(){return null;}
 
 	/**
 	 * Rechercher tous les donn¨¦es.
 	 * @return 
 	 */
-	public MessageProxy findAll(){
+	public MessageComm findAll(){
 		StringBuffer bufW = new StringBuffer("");
 		StringBuffer bufS = new StringBuffer("");
 		boolean nobodyW = true;
 		boolean nobodyS = true;
-		MessageProxy mp = new MessageProxy();
+		MessageComm mp = new MessageComm();
 
 		try {
 			Iterator<Person> iter = this.dao.doFindAll().iterator();
@@ -84,18 +84,18 @@ public class PersonOperate implements IPersonOperate{
 	/**
 	 * Rechercher une donn¨¦e par id 
 	 */
-	public MessageProxy findById(){return null;}
+	public MessageComm findById(){return null;}
 
 	/**
 	 * REchercher une donn¨¦e par mot cl¨¦
 	 */
-	public MessageProxy findByKey(){return null;}
+	public MessageComm findByKey(){return null;}
 
 	/**
 	 * Supprimer une donn¨¦e
 	 */
-	public MessageProxy delete(){
-		MessageProxy mp = new MessageProxy();
+	public MessageComm delete(){
+		MessageComm mp = new MessageComm();
 		boolean flag = false;
 		try {
 			flag = this.dao.doDeleteAll();
