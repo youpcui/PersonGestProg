@@ -10,11 +10,9 @@ import ycui.projet.pgp.vo.Person;
 //文件的具体操作类，保存数据
 public class FileOperate {
 	private File file = null;
-	//在构造方法处制定文件名
 	public FileOperate(String path){
 		this.file = new File(path);
 		if(!this.file.exists()){
-			//如果文件不存在则表明程序第一次运行，需要初始化
 			try {
 				this.save(new TreeSet<Person>());
 			} catch (FileIOException e) {
